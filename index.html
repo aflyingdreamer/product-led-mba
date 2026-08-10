@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Product-Led Business MBA</title>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<style>
+  :root{
+    --bg:#f6f4ee; --panel:#efebe1; --panel2:#e9e4d9; --line:#ddd7c8;
+    --ink:#3a3f45; --ink-strong:#20242a; --muted:#726d61; --faint:#9a9280;
+    --accent:#8f6117; --accent-dim:#ece0c8; --good:#357a48; --queued:#c7c0b1;
+    --radius:10px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{
+    background:var(--bg); color:var(--ink);
+    font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    display:flex; height:100vh; overflow:hidden;
+  }
+  ::selection{background:var(--accent-dim)}
+  aside{width:330px; flex:0 0 330px; background:var(--panel); border-right:1px solid var(--line); display:flex; flex-direction:column; height:100%}
+  .brand{padding:22px 22px 16px; border-bottom:1px solid var(--line)}
+  .brand h1{font-size:16px; margin:0 0 6px; letter-spacing:.2px; font-weight:650}
+  .brand p{margin:0; font-size:12.5px; color:var(--muted); line-height:1.5}
+  .prog{padding:14px 22px; border-bottom:1px solid var(--line)}
+  .prog .bar{height:5px; background:var(--panel2); border-radius:99px; overflow:hidden}
+  .prog .fill{height:100%; width:100%; background:var(--accent); transform:scaleX(0); transform-origin:left; transition:transform .35s ease}
+  .prog .lbl{font-size:11.5px; color:var(--faint); margin-top:8px; letter-spacing:.3px; text-transform:uppercase}
+  nav{overflow-y:auto; flex:1; padding:10px 12px 40px}
+
+  .mod-head{display:flex; align-items:center; gap:10px; padding:10px 10px; border-radius:8px; cursor:pointer; margin:1px 0}
+  .mod-head:hover{background:var(--panel2)}
+  .mod.open>.mod-head{background:var(--panel2)}
+  .mod-head .num{font-size:11px; color:var(--faint); width:26px; flex:0 0 26px; font-variant-numeric:tabular-nums}
+  .mod.open>.mod-head .num{color:var(--accent)}
+  .mod-head .ttl{font-size:13.5px; line-height:1.35; flex:1; font-weight:600}
+  .mod-head .dot{width:7px; height:7px; border-radius:99px; background:var(--queued); flex:0 0 7px}
+  .mod.filled>.mod-head .dot{background:var(--accent)}
+  .mod-head .meta{margin-left:auto; font-size:10.5px; color:var(--faint); font-variant-numeric:tabular-nums}
+
+  .chaps{margin:0 0 8px 20px; border-left:1px solid var(--line); padding-left:8px; display:none}
+  .mod.open .chaps{display:block}
+  .chap{display:flex; gap:9px; align-items:flex-start; padding:7px 9px; border-radius:6px; cursor:pointer; margin:1px 0}
+  .chap:hover{background:var(--panel2)}
+  .chap.active{background:var(--panel2)}
+  .chap .ct{font-size:12.5px; line-height:1.4; color:var(--muted); flex:1}
+  .chap.active .ct{color:var(--ink-strong)}
+  .chap.done .ct{color:var(--faint)}
+  .chap .cchk{width:16px; height:16px; border:1.5px solid var(--line); border-radius:4px; flex:0 0 16px; margin-top:1px; display:grid; place-items:center; font-size:10px; color:transparent}
+  .chap .cchk:hover{border-color:var(--muted)}
+  .chap.done .cchk{background:var(--good); border-color:var(--good); color:#fff}
+
+  main{flex:1; display:flex; flex-direction:column; height:100%; min-width:0}
+  .topbar{display:flex; align-items:center; gap:14px; padding:14px 34px; border-bottom:1px solid var(--line); background:rgba(246,244,238,.82); backdrop-filter:blur(6px); flex:0 0 auto}
+  .topbar .crumb{font-size:12.5px; color:var(--muted)}
+  .topbar .crumb b{color:var(--ink); font-weight:600}
+  .topbar .spacer{flex:1}
+  .btn{font:inherit; font-size:12.5px; color:var(--muted); background:var(--panel2); border:1px solid var(--line); padding:7px 13px; border-radius:7px; cursor:pointer}
+  .btn:hover{color:var(--ink); border-color:var(--muted)}
+  .btn.done{color:#2f6b3f; border-color:#bcd3bf; background:#e6efe7}
+  .scroll{overflow-y:auto; flex:1; scroll-behavior:smooth}
+  article{max-width:760px; margin:0 auto; padding:46px 34px 40px; font-size:16px}
+  .pager{max-width:760px; margin:0 auto; padding:0 34px 90px; display:flex; justify-content:space-between; gap:14px}
+  .pager button{font:inherit; font-size:13px; text-align:left; color:var(--muted); background:var(--panel); border:1px solid var(--line); padding:14px 18px; border-radius:var(--radius); cursor:pointer; max-width:47%}
+  .pager button:hover:not(:disabled){border-color:var(--accent); color:var(--ink)}
+  .pager button:disabled{opacity:.3; cursor:default}
+  .pager .k{display:block; font-size:11px; color:var(--faint); text-transform:uppercase; letter-spacing:.4px; margin-bottom:3px}
+  article h1{font-size:28px; line-height:1.2; margin:0 0 8px; letter-spacing:-.3px; font-weight:680}
+  article h2{font-size:20px; margin:40px 0 12px; padding-top:20px; border-top:1px solid var(--line); letter-spacing:-.2px}
+  article h3{font-size:16px; margin:28px 0 8px; color:var(--ink-strong)}
+  article p{margin:14px 0; line-height:1.7}
+  article strong{color:var(--ink-strong); font-weight:650}
+  article a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-dim)}
+  article a:hover{border-bottom-color:var(--accent)}
+  article ul,article ol{margin:14px 0; padding-left:22px}
+  article li{margin:7px 0}
+  article li::marker{color:var(--faint)}
+  article hr{border:none; border-top:1px solid var(--line); margin:34px 0}
+  article blockquote{margin:20px 0; padding:15px 18px; border:1px solid var(--line); background:var(--panel); border-radius:8px; color:var(--ink)}
+  article blockquote p{margin:6px 0}
+  article blockquote p:first-child{margin-top:0}
+  article blockquote p:last-child{margin-bottom:0}
+  article code{font-family:"SF Mono",Menlo,Consolas,monospace; font-size:12.5px; background:var(--panel2); border:1px solid var(--line); padding:1.5px 6px; border-radius:5px; color:var(--accent)}
+  article pre{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:16px 18px; overflow-x:auto; margin:18px 0}
+  article pre code{background:none; border:none; padding:0; color:var(--muted); font-size:12.5px; line-height:1.7}
+  article table{border-collapse:collapse; width:100%; margin:18px 0; font-size:13.5px}
+  article th,article td{border:1px solid var(--line); padding:9px 12px; text-align:left; vertical-align:top}
+  article th{background:var(--panel2); color:var(--ink-strong); font-weight:600}
+  .kicker{font-size:12px; text-transform:uppercase; letter-spacing:.5px; color:var(--faint); margin:0 0 6px}
+  .queued-note{margin-top:26px; padding:16px 20px; border:1px dashed var(--line); border-radius:var(--radius); color:var(--muted); font-size:14px; background:var(--panel)}
+  .queued-note b{color:var(--accent)}
+  .fallback{color:var(--muted);font-size:13px;padding:20px;text-align:center}
+  .navtoggle{display:none; font:inherit; font-size:17px; line-height:1; color:var(--ink); background:var(--panel2); border:1px solid var(--line); width:36px; height:34px; border-radius:7px; cursor:pointer; place-items:center}
+  .backdrop{display:none}
+  @media (max-width:820px){
+    aside{position:fixed; z-index:50; top:0; left:0; height:100%; width:300px; max-width:86vw; transform:translateX(-100%); transition:transform .25s ease; box-shadow:2px 0 24px rgba(0,0,0,.18)}
+    body.nav-open aside{transform:translateX(0)}
+    .navtoggle{display:grid}
+    body.nav-open .backdrop{display:block; position:fixed; inset:0; background:rgba(0,0,0,.4); z-index:40}
+    article{padding:30px 20px 40px}
+    .topbar{padding:12px 18px}
+    .pager{padding:0 20px 80px}
+  }
+</style>
+</head>
+<body>
+<aside>
+  <div class="brand">
+    <h1>The Product-Led Business MBA</h1>
+    <p>Self-paced graduate program. Each module is a subject; each chapter tracks on its own.</p>
+  </div>
+  <div class="prog">
+    <div class="bar"><div class="fill" id="fill"></div></div>
+    <div class="lbl" id="proglbl">0 chapters complete</div>
+  </div>
+  <nav id="nav"></nav>
+</aside>
+<div class="backdrop" id="backdrop"></div>
+<main>
+  <div class="topbar">
+    <button class="navtoggle" id="navtoggle" aria-label="Open chapter menu">☰</button>
+    <div class="crumb" id="crumb">—</div>
+    <div class="spacer"></div>
+    <button class="btn" id="donebtn">Mark complete</button>
+  </div>
+  <div class="scroll" id="scroll">
+    <article id="article"></article>
+    <div class="pager">
+      <button id="prev"><span class="k">Previous</span><span id="prevt"></span></button>
+      <button id="next"><span class="k">Next</span><span id="nextt"></span></button>
+    </div>
+  </div>
+</main>
+
+<!-- ================= M1 CONTENT (one block per chapter) ================= -->
+<script type="text/markdown" id="content-M1-0">
+<p class="kicker">M1 · Corporate Finance & Business Economics</p>
+
+# Orientation — the subject and the three cases
+
+**Level:** graduate · **Prerequisites:** none · This is the largest module in the program and the quantitative spine everything else hangs on.
+
+**What you own when you finish** — take any company's raw numbers and: (a) read its three statements as *one interlocking system*; (b) prove whether a single customer is profitable and how the model behaves under stress; (c) locate the two or three levers that actually move enterprise value; (d) sketch what the business is worth and defend the number.
+
+**Learning outcomes (be able to *do*, not recite):**
+1. Trace one business event through all three financial statements simultaneously.
+2. Separate accounting profit from economic profit from cash — and know why all three differ.
+3. Derive LTV from first principles and state the four assumptions under which it lies.
+4. Build a contribution-margin P&L; compute breakeven and operating leverage.
+5. Apply discounted-cash-flow logic and explain why SaaS trades on forward revenue multiples.
+
+Confidence tags used throughout: `[established]` textbook-solid · `[synthesis]` my integration · `[contested]` practitioners disagree · `[heuristic]` useful rule, not a law.
+
+## The three running cases
+
+One company can only teach one shape. So this module carries **three**, chosen because they diverge on every axis that matters — and the divergence *is* the lesson. When the same formula spits out wildly different verdicts across them, you're learning what the formula actually depends on.
+
+| | **Figma** (A) | **Salesforce** (B) | **Mailchimp** (C) |
+|---|---|---|---|
+| Archetype | PLG, bottom-up, mid-market | Enterprise, sales-led | SMB, self-serve |
+| Motion | Product-led, self-serve | Top-down (AE + sales engineer) | Fully self-serve |
+| List price | $20 / seat / month | $48,000 / year (ACV) | $29 / month |
+| Billing | Annual, upfront | Annual/multi-year, upfront | Monthly |
+| Typical account | 5 seats → $100/mo | ~$4,000/mo effective | $29/mo |
+| Gross margin | 82% | 78% | 85% |
+| Monthly logo churn | 2.5% | 0.5% | 6% |
+| CAC | $600 | $60,000 | $90 |
+| Expansion (NRR) | ~110% | ~125% | ~95% |
+
+Three founders, three paths, three ways the same problem — *turn money into more money, repeatably* — gets solved. Keep this table handy; every chapter fills it in.
+
+**These are real giants — use their backgrounds as the memory hook** (the archetypes are real; the specific numbers in this module are illustrative, not their actual books):
+- **Figma (A)** — bottom-up PLG. One designer brings a team, the team brings the org; revenue grows by *seats*, not new logos. Sold to Adobe for ~$20B — the land-and-expand poster child.
+- **Salesforce (B)** — the enterprise sales-led giant. Big annual contracts closed by account execs, brutal CAC, but customers embed so deep they almost never leave. It wrote the modern SaaS playbook.
+- **Mailchimp (C)** — mass-market SMB self-serve. Millions of tiny businesses, credit-card signup, zero salespeople — and a base that churns hard because small businesses themselves come and go. Bootstrapped to a ~$12B Intuit exit.
+</script>
+
+<script type="text/markdown" id="content-M1-1">
+<p class="kicker">M1 · Chapter 1</p>
+
+# The firm as a value engine
+
+Here's a decision you'll face with real money on it: someone shows you a company posting a healthy **profit** and asks you to fund it, buy it, or bet your career running it. Say yes on the wrong meaning of "profit" and you can back a business that is quietly dying while its own income statement smiles back at you. This chapter is the inoculation — and it's smaller than the jargon makes it look. By the end you'll never be shown a "profit" again without reflexively asking *which one*, and that single reflex is most of what separates people who read financial statements from people who get fooled by them.
+
+Because here's the trap you're already in. You have an answer to "did this business make money" — the intuitive one: **money in minus money out**. It feels obviously right, and it *is* right occasionally, by accident. But it quietly fuses three questions that routinely disagree in the same quarter: *did operations create a surplus, did the bank balance rise, and did we create value at all?* A company can post record profit, drain its cash, and destroy value simultaneously — and the one-number instinct sees none of it coming. So the first move of financial literacy is to refuse the fusion and pull the three apart.
+
+The whole thing hangs on one question — *after a stretch of activity, are you better off?* — answered by subtracting what you gave up from what you got. The entire fight is over that first term: **what counts as "given up."** Three honest answers, three profits. Start from the question, not the formula, and each falls out on its own.
+
+### Accounting profit
+*Did operations throw off a surplus this period, judged by a consistent rulebook?*
+
+The problem it solves: raw cash timing lies. You buy a machine once and it earns for five years; you collect a year's fee upfront for a service you deliver monthly. Count cash in a single quarter and you misread whether the activity created anything.
+
+So accounting runs on one move — the **matching principle**: book revenue when it's *earned* (value delivered), and set against it the costs *incurred to produce that revenue*, whenever the cash actually moved. "Accounting costs" = the resources burned to generate the revenue you're recognizing now.
+
+Here's the part the textbook drops: this profit is true the way **the rules of chess** are true — a convention we agreed on (GAAP/IFRS), not a law found in nature. `[established-as-convention]` That's *why it's an opinion* — depreciate faster, call revenue "earned" sooner, guess bad debts lower, and the number moves. Two honest accountants land in different places.
+
+**Right lens** for comparing operating performance across periods or companies (why the rulebook must be standardized). **Blind to** two things: when cash truly moves, and what your capital could've earned elsewhere — and each blindness is why the next two profits exist.
+
+### Cash profit
+*Did the bank balance actually go up?*
+
+Cash in minus cash out. The one number nobody can massage: profit is an opinion, **cash is a fact** — you either have it or you don't. `[established]`
+
+Businesses rarely die from a bad P&L; they die when cash runs out. That's why a fast-growing, "profitable" company can still go under — growth eats cash (pay to acquire now, collect later). **Blind to** whether value was created this period: you can look cash-rich by stiffing suppliers, or cash-poor while perfectly healthy because you prepaid a year of growth.
+
+### Economic profit
+*Did we create value beyond what the money could've earned elsewhere?*
+
+The one business school exists to install, because it catches a lie the other two wave through: **both treat the capital tied up in the business as free.** It isn't. Money parked in your company could've earned a return elsewhere at similar risk — that forgone return, the **cost of capital**, is real even though no invoice arrives for it.
+
+So: economic profit = accounting profit − cost of the capital employed. A company earning 4% on capital that costs 12% posts an accounting profit while *destroying* wealth.
+
+Two layers, two kinds of truth: *that opportunity cost is real* is a discovered finding `[established-as-finding]`; the *number* you subtract — your cost of capital — is an estimate by convention people argue about endlessly. `[contested]`
+
+| Profit | The question | What you subtract | Kind of truth |
+|---|---|---|---|
+| **Accounting** | Did operations surplus this period? | Booked (accrued) costs | Convention — a rulebook |
+| **Cash** | Did the bank balance rise? | Actual cash outflows | Fact — unmassageable |
+| **Economic** | Did we beat our capital's alternative? | Costs *plus* cost of capital | Finding + an estimate |
+
+> Forget the formulas and you rebuild them from one prompt — *what am I subtracting?* "We were profitable" is an accounting claim, "we didn't run out of cash" is survival, "we created value" is economic. All three can disagree in the same quarter.
+
+### How operators actually hold these
+In the room they're not equals, and the ranking flips with stage.
+
+- **Early stage** — a founder/CFO watches **cash/runway** (what kills you) and **gross margin** (whether scale rescues you), and treats net accounting profit as near-fiction until the business is mature enough to be judged on it. `[synthesis]`
+- **When incentives attach** — people *engineer* the number. The tell is **"adjusted EBITDA"**: add back everything ugly for a prettier figure. WeWork ran a "Community-Adjusted EBITDA" that added back even marketing and admin, in its 2019 S-1. `[established — WeWork S-1]` Read that and no deck fools you.
+- **What's actually said at the table** — not accounting profit, but Paul Graham's **"default-alive or default-dead?"** `[established — Graham 2015]` — a pure *cash* question.
+- **Economic profit, unnamed** — every "keep funding this line / buy back stock / greenlight this project" call *is* one. Big firms formalize it as **EVA** (Stern Stewart). `[established]`
+
+The vocabulary hides in the walls; the logic runs every capital decision.
+
+### Make the call
+A founder shows you a deck: **record accounting profit, best quarter ever**, and asks for a bridge loan to keep growing. Before reading on, decide in one line: *which of the three numbers do you demand to see, and what would each have to say for you to write the check?*
+
+The point isn't a right answer — it's that you now refuse the single-number version. A defensible read: **cash/runway** decides whether they even survive to *use* the loan (a profitable company can be insolvent by Friday); **accounting profit** tells you whether the operations actually work or the "profit" is an accrual mirage; **economic profit** tells you whether the money you lend will earn more than it costs — otherwise you're funding value destruction with extra steps. Miss the cash question and the record-profit deck is exactly how you get blindsided. That reflex — *which profit, and what is it blind to* — is the whole chapter.
+
+### The model is where value gets captured
+A **business model** is a *value-capture architecture*: given the product creates value V for a customer, the model decides how much of V you keep, when, and how defensibly. Our three cases do it three ways — Salesforce extracts a lot from few (high ACV), Mailchimp a little from many (volume), Figma lands small and expands. None is "correct"; each is a different machine, as the numbers will show.
+</script>
+
+<script type="text/markdown" id="content-M1-2">
+<p class="kicker">M1 · Chapter 2</p>
+
+# The three statements as one system
+
+Two founders show you the same fact — *"$1,200 landed in the account this quarter"* — and it means opposite things: for one it's a gift that funds their growth, for the other it's a debt they'll bleed cash to deliver. **No single statement can tell you which.** Misread it and you mistake a self-funding machine for a cash trap, or worse, the reverse — the exact error that decides who you'd fund and who you'd run. The reassuring part: there are only *three* statements, one identity binds them, and once you've seen them ripple into each other you genuinely can't unsee it. This chapter installs that reflex.
+
+Beginners read the three statements as three reports. They are one system: **every event touches at least two, often all three.** Mastery is seeing the ripple. The accounting identity that never breaks: `Assets = Liabilities + Equity`. `[established]`
+
+<svg viewBox="0 0 720 250" role="img" aria-label="The three statements as one system: two Balance Sheet snapshots bridged by the Cash Flow and Income statements" style="width:100%;height:auto;margin:24px 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:12px">
+  <defs>
+    <marker id="m2ah" markerWidth="10" markerHeight="10" refX="7.5" refY="3.5" orient="auto"><path d="M0,0 L8,3.5 L0,7 Z" style="fill:var(--accent)"/></marker>
+  </defs>
+  <rect x="16" y="30" width="134" height="196" rx="8" style="fill:var(--panel);stroke:var(--line);stroke-width:1"/>
+  <rect x="570" y="30" width="134" height="196" rx="8" style="fill:var(--panel);stroke:var(--line);stroke-width:1"/>
+  <text x="83" y="52" text-anchor="middle" style="fill:currentColor;font-weight:700;letter-spacing:.4px">BALANCE SHEET</text>
+  <text x="83" y="68" text-anchor="middle" style="fill:currentColor;opacity:.5;font-size:11px">snapshot · start</text>
+  <text x="32" y="98" style="fill:currentColor;opacity:.5;font-size:10px;letter-spacing:.5px">ASSETS</text>
+  <text x="38" y="116" style="fill:currentColor">Cash</text>
+  <line x1="28" y1="134" x2="138" y2="134" style="stroke:var(--line);stroke-width:1"/>
+  <text x="32" y="158" style="fill:currentColor;opacity:.5;font-size:10px;letter-spacing:.5px">LIAB + EQUITY</text>
+  <text x="38" y="176" style="fill:currentColor">Equity</text>
+  <text x="637" y="52" text-anchor="middle" style="fill:currentColor;font-weight:700;letter-spacing:.4px">BALANCE SHEET</text>
+  <text x="637" y="68" text-anchor="middle" style="fill:currentColor;opacity:.5;font-size:11px">snapshot · end</text>
+  <text x="586" y="98" style="fill:currentColor;opacity:.5;font-size:10px;letter-spacing:.5px">ASSETS</text>
+  <text x="592" y="116" style="fill:var(--accent);font-weight:650">▸ Cash</text>
+  <line x1="582" y1="134" x2="692" y2="134" style="stroke:var(--line);stroke-width:1"/>
+  <text x="586" y="158" style="fill:currentColor;opacity:.5;font-size:10px;letter-spacing:.5px">LIAB + EQUITY</text>
+  <text x="592" y="176" style="fill:var(--accent);font-weight:650">▸ Equity</text>
+  <text x="360" y="94" text-anchor="middle" style="fill:currentColor;font-weight:650">CASH FLOW STATEMENT</text>
+  <text x="360" y="109" text-anchor="middle" style="fill:currentColor;opacity:.6;font-size:11px">the period's cash movie → updates Cash</text>
+  <line x1="156" y1="120" x2="564" y2="120" marker-end="url(#m2ah)" style="stroke:var(--accent);stroke-width:1.5;fill:none"/>
+  <text x="360" y="150" text-anchor="middle" style="fill:var(--accent);font-size:11px;font-style:italic">A = L + E holds after every single event</text>
+  <text x="360" y="182" text-anchor="middle" style="fill:currentColor;font-weight:650">INCOME STATEMENT · P&amp;L</text>
+  <text x="360" y="197" text-anchor="middle" style="fill:currentColor;opacity:.6;font-size:11px">the period's earnings movie → net profit lands in Equity</text>
+  <line x1="156" y1="208" x2="564" y2="208" marker-end="url(#m2ah)" style="stroke:var(--accent);stroke-width:1.5;fill:none"/>
+</svg>
+
+*Two snapshots, two movies. The Balance Sheet is the still frame; the Cash Flow and P&L are what happened **between** two of them — one explaining the change in Cash, the other feeding net profit into Equity. The identity survives every event in between.*
+
+| Statement | Question | Time nature | What it hides |
+|---|---|---|---|
+| Income Statement (P&L) | Over a period, did we profit? | Movie (period) | Cash timing — it's accrual |
+| Balance Sheet | At an instant, what do we own/owe? | Photo (moment) | Whether the business *works* |
+| Cash Flow Statement | Over a period, where did cash move? | Movie (period) | Nothing — the truth serum |
+
+### Worked trace — a Figma contract through all three
+
+Figma signs a new account: **$1,200 paid upfront** for 12 months. Delivery costs 18% of revenue (82% margin), spread evenly.
+
+**Day 0 — cash in, nothing earned.** Cash Flow **+$1,200**. Balance Sheet: Cash **+$1,200**, Deferred Revenue **+$1,200** (a *liability* — you owe 12 months of service; identity holds). P&L: **$0** — you haven't *earned* anything. Revenue is recognized as delivered, not when cash lands. `[established]`
+
+**End of Month 1 — one month earned.** P&L: Revenue **+$100**, COGS **−$18**, gross profit **+$82**. Balance Sheet: Deferred Revenue **−$100** (now $1,100), Equity **+$82**. Cash Flow: **$0** (cash already arrived).
+
+> **The insight most people miss — this is a *cash gift*.** Figma holds $1,200 of the customer's cash while having earned $100. That $1,100 of deferred revenue is an interest-free loan from the customer that *funds growth* — in SaaS, **negative working capital**. It's a structural reason annual-prepaid SaaS grows faster on less outside money than a monthly-billed peer. `[established]`
+
+**Now contrast Mailchimp.** Mailchimp bills **$29 monthly** — no upfront gift. Day 0: Cash +$29, revenue recognized ~$29 that month, deferred revenue ≈ $0. Mailchimp never gets the customer-funded loan. Same product logic, opposite balance-sheet behavior — purely from the **billing choice.** (Salesforce behaves like Figma but 40× larger: a $48k prepaid deal parks a big deferred-revenue liability that funds it.)
+
+**Punchline:** the P&L said "+$82," the bank said "+$1,200 once, then nothing," the balance sheet recorded a customer loan. All true. Reading one statement is how competent people get blindsided.
+
+### Make the call
+Two SaaS companies both report **$1.2M revenue, growing 80%.** Company A bills annually upfront; Company B bills monthly. Before reading on: *without seeing their bank balances, which is more likely to need to raise money this year — and where on the statements would you look to confirm it?*
+
+The revenue line can't answer it — it's identical, and it's accrual. The answer lives in the ripple. A's upfront billing parks a fat **deferred-revenue** liability: the customer's cash is already in hand, funding growth (negative working capital, the "gift" above). B collects in dribs while paying to acquire customers *before* their cash arrives, so it's underwater on every new logo for months. Same top line, opposite cash lives — so you look at **deferred revenue** and at the **gap between profit and cash flow**, never the revenue line. That gap is the whole of Chapter 3.
+</script>
+
+<script type="text/markdown" id="content-M1-3">
+<p class="kicker">M1 · Chapter 3</p>
+
+# Accrual, cash, and why growth burns money
+
+You'd bet, reasonably, that a profitable company is a safe one — that if the P&L is in the black, running out of money is someone else's problem. That intuition has killed more good businesses than almost any other. Because profit and cash are *not the same thing*, and a fast-growing company can have plenty of the first and none of the second: the numbers all say you're winning, and then one week payroll doesn't clear. This chapter is how you see that wall coming from months out — which, the day you run or fund a growing business, is the whole difference between a calm raise and a fire sale.
+
+Start from *why* the two diverge. Growth costs money **now** — you pay to acquire a customer, build the product, hire ahead of revenue — but the cash that growth generates arrives **later**, dribbled out over the customer's life. So every act of growth is a "pay now, collect later" bet, and the faster you grow the more of them you're running at once. **Growth itself widens the gap between profit and cash** — which is the cruel part: the healthier your demand, the more cash a naively-run business can burn. Watch the same "acquire one account" decision in the three cases — one event, three cash lives:
+
+| At the moment of acquiring one account | Figma | Salesforce | Mailchimp |
+|---|---|---|---|
+| Cash collected upfront | $1,200 | $48,000 | $29 |
+| CAC paid upfront | $600 | $60,000 | $90 |
+| **Net cash at Day 0** | **+$600** | **−$12,000** | **−$61** |
+| Cash-flow shape | Self-funding | Deep hole per deal | Underwater ~3–4 months |
+
+Read it: **Figma is cash-positive the moment it signs a customer** — it grows on its customers' money. **Salesforce is $12,000 underwater per deal even after a big prepayment** — every new logo demands capital up front; sales-led enterprise growth is capital-hungry by construction. **Mailchimp looks cheap ($90 CAC!) but bills monthly**, so it's cash-negative for the first ~3–4 months of every customer and never receives a prepayment cushion. `[established]`
+
+That trapped money has a name: **working capital** — the cash tied up in the gap between when you *pay out* (to build, deliver, acquire, make payroll) and when you *collect* from customers. Picture the operating cycle as a loop: cash leaves to produce and sell, then returns when the customer pays. Whatever is "in flight" around that loop at any moment is working capital — **money you own but can't spend.** Grow, and the loop carries more of it, which is why scaling a slow-collecting business drains the bank even as the P&L climbs. The billing model sets the *sign*: collect **before** you deliver (annual prepay) and customers fund your loop — *negative* working capital, the gift from Chapter 2; collect **after** (monthly, or net-60 invoices) and you fund theirs.
+
+Now the impossible sentence dissolves. **"Profitable but out of cash"** = profit is booked on accrual (earned, not collected) while cash is a matter of timing, and the gap between them *is* working capital plus your up-front growth spend. A company posting healthy net profit while its balance falls isn't lying — it's growing faster than it collects, covering the difference from its own reserves until they run dry. `[established-as-finding]`
+
+> **Operating rule** `[heuristic]`: for a monthly-billed subscription, the cash trough per cohort ≈ `CAC − (months-to-payback × monthly contribution)`, deepest right at acquisition and climbing back as contribution trickles in. Annual prepay flips its sign — you start *above* water. How you bill can be the whole difference between needing a round and not.
+
+**How operators actually live this.** The two numbers a founder watches daily aren't on the P&L: **burn rate** (net cash out per month) and **runway** (months left = cash ÷ burn). `[synthesis]` The CFO's real instrument is a rolling 13-week cash forecast — the income statement is for the board, the cash forecast is for survival. And billing terms are a *cash weapon*: the reason SaaS pushes annual prepay so hard, dangling 15–20% discounts for it, isn't revenue — it's pulling a year of cash forward to fund growth without raising; enterprise buyers push back with net-60/90 terms to fund *their* working capital out of *yours*. Every payment-term negotiation is a working-capital fight wearing a discount's clothing. The sentence in the room is never "are we profitable" — it's **"what's our runway, and does this decision lengthen or shorten it?"**
+
+### Make the call
+Two businesses grow identically at 80%/yr with the same margins. Business A bills annually upfront; Business B sells to enterprises on net-60 terms. Before reading on: *which one can grow faster without raising outside money — and if you ran the cash-hungry one, what's the first lever you'd pull before taking a dime of dilution?*
+
+A grows on its customers' cash (negative working capital); B *lends* to its customers and must finance the gap, so at the same growth rate B needs far more capital just to stand still. And the lever on B isn't "raise" — it's **change the terms**: shorten collection, add a prepay discount, invoice on signature not delivery. Freeing working capital is often a bigger, faster, cheaper source of cash than a funding round — and it costs no equity. Look at working capital *before* you assume you need capital.
+</script>
+
+<script type="text/markdown" id="content-M1-4">
+<p class="kicker">M1 · Chapter 4</p>
+
+# Unit economics, rigorously
+
+Every dollar you will ever spend on growth rides on one bet: that a customer is worth more than it costs to acquire. Unit economics is where you *prove* that bet instead of hoping it — and where you learn that the very number everyone quotes to prove it, **LTV:CAC**, is a forecast wearing a fact's costume: gameable, assumption-loaded, and routinely wrong by the time it matters. The instinct is to read "5:1" as a verdict — *healthy, keep spending.* By the end of this chapter you won't accept an LTV:CAC without asking three things — *which* CAC, discounted or not, and on *what* churn assumption — because each one can quietly turn a 5:1 into a 2:1 or a mirage. That interrogation reflex is the entire skill; the formulas are just how you run it.
+
+Zoom to one customer. Every term below is built, not asserted.
+
+## 4.1 CAC — three honest versions
+`CAC = (all acquisition spend) / (new customers it produced)`. The word *all* is where people lie. `[synthesis of established parts]`
+- **Blended CAC** — total S&M / all new customers (paid + organic). Flatters you; organic drags the average down.
+- **Paid CAC** — paid spend / customers from paid channels. Decides whether acquisition *scales.*
+- **Fully-loaded CAC** — includes the salaries/tools/overhead of acquisition, not just ad spend. The number that's actually true.
+
+> If blended CAC looks great but paid CAC is underwater, you run on a *free channel you can't turn up* — the SHT/PageFly situation, in numbers. Blended CAC is where borrowed distribution hides. It's also why Mailchimp's $90 is fragile: kill the organic and it isn't $90.
+
+## 4.2 Contribution margin
+`Contribution = ARPA × gross margin%` — revenue minus the *variable* cost to serve, not revenue. Figma: `$100 × 0.82 = $82/mo`. `[established]`
+
+## 4.3 LTV — derived, not handed to you
+A customer pays contribution `m` each period, surviving each period with probability `r = 1 − c` (c = churn). Expected lifetime value is a **geometric series**:
+```
+LTV = m × Σ rᵗ  (t=0,1,2,…) = m × 1/(1−r) = m / c
+```
+So "divide by churn" isn't magic — `1/c` *is* the expected number of periods survived (mean of a geometric distribution). `[established]`
+
+## 4.4 The three cases, computed
+
+| Metric | Figma | Salesforce | Mailchimp |
+|---|---|---|---|
+| Contribution / mo | $82 | $3,120 | $24.65 |
+| Avg lifetime (1/c) | 40 mo | 200 mo | 16.7 mo |
+| **LTV (undiscounted)** | **$3,280** | **$624,000** | **$411** |
+| CAC | $600 | $60,000 | $90 |
+| **LTV:CAC (undisc.)** | **5.5 : 1** | **10.4 : 1** | **4.6 : 1** |
+| Payback (months) | 7.3 | 19.2 | 3.7 |
+
+Read the undiscounted row naively and Salesforce is the obvious winner (10.4:1, $624k LTV). Hold that thought.
+
+## 4.5 The four assumptions under which LTV lies
+
+1. **Constant churn is false.** Churn falls with tenure — leavers leave early, survivors stick. A blended rate applied forever misprices everyone. The honest LTV is the *area under the real cohort-retention curve*, `Σ (surviving fraction at t) × m` — the formula is its lazy approximation, and it *understates* LTV when the curve flattens. `[established]`
+
+2. **No discounting — and this is where Salesforce's halo breaks.** A dollar in month 200 is not worth a dollar today. Discount at `d`:
+   ```
+   LTV = m × Σ [r/(1+d)]ᵗ = m × (1+d)/(c+d)
+   ```
+   **The discount rate simply adds to churn in the denominator** — waiting costs you like a second, silent churn. Apply `d = 1%/month`:
+
+   | | Figma | Salesforce | Mailchimp |
+   |---|---|---|---|
+   | LTV undiscounted | $3,280 | $624,000 | $411 |
+   | LTV discounted @1%/mo | ~$2,366 | ~$210,000 | ~$356 |
+   | **Haircut from time value** | **−28%** | **−66%** | **−13%** |
+   | LTV:CAC after discounting | 3.9:1 | **3.5:1** | 4.0:1 |
+
+   Look what happened: **the 10.4:1 monster and the 4.6:1 minnow both collapse to ~3.5–4:1 once you honor time value.** The lower the churn, the more of your "LTV" sits decades out, and the harder discounting bites — Salesforce loses two-thirds of its value to the clock. Undiscounted LTV *systematically flatters low-churn businesses*, which is exactly the kind selling you the story. `[established — the (1+d)/(c+d) form is the clean version most decks never show]`
+
+3. **Flat ARPA is false.** With expansion (NRR > 100%), contribution *grows* over the life; if expansion outpaces churn+discount the naive formula runs to infinity — which is *why* expansion-led businesses are valued differently (→ M3). Salesforce's 125% NRR means its real curve bends *up*; Mailchimp's 95% bends *down*.
+
+4. **The metric itself is contested.** `[contested]` LTV:CAC is a *forecast in the costume of a fact* — it rests on a churn guess about a future you haven't lived (brutal for young companies with no long cohorts) and is trivially gamed. Sharp operators lead with **CAC payback** (only money already collected) and **cohort curves**, treating LTV:CAC as a directional check, never a target. (Lemkin; a16z metric critiques.)
+
+## 4.6 So which case is "best"? — the point of running three
+- **By ratio:** Salesforce (before discounting). **By payback/cash:** Mailchimp (recovers in 3.7 months). **By durability:** Salesforce (0.5% churn). **By absolute value per customer:** Salesforce by 1,000×. **By capital efficiency:** Figma (self-funding, Chapter 3).
+- No single metric crowns a winner. Mailchimp's beautiful payback hides a leaky bucket (6% monthly = ~52%/yr — you refill the whole base every two years). Salesforce's beautiful ratio hides a 19-month cash hole and a value that's mostly a discounting mirage. Figma is the quiet compounder. **This is the entire reason to hold three cases: any one metric, read alone, lies — and it lies differently for each shape.**
+
+## Make the call
+A growth lead brings you a channel: **LTV:CAC of 6:1 — way over the 3:1 bar, let's pour money in.** Before reading on: *what do you ask before approving one extra dollar?*
+
+Three questions dismantle it or confirm it. **Which CAC?** If that 6 uses *blended* CAC, the paid channel you'd actually be scaling might be 2:1 — the 6 is borrowed organic that won't turn up when you spend. **Discounted?** A 6:1 on a low-churn base can halve once you honour time value, because most of that "value" sits years out (§4.5). **What churn?** For a young company the churn inside that LTV is a *guess* about a future it hasn't lived; one bad cohort and the ratio inverts. The honest approval doesn't rest on the ratio at all — it rests on **CAC payback** (cash you've *already* collected back) and the **cohort curve** (§4½). Fund the payback, not the forecast.
+</script>
+
+<script type="text/markdown" id="content-M1-5">
+<p class="kicker">M1 · Chapter 5</p>
+
+# Cost structure, breakeven, and operating leverage
+
+Two companies sell the identical product at the identical price with the identical per-customer economics — yet one is a money-printer at scale and the other is trapped near break-even forever. Nothing about the *unit* explains it. The difference is **cost structure**, and it's the reason "we just need to sell more" rescues one business and bankrupts the other. The intuition that profit scales in step with revenue — sell 20% more, make 20% more — is wrong in *both* directions, and this chapter teaches you to read which way a given business bends *before* you scale it, when the answer is still cheap to act on.
+
+Everything hinges on one split. A **variable cost** moves with each additional sale — for SaaS: hosting, payment fees, support minutes, the marginal cost to serve one more account. A **fixed cost** doesn't move with the next sale in the short run — most R&D salaries, G&A, the platform you'd run for 10 customers or 10,000. This isn't accounting pedantry; it's the hinge the chapter swings on, because **fixed costs are precisely what let profit and revenue come apart.**
+
+**First consequence — breakeven.** Each sale throws off its *contribution* (revenue minus its variable cost — the $82/mo from Ch4). But you carry the fixed costs whether you sell or not, so you begin each month in a hole the size of fixed costs, and each unit's contribution fills it. The count to climb out is forced, not memorised:
+```
+Breakeven units = Fixed costs / Contribution per unit
+```
+Figma carrying **$200k/mo** fixed: 200,000 / 82 ≈ **2,440 accounts** just to reach zero. Below it you lose money no matter how lovely each unit looks; above it, every marginal account drops its full **$82** to the bottom line — the fixed nut is already paid.
+
+**Second consequence — operating leverage.** That last sentence is the one that changes strategy. Past breakeven, fixed costs don't grow with revenue, so profit grows *faster* than revenue. Figma at 3,000 accounts: `(3,000 × 82) − 200,000 = `**$46,000/mo**. Grow accounts just **+20%** to 3,600: `(3,600 × 82) − 200,000 = `**$95,200** — a **+107%** jump in profit off a one-fifth jump in revenue, with nothing about the product or the unit changed. That amplification is operating leverage, and it runs *both ways*: a 20% revenue drop would savage profit just as violently. High leverage is a lever with no safety — glorious above scale, brutal below it. `[established-as-finding]`
+
+**How operators actually play this.** Cost structure is a **strategic bet, not an accident.** Salesforce runs *fixed-cost-heavy* (expensive AEs, sales engineers) — ugly below scale, spectacular above it, which is exactly why it's a venture bet: you fund the losses to *buy* the leverage. Mailchimp runs *fixed-cost-light* (self-serve, no sales team) — profitable early, lower ceiling. Neither is "right"; they're different wagers on where the volume lands. `[synthesis]` The phrase every board says in a downturn — "**path to profitability**" — is literally this: how many units to the nut, and how hard does profit bend once we clear it. And the tell to watch: a company far below breakeven quoting **"contribution-margin positive!"** to sound healthy while the fixed-cost hole stays bottomless — contribution-positive and *profitable* are different planets, and the gap is the fixed cost nobody put on the slide.
+
+Underneath all of it: **gross margin is destiny.** `[heuristic]` It's the fraction of each revenue dollar left after variable cost — the fuel that must cover *every* fixed cost and still leave profit. High-gross-margin software (80%+) can afford heavy R&D and sales and still win; a low-gross-margin business is starved before the fixed costs even show up. That's the cheap-price + heavy-support trap in one line: pile human support into COGS and you crush the very margin meant to fund growth — which is why Mailchimp *must* stay near-zero-touch to hold 85%.
+
+**Rule of 40** `[heuristic]`: growth% + profit-margin% > 40 — a rough market shorthand for the growth-vs-margin trade you can now actually reason about (Chapter 6), not just recite.
+
+### Make the call
+Two SaaS businesses, both at **$5M revenue and both losing money.** A is fixed-cost-heavy (big sales team, deep R&D); B is fixed-cost-light (pure self-serve). Same loss today. Before reading on: *which would you rather own heading into a growth phase — and which into a downturn?*
+
+Into growth you want **A**: its losses are the price of leverage, and once it clears breakeven profit bends up violently — the loss was an investment in the slope. Into a downturn you want **B**: with little fixed cost it sits near breakeven already and can't be crushed by a revenue drop, while A's leverage runs in reverse and the same fixed nut that was going to make it rich now drowns it. The *identical* income statement implies opposite bets — depending on the one thing the P&L doesn't show you: **where the costs are fixed.** That read is what this chapter buys you.
+</script>
+
+<script type="text/markdown" id="content-M1-6">
+<p class="kicker">M1 · Chapter 6</p>
+
+# Time value and an intro to valuation
+
+Everything in M1 has been building to the one question an owner, board, or acquirer actually asks: **what is this worth?** Most people answer it with a number they don't understand — *"it's a 10× ARR business"* — as if the multiple were a fact stamped on the company rather than a **bet** someone is making about its future. It isn't a fact. This chapter shows you the machine under every valuation, so that when a founder or a banker quotes you a multiple you can ask the only question that matters — *what has to be true about the future for that number to hold, and is it?* The math is a single idea (a dollar later is worth less than a dollar now) applied relentlessly; the judgment is knowing what the number is quietly assuming.
+
+**Time value of money.** A dollar today beats a dollar next year — today's can be invested. Discount future cash to compare: `PV = FV / (1+d)ⁿ`. `[established]` Same `d` that taxed LTV in Chapter 4, now applied to a whole company.
+
+**Discounted Cash Flow (DCF).** A business is worth the present value of all future owner cash: `Value = Σ FCFₜ / (1+d)ᵗ`. For a stable growing stream this collapses to **Gordon growth**: `Value = FCF_next / (d − g)`. Danger: as `g → d`, value explodes — tiny growth-assumption changes swing valuation wildly, which is why DCFs are argued, not trusted. `[established]`
+
+**Why SaaS trades on revenue multiples.** Young SaaS has little current cash, so a DCF of *today's* cash says ~zero. The market prices *forward* via a **revenue multiple** ("10× ARR") — really a compressed DCF: high when growth, retention (NRR), and margin are high. `[synthesis — established underneath]`
+
+> **The three cases get three multiples — and it isn't the ratio that decides.** Salesforce commands the *highest* multiple despite its 19-month payback, because 125% NRR and 0.5% churn make its future almost certain — the market pays for durability. Mailchimp earns the *lowest* multiple despite the fastest payback, because 6%/month churn caps terminal value — you can't build a decade of compounding on a bucket that empties every two years. Figma lands in between. **Payback speed wins you cash; retention wins you the multiple.** That is the sentence M1 exists to earn.
+
+**The through-line of M1:** unit economics (Ch 4) → aggregate P&L and leverage (Ch 5) → discounted future cash (Ch 6). Enterprise value is just unit economics, multiplied and discounted. Every lever the rest of the program teaches — retention, pricing, growth — is a lever on *this* number.
+
+### Make the call
+Two SaaS companies, same **$10M ARR, same growth rate.** A banker prices Company X at **12× ARR** and Company Y at **4×**. Before reading on: *what single number most likely explains the 3× gap — and what would you check to tell whether X's premium is earned or a bubble?*
+
+Almost certainly **retention (NRR)** — not growth, not margin. X's 12× says the market believes its revenue is *durable*: an appreciating base that compounds with little new selling (NRR > 120%). Y's 4× says its base leaks, so every future dollar has to be re-won (NRR < 100%). To test whether the premium is real you don't stare at the multiple — you look at the **cohort curves and net revenue retention** beneath it, because the multiple is exactly those, compressed into one number. Payback speed wins you cash; retention wins you the multiple — and a multiple bought on a retention story nobody verified is precisely how bubbles price.
+</script>
+
+<script type="text/markdown" id="content-M1-7">
+<p class="kicker">M1 · Assessment</p>
+
+# Test yourself — can you *use* it, not just recognize it?
+
+Work them before opening the solutions — the point is to *do* the math, not read it. They're **interleaved on purpose**: each one makes you first decide *which* tool applies, which is the real skill (a problem that announces its formula tests nothing). And before you check any answer, **jot your confidence (0–100%) on each.** The gap between how sure you felt and how you actually did is a sharper signal for what to restudy than the score itself.
+
+**P1.** A monthly-billed SaaS: ARPA $50, gross margin 75%, monthly churn 4%, CAC $500. Compute contribution, lifetime, LTV, LTV:CAC, payback. Healthy?
+
+**P2.** Same business, monthly discount rate 1.5%. Discounted LTV, and the % haircut vs undiscounted?
+
+**P3.** Fixed costs $120,000/mo. Breakeven accounts? Operating profit at 4,000 accounts? If accounts grow 15%, by what % does operating profit change?
+
+**P4.** Two businesses have identical 4:1 LTV:CAC. One (like Salesforce) has 0.5% monthly churn; the other (like Mailchimp) has 6%. After discounting at 1%/mo, whose LTV:CAC falls further, and why? What does that imply about which deserves the higher valuation multiple?
+
+**P5.** A cohort starts at $200k MRR. Over a year it loses $30k to churn, $10k to contraction, and gains $50k to expansion. Compute GRR and NRR. With zero new customers, is the cohort growing or shrinking?
+
+**P6.** You raise $3M at a $12M pre-money valuation. What is post-money, what % does the investor own, and — if you held 70% before — what is your stake after?
+
+**P7 · trap — the obvious tool is wrong.** A founder boasts: *"Blended CAC $40, LTV $1,200 — a 30:1 machine. Let's raise and pour it all into paid growth."* You dig: ~90% of signups come from one viral referral loop that's already slowing, and **paid** CAC is **$600**. What's wrong with acting on the 30:1 — and what's the number that actually governs whether they can scale?
+
+**P8 · judgment — no answer key.** You can back exactly one of two SaaS companies, same price. **A:** 8%/mo churn, but **200% NRR** driven by a *few* whales expanding fast; 2-month payback; self-funding. **B:** 1%/mo churn, **102% NRR** spread evenly across a broad base; 14-month payback; needs one more raise. The data does not crown a winner. Make the call, name the **one variable** that drove it, say what would flip you, and steelman the company you rejected. *(Scored on the reasoning, not the pick.)*
+</script>
+
+<script type="text/markdown" id="content-M1-8">
+<p class="kicker">M1 · Solutions & feedback</p>
+
+# Solutions, feedback & the output artifact
+
+## Solutions
+
+**S1.** Contribution `50×0.75 = $37.50`. Lifetime `1/0.04 = 25 mo`. LTV `37.5/0.04 = $937.50`. LTV:CAC `1.9:1`. Payback `500/37.5 = 13.3 mo`. **Unhealthy:** ratio under 3:1 and a 13-month cash exposure per customer — likely a churn problem (4%/mo = 25-month life). *If you got ~2.5:1 and called it healthy, you almost certainly used revenue ($50) instead of contribution ($37.50) in LTV — the single most common unit-economics error; LTV runs on contribution, always.*
+
+**S2.** Disc. LTV `= 37.5 × (1.015/(0.04+0.015)) = 37.5 × 18.45 ≈ $691.9`. Haircut `1 − 691.9/937.5 ≈ 26%`.
+
+**S3.** Breakeven `120,000/37.5 = 3,200`. At 4,000: `(4,000×37.5) − 120,000 = $30,000`. At 4,600 (+15%): `(4,600×37.5) − 120,000 = $52,500`, **+75%**. Operating leverage.
+
+**S4.** The **low-churn** one (Salesforce-like) falls further: its value sits far in the future, so discounting bites harder — its `(1+d)/(c+d)` denominator goes from 0.005 to 0.015 (×3), vs the high-churn one from 0.06 to 0.07 (×1.17). Counter-intuitively, the *stickier* business loses more LTV to discounting — **yet still deserves the higher multiple**, because low churn means its cash is nearly certain and compounds for years; the discount haircut is a one-time repricing, the durability is forever.
+
+**S5.** GRR `= (200 − 30 − 10)/200 = 80%`. NRR `= (200 − 30 − 10 + 50)/200 = 105%`. **Growing** — NRR above 100% means expansion outruns losses, so the base compounds even with no new logos.
+
+**S6.** Post-money `= 12 + 3 = $15M`. Investor `= 3/15 = 20%`. Your stake `= 70% × (1 − 0.20) = 56%`.
+
+**S7 (trap).** The 30:1 rides on **blended** CAC dominated by a viral loop that's both *saturating* and *unbuyable* — you can't "pour money into" organic. The number that governs scaling is **paid CAC = $600**, i.e. LTV:CAC ≈ **2:1**, below the bar. Spend into it and the blend reverts toward the paid economics as the free channel taps out. *If you took the 30:1 at face value you fell for exactly the Ch4 "which CAC?" trap — the tool was right; the input was a lie.*
+
+**S8 (judgment — no key, by design).** A strong answer *sees what each number hides*: A's 200% NRR is **concentration risk** (a few whales — lose one and it craters, with 8% churn burning underneath), while B's 102% is durable and broad but slow and capital-hungry. It names a decisive variable (*whale-concentration vs. durability*), a flip condition (*"if A's expansion is <5 accounts, I switch to B"*), and steelmans the reject. A weak answer just picks higher-NRR or lower-churn without seeing the hidden risk. No pick is "right" — only reasoning that survives its own strongest counter-argument.
+
+**Now check your confidence notes against your results.** Where you were *confident and wrong* is where the mechanism never really landed — reread that chapter's **derivation**, not its formula. That gap, not the raw score, is your study list.
+
+## Output artifact
+
+**A Unit Economics + P&L + Valuation dashboard** (spreadsheet), ideally with all three cases side by side: CAC three ways, contribution, churn, lifetime, LTV undiscounted *and* discounted, LTV:CAC, payback; a contribution-margin P&L to operating profit with gross margin and breakeven; an operating-leverage sensitivity (±20% volume); and a one-line valuation (ARR × a defended multiple, cross-checked against Rule of 40). When you can defend every cell — and explain why the three cases diverge — M1 is done.
+
+## Primary sources to drill into (audit me)
+
+- **David Skok — forEntrepreneurs** — canonical SaaS-metrics essays. `[established]`
+- **Berman & Knight — Financial Intelligence** — the readable operator's guide to the three statements.
+- **Aswath Damodaran (NYU) — free valuation lectures/spreadsheets** — the rigorous Chapter 6; the best free finance education that exists.
+- **McKinsey — Valuation (Koller et al.)** — the standard on value creation and cost of capital, for the deep end.
+</script>
+
+<script type="text/markdown" id="content-M1-2b">
+<p class="kicker">M1 · Chapter 2½</p>
+
+# Bookings, billings, revenue & ARR — the four numbers people confuse
+
+You think a company has *a* revenue number — one honest figure for "how much money it made." It doesn't. A single signed deal throws off **four** different "money" numbers that can be three or ten times each other, all technically true, and *which one gets quoted to you is a choice* — sometimes innocent, sometimes a con. Learn to demand which one and you stop being the audience a growth story is performed for; miss it and a business quietly bleeding cash can look like a rocket ship. Here's the whole set, from one event. `[established]`
+
+- **Booking** — total contract value signed (TCV). A 2-year Salesforce deal at $48k/yr is a **$96k booking** the day it's signed.
+- **Billing** — what you actually invoiced this period. Billed annually, Salesforce's Day-0 billing is **$48k**, not $96k.
+- **Revenue** — what you *earned* this period under accrual/GAAP. Salesforce earns **~$4,000/month**, recognized ratably as service is delivered.
+- **ARR / MRR** — annual/monthly *recurring-revenue run-rate*: an annualized snapshot at a point in time. The deal adds **$48k ARR**. It is a forward-looking pointer, **not** GAAP revenue.
+
+### The same event, four numbers (Salesforce signs a 2-year deal, Jan 1)
+
+| Metric | Value | What it measures |
+|---|---|---|
+| Bookings | $96,000 | Total contracted (TCV) |
+| Billings | $48,000 | Invoiced now (annual) |
+| Revenue (Jan) | $4,000 | Earned this month |
+| ARR added | $48,000 | Recurring run-rate |
+
+**The gap between billings and revenue is deferred revenue** (Chapter 2). The gap between bookings and billings is future, uncollected contract. `[established]`
+
+> **Where this bites.** Bookings can be inflated by stuffing multi-year TCV into one quarter. ARR can include logos about to churn. A company can grow "ARR" while GAAP revenue and cash lag badly. When someone quotes one number, ask *which* — and whether the other three agree. The distance between them is where both honest confusion and quiet deception live.
+
+### Make the call
+A startup's deck leads with **"$10M ARR, up 3× this year."** You're deciding whether to join. Before reading on: *which three numbers do you ask for, and what would turn that $10M into a mirage?*
+
+Ask for **GAAP revenue** — if it's $3M against $10M ARR, most of that run-rate is barely-delivered or freshly-signed, a hope rather than a history. Ask for **billings and cash collected** — if ARR tripled but cash didn't, they're booking deals they haven't been paid for. Ask for **net revenue retention** — if the ARR includes logos already signalling churn, next year's $10M leaks out before a single new sale lands. ARR is the most-quoted and least-accountable of the four precisely because it's a *forward pointer nobody has to deliver yet*. The number on the slide is never the question; whether the other three agree with it is.
+
+MRR/ARR movement decomposes into **new + expansion − contraction − churn** — the entire subject of the retention chapter (§4½), where that last number decides whether the base compounds or bleeds.
+</script>
+
+<script type="text/markdown" id="content-M1-4b">
+<p class="kicker">M1 · Chapter 4½</p>
+
+# Cohorts, retention, and the two numbers that decide your fate
+
+## Why bother — the most expensive mistake in the module
+
+In Chapter 4 you built LTV, and I slipped one sentence past you: *a single blended churn rate lies.* That is the most expensive sentence in M1, and this is where you feel why — because the error it names isn't academic. It's the exact mistake that lets a company raise on a beautiful story, pour millions into acquisition, and discover two years later it was refilling a leaking bucket the whole time.
+
+Put the decision on the table. You're about to tell a board — or yourself — *"a customer is worth $X, so paying $Y to get one is a great trade."* That whole claim hangs on one hidden quantity: **how long a customer really stays, and how much they pay while they're here.** Misjudge that quantity and everything downstream — LTV, LTV:CAC, how much you dare spend to acquire, how much you raise, what the company is worth — is wrong in the *same direction*, quietly, for years. Nobody sends an alert. The bucket just never fills.
+
+So this chapter earns its length. It builds the one instrument that measures survival honestly — the **cohort** — then the two numbers, **GRR** and **NRR**, that turn "customers stay" into dollars and decide, more than almost anything else, whether your business compounds or bleeds.
+
+## Where the blended average goes wrong
+
+You have to feel why the easy way fails before the fix means anything.
+
+Your dashboard says: *monthly churn 5%.* One number for the whole company. It feels like knowledge. It's closer to camouflage — because that 5% averages two populations that could not be more different. In it are people who signed up last week, many of whom tried the product once, didn't get it, and vanish inside a month. In the *same* average are people who've paid every month for three years, who've wired the product into their team's daily life and are almost never leaving. Blend them and you get a number that describes **nobody**: it overstates how fast your loyal core leaves and understates how fast fresh signups do.
+
+Worse, the blended rate *moves for reasons that have nothing to do with retention.* Pour in a wave of new signups and your "churn rate" lurches — because you changed the *mix*, not the loyalty. You cannot fix retention you cannot see, and a blended rate is built to hide the one thing you most need to see: **customers behave differently depending on how long they've already survived.**
+
+## Building the fix: what a cohort actually is
+
+Here's the move, and it's almost embarrassingly simple once you see it.
+
+Stop averaging across everyone. Instead take **one group of customers who all started in the same period** — say, *everyone who signed up in January* — and from now on track *only that group.* You never add anyone to it. That frozen group is a **cohort.**
+
+Why freeze it? That's the whole trick. Because the group never takes in new members, anything that happens to it from here is **pure retention** — no fresh signups pouring in to paper over the losses. If January started with 1,000 customers and 880 remain in March, you know something true and uncontaminated: this class retains 88% to its third month. No mix effect, no camouflage. One class, watched as it graduates — or drops out — month by month:
+
+```
+Month 0 (January):   1,000 customers   — 100% of the cohort
+Month 1 (February):    920 remain      —  92%
+Month 2 (March):       880 remain      —  88%
+Month 3 (April):       855 remain      —  85.5%
+```
+
+Notice *what* we're measuring: not calendar time, but **age** — months since *that customer* started. That shift, from "what happened in March" to "what happens to a customer in their third month," is the entire unlock. Hold onto it, because the next term is built directly on top of it.
+
+## From cohort to cohort curve — and why its shape is the whole game
+
+Now do the obvious next thing: plot that surviving-fraction column. Month 0 at 100%, month 1 at 92%, month 2 at 88%, and on as the cohort ages. Connect the dots and you have a line — the **cohort curve** (also called a retention curve).
+
+That's *all* a cohort curve is: **a cohort's survival, drawn against age.** If "cohort" felt like a new word four paragraphs ago, "cohort curve" should now feel like nothing new at all — same group of people, just graphed. (That bridge is exactly what a cheat-sheet skips, and skipping it is how a term gets dropped on you as if you already knew it.)
+
+Here's why the curve, not the average, decides fortunes — the **shape.** The blended-average model quietly assumes retention is a *constant percentage every month* — lose 5% of whoever's left, forever. Drawn out, that's a smooth exponential slide to zero. But real customers almost never do that. Real cohort curves **flatten**: they fall steeply at first — bad-fit customers, tire-kickers, wrong-segment signups bail early — then the slope eases, because the people still standing after a year are *true believers* who've built their workflow around you. The curve stops being a slide and becomes a shelf.
+
+Put the two side by side and the stakes jump out:
+
+| Age (months) | Naïve flat 5%/mo | Real cohort (flattens) |
+|---|---|---|
+| 0 | 100% | 100% |
+| 3 | 86% | 84% |
+| 6 | 74% | 74% |
+| 12 | 54% | 63% |
+| 24 | 29% | 55% |
+
+Read the bottom row. By month 24 the flat-rate model has written off **71%** of the cohort as gone; the real, flattening curve still has **55%** paying. That's not a rounding difference — it's nearly *double* the surviving base two years out, and it compounds into every valuation of the company.
+
+Now connect it straight back to Chapter 4's money. Your true lifetime value is the **area under the real cohort curve** (each month's surviving fraction × the contribution they pay), not `m/c`. The `m/c` formula *is* the flat-rate assumption in disguise — it draws the slide, not the shelf. So the direction of its lie is now precise:
+
+> **Blended-churn LTV understates the value of any product whose curve flattens, and overstates any product whose curve keeps sliding.** For a sticky product, the real value sits on the shelf the formula pretends isn't there. This is why Chapter 4's "assumption #1, constant churn is false" wasn't hand-waving — it's this exact gap, now drawn. `[established-as-finding]`
+
+*Provenance, honestly: the specific numbers in that table are illustrative, picked to show the shape. That real retention curves flatten rather than decay at a constant rate is the well-established finding (David Skok's SaaS essays; most B2B retention data). `[established-as-finding]` The magnitude of flattening is wildly product-dependent — measure your own, never borrow mine.*
+
+## From "how many stay" to "how many dollars stay"
+
+The cohort curve counts *customers.* A business runs on *dollars*, and here the two come apart in a way that matters enormously.
+
+Take two customers who both "stayed" this year — neither churned. Customer A quietly downgraded from the $500 plan to $100. Customer B loved you and upgraded from $500 to $900. By a headcount curve, both are simply "retained," identical. By *revenue*, they're opposite events: one leaked $400, the other added $400. A business can keep every logo and still bleed revenue, or lose logos and still grow revenue. To see that, you retain-count in **dollars** — which gives the two numbers every SaaS board now lives on. Both roll an existing revenue base forward one year touching **only existing customers** (no new logos — we're measuring retention, not sales).
+
+**Gross Revenue Retention (GRR)** measures pure leak: of the revenue you started with, how much survived, counting *only* the ways revenue leaves — customers churning out entirely, and customers contracting (downgrading). It deliberately ignores expansion.
+```
+GRR = (starting revenue − churn − contraction) / starting revenue
+```
+Because it only ever subtracts, **GRR can never exceed 100%.** It answers a defensive question: *if we sold nothing new and nobody upgraded, how fast does the floor fall out?* GRR of 89% means you lose 11% of your base a year to leak alone — the current you forever swim against.
+
+**Net Revenue Retention (NRR)** adds the one thing GRR omits: **expansion** — existing customers paying you *more* over time (upgrades, seats, usage).
+```
+NRR = (starting revenue − churn − contraction + expansion) / starting revenue
+```
+Because expansion can outweigh the leak, **NRR can exceed 100%** — and when it does, something remarkable happens.
+
+### Worked example — both from one cohort
+A cohort starts the year at **$100k MRR.** Over the year, among *only* these existing customers: **$8k** churns out, **$3k** contracts, **$20k** of expansion arrives from upgrades and added seats.
+```
+GRR = (100 − 8 − 3) / 100        = 89%
+NRR = (100 − 8 − 3 + 20) / 100   = 109%
+```
+Two numbers, one cohort, a two-layer story: the business leaks 11% a year (GRR 89% — worth fixing), but its existing customers expand fast enough to cover the leak *and* grow the base 9% on top (NRR 109%).
+
+### Why NRR > 100% is called the holy grail
+Sit with what 109% NRR means. Sign **zero** new customers — shut off all sales and marketing — and the existing base still *grows*, like a fund reinvesting its own dividends:
+```
+$100k → $109k → $118.8k → $129.5k     (3 years, no new customers)
+```
+Now Mailchimp's ~95%, the same machine in reverse:
+```
+$100k → $95k → $90.3k → $85.7k        (decaying — you acquire just to stand still)
+```
+
+| | Figma | Salesforce | Mailchimp |
+|---|---|---|---|
+| NRR | ~110% | ~125% | ~95% |
+| Base with zero new customers | slowly compounds | strongly compounds | decays |
+
+Same product effort, opposite destiny — and the fork is entirely NRR crossing the 100% line. **An NRR above 100% is an appreciating asset; below 100% a depreciating one.** This is the mechanism behind the valuation gap you'll meet in Chapter 6: Salesforce earns its premium multiple *here*, in its 125% NRR — not in its CAC ratio, which we already saw is a discounting mirage.
+
+## How operators actually use these — and how they get gamed
+
+Here's what happens in the real room, because that's where the number lives.
+
+- **NRR is *the* number.** For a modern SaaS board or investor it's close to the single most-watched health metric — on nearly every board deck, framed as *"for every dollar we had a year ago, how many do we have now from those same customers?"* Top-quartile B2B SaaS NRR is commonly cited around 120%+; sustained sub-100% for a self-described "recurring" business is a quiet alarm. `[heuristic — benchmark, varies by segment and year; source your own comparables]`
+- **Where it gets gamed** — the war-layer version of Chapter 2½'s "which number are you being shown." A blended NRR can be propped up by a handful of **whale expansions** (a few big accounts doubling) while the *median* customer quietly contracts underneath. "NRR" quoted without saying whether it's dollar-weighted or by-segment can hide a rotting SMB base under two happy enterprise logos. Watch too for NRR measured on a base that *includes* revenue already flagged to churn, and the ever-popular "NRR excluding [the segment where we bleed]." `[synthesis — from how the incentive works]`
+- **The sentence in the room.** The sharp question isn't "what's our NRR?" — it's *"is net dollar retention above 100% for the median customer, not just dollar-weighted?"* If yes, the growth engine is partly self-propelled. If no, you're running up a down escalator, and any story about scale is really a story about needing ever-cheaper acquisition forever.
+- **The pairing that can't be faked.** GRR and NRR *together* is the honest picture: 115% NRR on an 82% GRR means the business grows only because a few accounts expand hard while the base leaks badly — a far more fragile animal than 115% NRR on 97% GRR. Anyone showing you only NRR is showing you the flattering half.
+
+> **Quick gut-check** `[heuristic]`: the **quick ratio** = `(new + expansion) / (churn + contraction)`. Above ~4, growth is efficient — you add far more than you lose. Near 1, you're bailing water as fast as it comes in, and no amount of top-of-funnel saves you until the leak is fixed.
+
+## What you carry out of this chapter
+- A **cohort** is one frozen group of customers who started together, tracked by *age* — the only clean way to see retention, because new signups can't camouflage it.
+- The **cohort curve** is that group's survival drawn against age; its *shape* (flattening vs. constant slide) is what makes blended-churn LTV lie, and in which direction.
+- **GRR** measures leak (≤100%); **NRR** adds expansion (can exceed 100%). NRR crossing 100% is the line between an appreciating and a depreciating business — and it, not the LTV:CAC ratio, earns the valuation multiple in Chapter 6.
+
+If you can't yet explain to someone else why a blended average hides the very thing you need to see, reread the first two sections — that's the load-bearing idea, and everything here is built on it.
+</script>
+
+<script type="text/markdown" id="content-M1-6b">
+<p class="kicker">M1 · Chapter 6½</p>
+
+# The discount rate, and a worked valuation
+
+Chapters 4 and 6 leaned on a discount rate `d` I set casually at 1%/month — and most people treat that number as a technical footnote. It's the opposite: **`d` is the single most powerful and most *arguable* input in any valuation.** It's the place where the very same company is worth $10M or $30M depending on one assumption about risk — so whoever sets `d` sets the answer, and understanding where it comes from is the difference between *valuing* a business and being *handed* a valuation to swallow. It comes from one idea: the return your money could earn elsewhere at equal risk.
+
+## Where d comes from: the cost of capital
+`d` is your **cost of capital** — the return investors could earn elsewhere at equal risk, and therefore the hurdle every dollar in the business must clear. `[established]`
+
+- **WACC** blends the cost of debt and the cost of equity by their weights.
+- **Cost of equity**, via **CAPM**: `rf + β × (market risk premium)`. A public firm at rf 4%, β 1.3, premium 5% → ~10.5%. `[established]`
+- **Why startups discount brutally.** More risk → higher required return. VCs underwrite to 30–50%+ IRR; a startup's hurdle sits far above a mature firm's ~8–10%. Realistic `d` for early SaaS is **20–40%/year** (~1.5–2.8%/month) — *higher* than the gentle 1% used earlier.
+
+## What a realistic d does to Salesforce
+Salesforce: `m = $3,120`, churn `0.5%/mo`. Redo LTV at `d = 2.5%/month` (~30%/yr):
+```
+LTV = 3,120 × (1.025 / (0.005 + 0.025)) = 3,120 × 34.2 ≈ $106,700
+```
+Against **$624,000 undiscounted — an 83% haircut.** For low-churn businesses most "LTV" is a promise decades out, and any honest cost of capital collapses it. The stickier the business, the more its headline LTV is a discount-rate illusion. `[established]`
+
+## A worked DCF → an implied multiple
+Value Figma directly. Assume next-year free cash flow **$1.0M**, growing **25%/yr** for five years, `d = 20%`, terminal growth `g = 4%`:
+
+| Year | FCF ($M) | PV @20% |
+|---|---|---|
+| 1 | 1.00 | 0.83 |
+| 2 | 1.25 | 0.87 |
+| 3 | 1.56 | 0.90 |
+| 4 | 1.95 | 0.94 |
+| 5 | 2.44 | 0.98 |
+| **Explicit PV sum** | | **≈ 4.52** |
+
+Terminal value at end of Year 5 = `FCF₆ / (d − g) = (2.44 × 1.04) / (0.20 − 0.04) = $15.9M`; its present value = `15.9 × 0.40 ≈ $6.4M`.
+
+**Enterprise value ≈ 4.52 + 6.40 = ~$10.9M.** If Figma's ARR is ~$3M, the **implied multiple ≈ 3.6× ARR** — *derived*, not assumed. Carry two things: the **terminal value is ~59% of the total** and rests on the shakiest input (`g`), which is why DCFs are argued; and a "revenue multiple" is just this whole calculation compressed into one number. `[synthesis — established underneath]`
+
+### Make the call
+A founder shows you a DCF valuing the company at **$40M** and offers you in at that price. You notice the discount rate is **10%**. Before reading on: *why is `d` the first number you challenge — and what happens to the $40M if the honest rate is 30%?*
+
+10% is a *mature public company's* cost of capital; an early startup's real hurdle is 25–40%, because its risk is enormous. Swapping 10% for 30% doesn't trim the valuation — it can **collapse** it, because the terminal value (the majority of most DCFs, ~59% here) is the single most discount-sensitive piece: a higher `d` shrinks every future dollar *and* shrinks the `1/(d−g)` terminal term at once. A DCF built on a too-low discount rate is the most common honest-*looking* way to inflate a price. You don't argue the cash flows first — you argue `d`, because that's where the number was really made.
+</script>
+
+<script type="text/markdown" id="content-M1-cap">
+<p class="kicker">M1 · Chapter 7</p>
+
+# Capital, dilution, and when to raise
+
+There's a reflex, near-universal among founders, to treat *raising money* as a milestone — a headline, proof you've made it. That reflex is an expensive trap. A raise is not revenue, not a win, and not free: it's the **most expensive money there is**, and at the moment of the round it makes you exactly zero dollars richer. This chapter is the antidote — what capital actually costs, what it buys, and when taking it is brilliant versus when it's just selling the future cheap to feel like progress. It's the other side of the cash story from Chapter 3; you flagged financing as a blind spot, so we build it from the ground.
+
+## Two ways to fund the machine
+- **Debt** — borrowed money repaid with interest; no ownership given up, but it must be serviced from cash. Cheaper, but unforgiving when cash is tight.
+- **Equity** — sell ownership for cash; nothing to repay, but the slice is gone forever. It's the highest-cost capital there is (see CAPM), and it dilutes you.
+
+## The dilution math
+Raise **$2M** at an **$8M pre-money** valuation:
+```
+Post-money  = pre + raise = 8 + 2 = $10M
+Investor %  = 2 / 10 = 20%
+Founder stake: 100% → 80%
+```
+**Dilution is not destruction.** Before: 100% of $8M = $8M. After: 80% of $10M = still $8M — *plus* $2M of fuel in the tank. Raising is value-neutral at the moment of the round; it only pays off if the capital earns **more than its cost** (economic profit, Chapter 1). Raise to fund a cash trough you can't self-fund, or to buy growth whose return beats the dilution — not because raising feels like progress. `[established]`
+
+## When the three cases *need* to raise
+- **Salesforce** — almost must. It's $12k underwater per deal (Chapter 3); sales-led enterprise growth without capital is throttled.
+- **Figma** — often needn't. Self-funding at Day 0; it can raise only to *accelerate*, from a position of choice.
+- **Mailchimp** — shouldn't raise into a leaky bucket; capital poured into 6%-churn acquisition drains out the bottom. Fix retention first, or the round funds the hole.
+
+> **Burn multiple** `[heuristic — Bessemer]`: `net cash burned / net new ARR added`. Below 1 is elite; 1–1.5 healthy; above 2 you're buying growth inefficiently. The fastest read on whether raising more will compound or evaporate.
+
+### Make the call
+Two founders can each raise **$5M at a $20M pre-money.** Founder A is Figma-like (self-funding, negative working capital); Founder B is Mailchimp-like (6%/mo churn, leaky bucket). Both are tempted. Before reading on: *who should take the money, who shouldn't, and why the identical term sheet is a great deal for one and a trap for the other?*
+
+**A should — but only to accelerate**, from choice: A can already fund itself, so the capital just buys a faster version of a machine that already works, and if it earns more than its ~30% cost the dilution pays for itself. **B should not**: pouring $5M into 6%-monthly-churn acquisition funds a bucket that empties out the bottom — the round doesn't build value, it *subsidizes the leak*, and hands away 20% of the company to do it. The dilution math is identical; the *return on the capital* is opposite. Raising is never the question — **what the capital earns against what it costs** is (economic profit, Ch1). Fix B's retention before B raises a dollar, or the round just buys a bigger hole.
+
+The craft of the raise — narrative, terms, process — lives in M10–M11. This chapter is the *finance* of it: what capital costs, what it buys, and what it takes.
+</script>
+
+<script type="text/markdown" id="content-M1-gloss">
+<p class="kicker">M1 · Reference</p>
+
+# Glossary & formula sheet
+
+Everything in one place. If you can reconstruct each formula *and say what it assumes*, you own the module.
+
+## Formulas
+```
+Contribution margin   = ARPA × gross margin%
+Gross margin %        = (Revenue − COGS) / Revenue
+CAC                   = acquisition spend / new customers
+LTV (simple)          = contribution / churn = m / c
+LTV (discounted)      = m × (1+d)/(c+d)
+Payback (months)      = CAC / monthly contribution
+LTV:CAC               = LTV / CAC            (aim ~3:1; audit >5:1)
+Avg customer lifetime = 1 / churn
+GRR                   = (start − churn − contraction) / start      (≤100%)
+NRR                   = (start − churn − contraction + expansion) / start
+Quick ratio           = (new + expansion) / (churn + contraction)
+Breakeven units       = fixed costs / contribution per unit
+Present value         = FV / (1+d)ⁿ
+DCF value             = Σ FCFₜ / (1+d)ᵗ
+Gordon terminal value = FCF_next / (d − g)
+Post-money valuation  = pre-money + amount raised
+Investor ownership    = amount raised / post-money
+Rule of 40            = growth% + profit-margin%     (> 40)
+Burn multiple         = net burn / net new ARR       (< 1 elite)
+```
+
+## Terms
+- **Accrual accounting** — revenue booked when earned, cost when incurred, regardless of cash timing.
+- **ARR / MRR** — annual/monthly recurring-revenue run-rate; a snapshot, not GAAP revenue.
+- **Bookings / Billings / Revenue** — contracted / invoiced / earned. Rarely equal.
+- **Cohort** — customers grouped by join date, tracked over time; the honest unit of retention.
+- **Contribution margin** — revenue minus *variable* cost to serve; funds fixed costs + profit.
+- **Cost of capital (d)** — required return given risk; the hurdle every dollar must clear. High for startups (20–40%).
+- **Deferred revenue** — cash collected but not yet earned; a liability, and a growth-funding gift.
+- **Economic profit** — accounting profit minus the opportunity cost of capital. The real scoreboard.
+- **GRR / NRR** — gross / net revenue retention; NRR > 100% = a self-compounding base.
+- **Operating leverage** — profit growing faster than revenue because fixed costs don't scale 1:1.
+- **Payback period** — months to recover CAC from contribution; a cash-risk measure.
+- **Unit economics** — the profitability of a single customer over their life.
+- **Working capital** — cash frozen in the operating cycle; negative working capital funds you.
+
+*This sheet is the compression. The chapters are why each line is true — and when it lies.*
+</script>
+<!-- ===================================================================== -->
+
+<script>
+const MODULES = [
+  {id:'M1', num:'M1', title:'Corporate Finance & Business Economics', status:'filled', chapters:[
+    {id:'M1-0', title:'Orientation · the three cases'},
+    {id:'M1-1', title:'1 · The firm as a value engine'},
+    {id:'M1-2', title:'2 · The three statements'},
+    {id:'M1-2b', title:'2½ · Bookings, billings, revenue & ARR'},
+    {id:'M1-3', title:'3 · Cash & working capital'},
+    {id:'M1-4', title:'4 · Unit economics'},
+    {id:'M1-4b', title:'4½ · Cohorts, GRR & NRR'},
+    {id:'M1-5', title:'5 · Cost, breakeven & leverage'},
+    {id:'M1-6', title:'6 · Time value & valuation'},
+    {id:'M1-6b', title:'6½ · Discount rate & a worked DCF'},
+    {id:'M1-cap', title:'7 · Capital, dilution & raising'},
+    {id:'M1-7', title:'Test yourself — problems & judgment'},
+    {id:'M1-8', title:'Solutions & feedback'},
+    {id:'M1-gloss', title:'Glossary & formula sheet'},
+  ]},
+  {id:'M2', num:'M2', title:'Product Strategy & Systems', status:'queued', stub:
+`# M2 — Product Strategy & Systems
+
+**Objective:** what strategy actually is (fit, not a list of good activities), business-model design, North Star / OKRs, and growth loops.
+
+**Reading anchors:** Porter (*What Is Strategy?*), Rumelt (*Good Strategy Bad Strategy*), *Business Model Generation*, Doerr (*Measure What Matters*), Casey Winters / Reforge.
+
+**Output:** strategy map · metric hierarchy · growth-loop diagram.`},
+  {id:'M3', num:'M3', title:'Retention, CS & Expansion', status:'queued', stub:
+`# M3 — Retention, CS & Expansion
+
+**Objective:** activation and onboarding, churn (logo vs revenue), Net Revenue Retention, and expansion mechanics. The leg that quietly decides everything downstream.
+
+**Reading anchors:** Ramli John (*Product-Led Onboarding*), *Customer Success* (Mehta et al.), Patrick Campbell.
+
+**Output:** activation/onboarding flow · retention & expansion playbook.`},
+  {id:'M4', num:'M4', title:'Data & Experimentation', status:'queued', stub:
+`# M4 — Data & Experimentation
+
+**Objective:** funnels, cohorts, the analytics stack, and trustworthy A/B testing. Instrumentation *after* you understand the mechanism it measures.
+
+**Reading anchors:** Amplitude / Mixpanel playbooks, Kohavi (*Trustworthy Online Controlled Experiments*).
+
+**Output:** funnel + cohort view · A/B test design doc.`},
+  {id:'M5', num:'M5', title:'Positioning', status:'queued', stub:
+`# M5 — Positioning
+
+**Objective:** the headwater of pricing, GTM, and narrative. Who the product is *for*, against what alternatives, on what unique value.
+
+**Reading anchors:** April Dunford (*Obviously Awesome*, *Sales Pitch*).
+
+**Output:** positioning canvas (feeds M6, M7, M8, M11).`},
+  {id:'M6', num:'M6', title:'Pricing & Monetization', status:'queued', stub:
+`# M6 — Pricing & Monetization
+
+**Objective:** value-based pricing, the value metric, packaging (Good-Better-Best), and why underpricing is a silent killer at scale.
+
+**Reading anchors:** Ramanujam & Tacke (*Monetizing Innovation*), Patrick Campbell.
+
+**Output:** pricing strategy doc.`},
+  {id:'M7', num:'M7', title:'GTM & Growth', status:'queued', stub:
+`# M7 — GTM & Growth
+
+**Objective:** channels, the growth model, and the product-led acquisition motion. Turning "some people love it" into "many people, repeatably, through channels."
+
+**Reading anchors:** Lenny Rachitsky, Andy Raskin, Brian Balfour / Reforge.
+
+**Output:** GTM one-pager · growth model.`},
+  {id:'M8', num:'M8', title:'Sales Motion & Revenue Org', status:'queued', stub:
+`# M8 — Sales Motion & Revenue Org
+
+**Objective:** Product-Led Sales, the PQL, the self-serve → sales handoff, and how a revenue org is structured and forecast. Where PLG and classic sales collide.
+
+**Reading anchors:** Kyle Poyar / Elena Verna (PLS), Mark Roberge (*The Sales Acceleration Formula*).
+
+**Output:** PLS motion doc · revenue-org & forecast read.`},
+  {id:'M9', num:'M9', title:'Leadership & Org', status:'queued', stub:
+`# M9 — Leadership & Org
+
+**Objective:** managing people, feedback, delegation, operating cadence, and negotiation. The shift from *doing* to *designing a machine that does*.
+
+**Reading anchors:** Kim Scott (*Radical Candor*), Andy Grove (*High Output Management*), Fisher & Ury (*Getting to Yes*).
+
+**Output:** feedback & delegation playbook · org chart + R&R · negotiation script.`},
+  {id:'M10', num:'M10', title:'General Management & Business Ops', status:'queued', stub:
+`# M10 — General Management & Business Ops
+
+**Objective:** the GM delta — owning the number, business-review rhythm, hiring beyond tech, commercial/legal literacy (enough to not be fooled by your own hires).
+
+**Reading anchors:** Matt Mochary (*The Great CEO Within*), Geoff Smart (*Who*), a SaaS commercial-contract primer.
+
+**Output:** BU operating-system doc.`},
+  {id:'M11', num:'M11', title:'Narrative & Executive Presence', status:'queued', stub:
+`# M11 — Narrative & Executive Presence
+
+**Objective:** communicating the thing you built — to a team, a board, an investor.
+
+**Reading anchors:** Nancy Duarte (*Resonate*), Sequoia pitch-memo templates.
+
+**Output:** roadmap story deck · 10-slide pitch deck.`},
+  {id:'CAP', num:'★', title:'Capstone — P&L-Owned BU Operating Plan', status:'queued', stub:
+`# Capstone — The P&L-Owned BU Operating Plan
+
+**Objective:** sit in the GM chair and hold the number. A 3-statement-lite model for a product-led BU: revenue from the growth loop, cost structure, headcount, a reforecast under a shock (churn spike, CAC doubles), and the capital-allocation call you defend.
+
+**Output:** BU plan + defense — a personal asset you carry into a HoP/GM interview or use to run your own thing.`},
+];
+
+// ---- flat list of trackable "leaves" (chapters for filled modules, the stub for queued) ----
+function leaves(){
+  const arr=[];
+  MODULES.forEach(m=>{
+    if(m.chapters){ m.chapters.forEach(c=>arr.push({id:c.id, mod:m, title:c.title})); }
+    else { arr.push({id:m.id, mod:m, title:m.title, stub:true}); }
+  });
+  return arr;
+}
+const LEAVES = leaves();
+
+const KEY_DONE='mba.done2', KEY_LAST='mba.last2';
+let done = new Set(JSON.parse(localStorage.getItem(KEY_DONE)||'[]'));
+let current = localStorage.getItem(KEY_LAST) || 'M1-0';
+if(!LEAVES.find(l=>l.id===current)) current='M1-0';
+
+const navEl=document.getElementById('nav');
+const artEl=document.getElementById('article');
+const scrollEl=document.getElementById('scroll');
+function save(){ localStorage.setItem(KEY_DONE, JSON.stringify([...done])); localStorage.setItem(KEY_LAST,current); }
+function curMod(){ const l=LEAVES.find(x=>x.id===current); return l?l.mod:MODULES[0]; }
+
+function buildNav(){
+  navEl.innerHTML='';
+  const activeMod=curMod();
+  MODULES.forEach(m=>{
+    const mod=document.createElement('div');
+    mod.className='mod '+m.status+(m.id===activeMod.id?' open':'');
+    const head=document.createElement('div');
+    head.className='mod-head';
+    let meta='';
+    if(m.chapters){ const d=m.chapters.filter(c=>done.has(c.id)).length; meta=`<span class="meta">${d}/${m.chapters.length}</span>`; }
+    head.innerHTML=`<span class="num">${m.num}</span><span class="dot"></span><span class="ttl">${m.title}</span>${meta}`;
+    head.onclick=()=>{ if(m.chapters) go(m.chapters[0].id); else go(m.id); };
+    mod.appendChild(head);
+    if(m.chapters){
+      const wrap=document.createElement('div'); wrap.className='chaps';
+      m.chapters.forEach(c=>{
+        const row=document.createElement('div');
+        row.className='chap'+(done.has(c.id)?' done':'')+(c.id===current?' active':'');
+        row.innerHTML=`<span class="cchk">✓</span><span class="ct">${c.title}</span>`;
+        row.querySelector('.ct').onclick=()=>go(c.id);
+        row.querySelector('.cchk').onclick=(e)=>{e.stopPropagation(); toggleDone(c.id);};
+        wrap.appendChild(row);
+      });
+      mod.appendChild(wrap);
+    }
+    navEl.appendChild(mod);
+  });
+  updateProgress();
+}
+function updateProgress(){
+  const total=LEAVES.length, d=[...done].filter(id=>LEAVES.find(l=>l.id===id)).length;
+  document.getElementById('fill').style.transform='scaleX('+(d/total)+')';
+  document.getElementById('proglbl').textContent=`${d} / ${total} chapters complete`;
+}
+function toggleDone(id){ if(done.has(id)) done.delete(id); else done.add(id); save(); buildNav(); syncDoneBtn(); }
+function syncDoneBtn(){
+  const b=document.getElementById('donebtn');
+  if(done.has(current)){ b.textContent='✓ Completed'; b.classList.add('done'); }
+  else { b.textContent='Mark complete'; b.classList.remove('done'); }
+}
+function render(id){
+  const l=LEAVES.find(x=>x.id===id); const m=l.mod;
+  const el=document.getElementById('content-'+id);
+  const md = el ? el.textContent : (m.stub||('# '+m.title));
+  if(window.marked){ artEl.innerHTML = marked.parse(md); }
+  else { artEl.innerHTML = '<div class="fallback">Rendering library didn\'t load (no internet?). Raw text below.</div><pre>'+md.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))+'</pre>'; }
+  if(l.stub && m.status==='queued'){
+    const note=document.createElement('div');
+    note.className='queued-note';
+    note.innerHTML='<b>Not filled yet.</b> Scaffolded from the roadmap. Tell the tutor to build it and the full graduate-level subject — split into trackable chapters — drops in here.';
+    artEl.appendChild(note);
+  }
+  document.getElementById('crumb').innerHTML=`Module <b>${m.num}</b> · ${l.stub?m.title:l.title}`;
+}
+function buildPager(){
+  const i=LEAVES.findIndex(x=>x.id===current);
+  const prev=LEAVES[i-1], next=LEAVES[i+1];
+  const pb=document.getElementById('prev'), nb=document.getElementById('next');
+  pb.disabled=!prev; nb.disabled=!next;
+  document.getElementById('prevt').textContent=prev?(prev.stub?prev.mod.num+' — '+prev.mod.title:prev.title):'';
+  document.getElementById('nextt').textContent=next?(next.stub?next.mod.num+' — '+next.mod.title:next.title):'';
+  pb.onclick=()=>prev&&go(prev.id);
+  nb.onclick=()=>next&&go(next.id);
+}
+function go(id){ current=id; save(); buildNav(); render(id); buildPager(); syncDoneBtn(); scrollEl.scrollTop=0; document.body.classList.remove('nav-open'); }
+document.getElementById('navtoggle').onclick=()=>document.body.classList.toggle('nav-open');
+document.getElementById('backdrop').onclick=()=>document.body.classList.remove('nav-open');
+document.getElementById('donebtn').onclick=()=>toggleDone(current);
+buildNav(); render(current); buildPager(); syncDoneBtn();
+</script>
+</body>
+</html>
