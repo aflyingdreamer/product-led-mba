@@ -140,13 +140,13 @@
 
 # Nhập môn — chủ đề và ba case xuyên suốt
 
-**Trình độ:** cao học · **Điều kiện tiên quyết:** không · Đây là module lớn nhất chương trình, và là cái xương sống định lượng mà mọi thứ khác treo lên.
+**Trình độ:** cao học · **Điều kiện tiên quyết:** không · Đây là module lớn nhất chương trình, và là cái xương sống định lượng đỡ lấy mọi thứ còn lại.
 
 **Học xong mày cầm được cái gì** — cầm bộ số thô của bất kỳ công ty nào và: (a) đọc ba báo cáo tài chính của nó như *một hệ thống khớp vào nhau*; (b) chứng minh một khách hàng có lời hay không và mô hình cư xử ra sao khi bị ép; (c) chỉ ra hai ba đòn bẩy thực sự làm dịch chuyển giá trị doanh nghiệp (enterprise value); (d) phác được doanh nghiệp đáng giá bao nhiêu và bảo vệ được con số đó.
 
 **Kết quả học tập (làm *được*, không phải đọc thuộc):**
 1. Lần một sự kiện kinh doanh xuyên cả ba báo cáo tài chính cùng lúc.
-2. Tách lợi nhuận kế toán khỏi lợi nhuận kinh tế khỏi tiền mặt — và hiểu vì sao cả ba khác nhau.
+2. Tách bạch ba thứ — lợi nhuận kế toán, lợi nhuận kinh tế, tiền mặt — và hiểu vì sao cả ba lệch nhau.
 3. Suy ra LTV từ gốc và nêu bốn giả định mà dưới đó nó nói dối.
 4. Dựng một P&L theo biên đóng góp (contribution margin); tính điểm hòa vốn và đòn bẩy vận hành.
 5. Áp logic chiết khấu dòng tiền (discounted cash flow) và giải thích vì sao SaaS được định giá theo bội số doanh thu tương lai.
@@ -155,7 +155,7 @@ Nhãn độ tin dùng xuyên suốt: `[established]` chắc như sách giáo kho
 
 ## Ba case chạy xuyên suốt
 
-Một công ty chỉ dạy được một hình dạng. Nên module này vác theo **ba**, chọn vì chúng lệch nhau trên mọi trục quan trọng — và chính cái lệch đó *là* bài học. Khi cùng một công thức nhả ra ba phán quyết khác nhau một trời một vực, mày đang học ra công thức đó thực sự phụ thuộc vào cái gì.
+Một công ty chỉ dạy được một hình dạng. Nên module này vác theo **ba**, chọn vì chúng lệch nhau trên mọi trục quan trọng — và chính cái lệch đó *là* bài học. Khi cùng một công thức nhả ra ba phán quyết khác nhau một trời một vực, mày mới thật sự học được công thức đó rốt cuộc phụ thuộc vào cái gì.
 
 | | **Figma** (A) | **Salesforce** (B) | **Mailchimp** (C) |
 |---|---|---|---|
@@ -181,20 +181,20 @@ Ba nhà sáng lập, ba con đường, ba cách cùng một bài toán — *bi�
 
 # Doanh nghiệp như một cỗ máy tạo giá trị
 
-Đây là một quyết định mày sẽ gặp với tiền thật đặt lên bàn: có người chìa ra một công ty đang báo **lợi nhuận** đẹp và nhờ mày rót vốn, mua lại, hoặc đặt cả sự nghiệp vào việc điều hành nó. Gật đầu dựa trên cái nghĩa sai của chữ "lợi nhuận" và mày có thể chống lưng cho một doanh nghiệp đang chết dần trong khi chính cái báo cáo kết quả kinh doanh của nó vẫn cười với mày. Chương này là liều vắc-xin — và nó nhỏ hơn cái đống thuật ngữ làm ra vẻ. Học xong, không bao giờ có ai chìa cho mày chữ "lợi nhuận" mà mày không phản xạ hỏi lại *loại nào*, và riêng cái phản xạ đó thôi đã là phần lớn cái tách người đọc được báo cáo tài chính khỏi người bị nó lừa.
+Đây là một quyết định mày sẽ gặp với tiền thật đặt trên bàn: có người chìa ra một công ty đang báo **lợi nhuận** đẹp rồi nhờ mày rót vốn, mua lại, hoặc đặt cả sự nghiệp vào việc điều hành nó. Gật đầu dựa trên cái nghĩa sai của chữ "lợi nhuận", mày có thể đang chống lưng cho một doanh nghiệp chết dần trong khi báo cáo lãi lỗ của nó vẫn nhơn nhơn khoe lãi. Chương này là liều vắc-xin — mà thật ra đơn giản hơn nhiều so với cái vẻ hầm hố đống thuật ngữ dựng lên. Học xong, không ai chìa chữ "lợi nhuận" cho mày mà mày không bật lại ngay: *loại nào?* Riêng cái phản xạ đó thôi đã là phần lớn thứ ngăn cách kẻ đọc được báo cáo tài chính với kẻ bị nó lừa.
 
-Bởi vì đây là cái bẫy mày đang mắc sẵn. Mày đã có câu trả lời cho "doanh nghiệp này có kiếm được tiền không" — câu trực giác: **tiền vào trừ tiền ra**. Nghe hiển nhiên đúng, và thi thoảng nó *đúng* thật, do tình cờ. Nhưng nó lặng lẽ gộp ba câu hỏi mà quý nào cũng thường xuyên chỏi nhau: *hoạt động có tạo ra thặng dư không, số dư ngân hàng có tăng không, và mình có tạo ra giá trị gì không?* Một công ty có thể báo lợi nhuận kỷ lục, cạn sạch tiền, và phá hủy giá trị cùng một lúc — mà cái bản năng một-con-số chẳng thấy cái nào tới. Nên nước đi đầu tiên của việc biết đọc tài chính là từ chối cái gộp đó, tách ba thứ ra.
+Bởi mày đang sẵn mang một cái bẫy trong đầu. Hỏi "doanh nghiệp này có kiếm ra tiền không", mày đã có sẵn câu trực giác: **tiền vào trừ tiền ra**. Nghe hiển nhiên đúng, và thi thoảng nó *đúng* thật — do may. Nhưng nó lặng lẽ gộp ba câu hỏi mà quý nào cũng hay chỏi nhau: *hoạt động có tạo ra thặng dư không, số dư ngân hàng có tăng không, và mình có tạo ra giá trị gì không?* Một công ty có thể vừa báo lãi kỷ lục, vừa cạn sạch tiền, vừa phá hủy giá trị — cùng một lúc — mà cái phản xạ đo bằng một con số chẳng thấy cú nào tới. Nên bước đầu của việc biết đọc tài chính là từ chối cái gộp đó, tách ba thứ ra.
 
-Cả cái này treo lên một câu hỏi — *sau một quãng hoạt động, mày có khá hơn không?* — trả lời bằng cách lấy cái mày thu về trừ đi cái mày bỏ ra. Toàn bộ cuộc chiến nằm ở vế đầu: **cái gì được tính là "bỏ ra."** Ba câu trả lời thành thật, ba loại lợi nhuận. Bắt đầu từ câu hỏi, đừng từ công thức, rồi mỗi cái sẽ tự rơi ra.
+Tất cả gói lại trong một câu hỏi — *sau một quãng làm ăn, mày có khá hơn không?* — trả lời bằng cách lấy cái thu về trừ cái bỏ ra. Toàn bộ trận đánh nằm ở vế sau: **cái gì được tính là "bỏ ra".** Ba cách trả lời thành thật, ra ba loại lợi nhuận. Cứ bám câu hỏi, đừng bám công thức, rồi từng loại sẽ tự lòi ra.
 
 ### Lợi nhuận kế toán
 *Kỳ này hoạt động có nhả ra thặng dư không, đo bằng một bộ luật nhất quán?*
 
 Vấn đề nó giải: thời điểm tiền mặt thô nói dối. Mày mua một cái máy một lần và nó sinh lời trong năm năm; mày thu phí cả năm trả trước cho một dịch vụ mày giao hàng tháng. Đếm tiền mặt trong một quý và mày đọc sai liệu hoạt động có tạo ra được gì.
 
-Nên kế toán chạy trên một nước đi — **nguyên tắc khớp (matching principle)**: ghi doanh thu khi nó *được kiếm* (giá trị đã giao), và đặt đối lại là các chi phí *phát sinh để tạo ra doanh thu đó*, bất kể tiền thực sự dịch chuyển lúc nào. "Chi phí kế toán" = nguồn lực đốt để tạo ra doanh thu mày đang ghi nhận lúc này.
+Nên kế toán mới xoay quanh một quy ước — **nguyên tắc khớp (matching principle)**: ghi doanh thu khi nó *được kiếm* (giá trị đã giao), rồi đặt đối lại đúng những chi phí *phát sinh để tạo ra khoản doanh thu đó*, bất kể tiền thật dịch chuyển lúc nào. "Chi phí kế toán" = phần nguồn lực đốt ra để tạo khoản doanh thu mày đang ghi nhận.
 
-Đây là phần sách giáo khoa bỏ rơi: lợi nhuận này đúng theo kiểu **luật cờ vua** đúng — một quy ước ta thống nhất với nhau (GAAP/IFRS), không phải định luật tìm thấy trong tự nhiên. `[established-as-convention]` Đó là *vì sao nó là một ý kiến* — khấu hao nhanh hơn, gọi doanh thu là "đã kiếm" sớm hơn, đoán nợ xấu thấp hơn, thế là con số dịch. Hai kế toán viên trung thực rơi vào hai chỗ khác nhau.
+Đây là chỗ sách giáo khoa hay bỏ quên: lợi nhuận này "đúng" theo kiểu **luật cờ vua** — một quy ước con người thống nhất với nhau (GAAP/IFRS), không phải định luật có sẵn trong tự nhiên. `[established-as-convention]` Đó là *lý do nó chỉ là một ý kiến*: khấu hao nhanh hơn một chút, ghi doanh thu "đã kiếm" sớm hơn một chút, đoán nợ xấu thấp hơn một chút — thế là con số nhảy. Hai kế toán viên đều trung thực vẫn dừng ở hai chỗ khác nhau.
 
 **Lăng kính đúng** để so sánh hiệu quả vận hành qua các kỳ hoặc giữa các công ty (vì sao bộ luật phải được chuẩn hóa). **Mù với** hai thứ: khi nào tiền thực sự dịch chuyển, và vốn của mày lẽ ra kiếm được gì ở chỗ khác — và mỗi cái mù đó chính là lý do hai loại lợi nhuận tiếp theo tồn tại.
 
@@ -212,7 +212,7 @@ Cái mà trường kinh doanh tồn tại để cài vào đầu mày, vì nó b
 
 Nên: lợi nhuận kinh tế = lợi nhuận kế toán − chi phí của vốn đã dùng. Một công ty kiếm 4% trên vốn có giá 12% thì báo lợi nhuận kế toán trong khi *phá hủy* của cải.
 
-Hai tầng, hai loại sự thật: *cái chi phí cơ hội đó là thật* là một phát hiện đã được khám phá `[established-as-finding]`; còn *con số* mày trừ đi — chi phí vốn của mày — là một ước lượng theo quy ước mà người ta cãi nhau bất tận. `[contested]`
+Hai tầng, hai loại sự thật: *chi phí cơ hội đó có thật* là một quy luật được khám phá ra `[established-as-finding]`; còn *con số* mày đem trừ — chi phí vốn của mày — chỉ là một ước lượng theo quy ước, thứ người ta cãi nhau bất tận. `[contested]`
 
 | Lợi nhuận | Câu hỏi | Cái mày trừ đi | Loại sự thật |
 |---|---|---|---|
@@ -232,7 +232,7 @@ Hai tầng, hai loại sự thật: *cái chi phí cơ hội đó là thật* l�
 
 Từ vựng thì trốn trong tường; còn cái logic thì chạy mọi quyết định về vốn.
 
-### Ra quyết định
+### Chốt đi
 Một founder chìa cho mày một cái deck: **lợi nhuận kế toán kỷ lục, quý đẹp nhất từ trước tới giờ**, và xin một khoản vay bắc cầu để tiếp tục tăng trưởng. Trước khi đọc tiếp, quyết trong một dòng: *trong ba con số, mày đòi xem con số nào, và mỗi con số phải nói gì thì mày mới ký séc?*
 
 Trọng điểm không phải một đáp án đúng — mà là giờ mày từ chối cái phiên bản một-con-số. Một cách đọc bảo vệ được: **tiền mặt/runway** quyết định liệu họ có sống nổi tới lúc *dùng* được khoản vay không (một công ty có lời có thể mất khả năng thanh toán ngay thứ Sáu tuần này); **lợi nhuận kế toán** cho mày biết hoạt động có thực sự chạy hay "lợi nhuận" chỉ là ảo ảnh dồn tích; **lợi nhuận kinh tế** cho mày biết tiền mày cho vay có kiếm được nhiều hơn cái giá của nó không — nếu không thì mày đang tài trợ cho việc phá hủy giá trị theo kiểu vòng vo hơn. Bỏ sót câu hỏi tiền mặt thì cái deck lợi nhuận kỷ lục kia chính là cách mày bị úp sọt. Cái phản xạ đó — *lợi nhuận loại nào, và nó mù với cái gì* — là cả chương này.
@@ -301,10 +301,10 @@ Figma ký một tài khoản mới: **$1,200 trả trước** cho 12 tháng. Chi
 
 **Chốt hạ:** P&L nói "+$82," ngân hàng nói "+$1,200 một lần, rồi hết," bảng cân đối ghi lại một khoản vay từ khách. Tất cả đều đúng. Chỉ đọc một báo cáo là cách người giỏi bị úp sọt.
 
-### Ra quyết định
+### Chốt đi
 Hai công ty SaaS đều báo **doanh thu $1.2M, tăng trưởng 80%.** Công ty A thu năm trả trước; Công ty B thu theo tháng. Trước khi đọc tiếp: *không cần nhìn số dư ngân hàng, bên nào nhiều khả năng phải đi gọi vốn trong năm nay hơn — và mày nhìn chỗ nào trên báo cáo để xác nhận?*
 
-Dòng doanh thu không trả lời được — nó giống hệt nhau, và nó là dồn tích. Câu trả lời sống trong cái gợn sóng. Việc A thu trả trước đậu một khoản nợ **doanh thu chưa thực hiện** béo múp: tiền của khách đã nằm sẵn trong tay, nuôi tăng trưởng (vốn lưu động âm, đúng cái "món quà" ở trên). B thu nhỏ giọt trong khi trả tiền giành khách *trước khi* tiền của khách tới, nên nó chìm nghỉm dưới mặt nước ở mỗi logo mới suốt mấy tháng. Cùng dòng đỉnh, hai cuộc đời tiền mặt ngược nhau — nên mày nhìn vào **doanh thu chưa thực hiện** và vào **khoảng cách giữa lợi nhuận và dòng tiền**, đừng bao giờ nhìn dòng doanh thu. Cái khoảng cách đó là toàn bộ Chương 3.
+Dòng doanh thu không trả lời được — nó giống hệt nhau, và nó là dồn tích. Câu trả lời sống trong cái gợn sóng. Việc A thu trả trước đậu một khoản nợ **doanh thu chưa thực hiện** béo múp: tiền của khách đã nằm sẵn trong tay, nuôi tăng trưởng (vốn lưu động âm, đúng cái "món quà" ở trên). B thu nhỏ giọt trong khi phải trả tiền giành khách *trước khi* tiền của khách về, nên với mỗi logo mới nó lại âm tiền suốt mấy tháng. Cùng dòng đỉnh, hai cuộc đời tiền mặt ngược nhau — nên mày nhìn vào **doanh thu chưa thực hiện** và vào **khoảng cách giữa lợi nhuận và dòng tiền**, đừng bao giờ nhìn dòng doanh thu. Cái khoảng cách đó là toàn bộ Chương 3.
 </script>
 
 <script type="text/markdown" id="content-M1-3">
@@ -312,18 +312,18 @@ Dòng doanh thu không trả lời được — nó giống hệt nhau, và nó 
 
 # Dồn tích, tiền mặt, và tại sao tăng trưởng đốt tiền
 
-Mày sẽ cá, một cách hợp lý thôi, rằng một công ty có lãi là một công ty an toàn — rằng nếu P&L (báo cáo lãi lỗ) đang xanh thì chuyện cạn tiền là việc của thằng khác. Cái trực giác đó đã giết nhiều doanh nghiệp tốt hơn gần như bất kỳ thứ gì khác. Vì lợi nhuận và tiền mặt *không phải là một*, và một công ty tăng trưởng nhanh có thể thừa cái thứ nhất mà không có cái thứ hai: mọi con số đều bảo mày đang thắng, rồi một tuần nào đó lương không trả nổi. Chương này là cách mày nhìn thấy bức tường đó lù lù tới từ nhiều tháng trước — mà cái ngày mày vận hành hay rót vốn cho một doanh nghiệp đang lớn, đó chính là toàn bộ khác biệt giữa một vòng gọi vốn ung dung và một cuộc bán tháo.
+Mày sẽ đoán — mà đoán vậy cũng có lý — rằng công ty có lãi là công ty an toàn: P&L (báo cáo lãi lỗ) mà xanh thì cạn tiền là chuyện của thằng khác. Chính cái trực giác đó đã chôn nhiều doanh nghiệp tử tế hơn gần như mọi thứ khác. Bởi lợi nhuận và tiền mặt *không phải một thứ*, và một công ty lớn nhanh có thể thừa cái đầu mà thiếu cái sau: mọi con số đều bảo mày đang thắng, rồi một sáng nào đó không còn tiền trả lương. Chương này dạy mày nhìn ra bức tường ấy từ cách xa mấy tháng — và tới ngày mày ngồi ghế vận hành hay xuống tiền cho một doanh nghiệp đang phình to, chính khoảng nhìn trước đó là ranh giới giữa một vòng gọi vốn thong thả và một cú bán tháo.
 
-Bắt đầu từ *tại sao* hai thứ này lệch nhau. Tăng trưởng tốn tiền **ngay bây giờ** — mày trả để giành khách, xây sản phẩm, tuyển người trước cả khi doanh thu tới — nhưng dòng tiền mà tăng trưởng đẻ ra lại tới **muộn hơn**, rỉ ra dần suốt vòng đời khách hàng. Nên mỗi động tác tăng trưởng là một canh bạc "trả trước, thu sau", và mày lớn càng nhanh thì càng chạy nhiều canh bạc kiểu đó cùng lúc. **Bản thân tăng trưởng nới rộng khoảng cách giữa lợi nhuận và tiền mặt** — đây mới là chỗ tàn nhẫn: nhu cầu càng khỏe, một doanh nghiệp vận hành ngây thơ càng đốt nhiều tiền. Xem cùng một quyết định "giành một tài khoản" trong ba trường hợp — một sự kiện, ba số phận tiền mặt:
+Bắt đầu từ *vì sao* hai thứ này lệch. Tăng trưởng ngốn tiền **ngay lúc này** — mày trả để giành khách, dựng sản phẩm, tuyển người, tất cả trước khi doanh thu về — nhưng dòng tiền do nó đẻ ra lại về **sau**, rỉ ra dần suốt đời khách. Vậy nên mỗi bước tăng trưởng là một ván "chi trước, thu sau", và lớn càng nhanh thì càng ôm nhiều ván cùng lúc. **Tự thân tăng trưởng banh rộng khoảng cách giữa lợi nhuận và tiền mặt** — và đây mới là chỗ ác: cầu càng khỏe, một doanh nghiệp vận hành ngây thơ càng đốt tiền tợn. Cùng một quyết định "giành một tài khoản", đặt vào ba công ty — một sự kiện, ba số phận tiền mặt:
 
 | Tại thời điểm giành một tài khoản | Figma | Salesforce | Mailchimp |
 |---|---|---|---|
 | Tiền thu về trước | $1,200 | $48,000 | $29 |
 | CAC trả trước | $600 | $60,000 | $90 |
 | **Tiền ròng ở Ngày 0** | **+$600** | **−$12,000** | **−$61** |
-| Hình dáng dòng tiền | Tự nuôi mình | Hố sâu mỗi thương vụ | Chìm dưới nước ~3–4 tháng |
+| Hình dáng dòng tiền | Tự nuôi mình | Hố sâu mỗi thương vụ | Âm tiền ~3–4 tháng |
 
-Đọc đi: **Figma dương tiền ngay khoảnh khắc ký được khách** — nó lớn lên bằng tiền của chính khách hàng. **Salesforce chìm $12,000 dưới nước mỗi thương vụ dù đã có khoản trả trước bự** — mỗi logo mới đòi vốn trả trước; tăng trưởng doanh nghiệp kiểu sales-led đói vốn ngay từ trong thiết kế. **Mailchimp trông rẻ ($90 CAC cơ mà!) nhưng thu theo tháng**, nên nó âm tiền suốt ~3–4 tháng đầu của mỗi khách và chẳng bao giờ có được cái đệm trả-trước. `[established]`
+Nhìn kỹ: **Figma dương tiền ngay giây ký được khách** — nó lớn lên bằng chính tiền của khách. **Salesforce lỗ vốn $12,000 mỗi thương vụ dù đã được trả trước cả cục** — mỗi khách mới đòi một khoản bỏ ra trước; kiểu tăng trưởng sales-led đói vốn ngay từ trong thiết kế. **Mailchimp nhìn thì rẻ (CAC có $90 thôi mà) nhưng thu theo tháng**, nên mỗi khách nó âm tiền suốt 3–4 tháng đầu và chẳng bao giờ có nổi cái đệm trả-trước. `[established]`
 
 Cái mớ tiền bị kẹt đó có tên hẳn hoi: **vốn lưu động** (working capital) — số tiền bị chôn trong khoảng cách giữa lúc mày *chi ra* (để xây, giao hàng, giành khách, trả lương) và lúc mày *thu về* từ khách. Hình dung chu kỳ vận hành như một vòng lặp: tiền rời đi để sản xuất và bán, rồi quay về khi khách trả tiền. Bất cứ thứ gì đang "bay lơ lửng" quanh vòng lặp đó tại một thời điểm chính là vốn lưu động — **tiền mày sở hữu nhưng không tiêu được.** Lớn lên đi, vòng lặp gánh nhiều tiền hơn, đó là lý do scale một doanh nghiệp thu tiền chậm sẽ rút cạn ngân hàng ngay cả khi P&L leo dốc. Mô hình thu tiền quyết định *dấu*: thu **trước** khi giao (trả trước cả năm) thì khách nuôi vòng lặp của mày — vốn lưu động *âm*, món quà từ Chương 2; thu **sau** (theo tháng, hoặc hóa đơn net-60) thì mày nuôi vòng lặp của họ.
 
@@ -331,9 +331,9 @@ Giờ thì cái câu tưởng vô lý tan ra. **"Có lãi mà hết tiền"** = 
 
 > **Quy tắc vận hành** `[heuristic]`: với gói thuê bao thu theo tháng, cái đáy tiền mặt mỗi cohort ≈ `CAC − (months-to-payback × monthly contribution)`, sâu nhất ngay lúc giành khách và leo dần lên khi biên đóng góp nhỏ giọt về. Trả trước cả năm lật ngược cái dấu — mày khởi đầu *trên* mặt nước. Cách mày thu tiền có thể là toàn bộ khác biệt giữa cần một vòng gọi vốn và không cần.
 
-**Dân vận hành sống với cái này ra sao.** Hai con số một founder theo dõi mỗi ngày không nằm trên P&L: **burn rate** (tiền ròng chảy ra mỗi tháng) và **runway** (số tháng còn lại = tiền ÷ burn). `[synthesis]` Nhạc cụ thật của CFO là bản dự báo tiền mặt cuốn chiếu 13 tuần — báo cáo kết quả kinh doanh là để trình hội đồng, còn dự báo tiền mặt là để sống sót. Và điều khoản thu tiền là một *vũ khí tiền mặt*: lý do SaaS ép trả trước cả năm dữ vậy, treo lơ lửng mức giảm 15–20% cho nó, không phải vì doanh thu — mà là kéo cả một năm tiền về phía trước để nuôi tăng trưởng mà khỏi phải gọi vốn; khách doanh nghiệp thì đẩy ngược lại bằng điều khoản net-60/90 để nuôi vốn lưu động của *họ* bằng tiền của *mày*. Mọi cuộc thương lượng điều khoản thanh toán đều là một trận đánh vốn lưu động khoác áo giảm giá. Cái câu vang lên trong phòng chưa bao giờ là "mình có lãi không" — mà là **"runway của mình còn bao nhiêu, và quyết định này kéo dài hay rút ngắn nó?"**
+**Dân vận hành sống với cái này ra sao.** Hai con số một founder soi mỗi ngày lại chẳng nằm trên P&L: **burn rate** (tiền ròng chảy ra mỗi tháng) và **runway** (số tháng còn trụ được = tiền ÷ burn). `[synthesis]` Thứ một CFO thực sự dán mắt vào là bản dự báo tiền mặt cuốn chiếu 13 tuần — báo cáo lãi lỗ là để trình hội đồng, còn dự báo tiền mặt là để sống sót. Và điều khoản thanh toán là một *vũ khí tiền mặt*: lý do SaaS ép trả trước cả năm ghê vậy, chịu thả giảm 15–20% để đổi lấy nó, không phải vì doanh thu — mà để kéo trọn một năm tiền về phía trước nuôi tăng trưởng mà khỏi phải gọi vốn; còn khách doanh nghiệp thì đẩy ngược lại bằng net-60/90 để nuôi vốn lưu động của *họ* bằng tiền của *mày*. Mọi cuộc mặc cả điều khoản thanh toán đều là một trận giành vốn lưu động khoác áo giảm giá. Câu vang lên trong phòng chưa bao giờ là "mình có lãi không" — mà là **"runway còn mấy tháng, và cú này kéo dài hay rút ngắn nó?"**
 
-### Ra quyết định
+### Chốt đi
 Hai doanh nghiệp tăng trưởng y hệt nhau ở 80%/năm với cùng biên. Doanh nghiệp A thu tiền cả năm trả trước; doanh nghiệp B bán cho khách doanh nghiệp với điều khoản net-60. Trước khi đọc tiếp: *cái nào có thể lớn nhanh hơn mà không cần gọi vốn ngoài — và nếu mày vận hành cái đói tiền kia, cần gạt cái đòn bẩy nào đầu tiên trước khi nhận một xu pha loãng cổ phần?*
 
 A lớn lên bằng tiền của khách (vốn lưu động âm); B *cho khách vay* và phải tài trợ khoảng chênh đó, nên ở cùng tốc độ tăng trưởng, B cần nhiều vốn hơn hẳn chỉ để đứng yên tại chỗ. Và cái đòn bẩy cho B không phải "gọi vốn" — mà là **đổi điều khoản**: rút ngắn kỳ thu, thêm chiết khấu trả trước, xuất hóa đơn ngay khi ký chứ không đợi giao hàng. Giải phóng vốn lưu động thường là nguồn tiền lớn hơn, nhanh hơn, rẻ hơn một vòng gọi vốn — và nó không tốn cổ phần nào. Nhìn vào vốn lưu động *trước khi* mày cho rằng mình cần vốn.
@@ -344,7 +344,7 @@ A lớn lên bằng tiền của khách (vốn lưu động âm); B *cho khách 
 
 # Unit economics, làm cho chặt
 
-Mỗi đồng mày sẽ tiêu cho tăng trưởng đều cưỡi trên một canh bạc: rằng một khách hàng đáng giá hơn cái giá để giành được nó. Unit economics là nơi mày *chứng minh* canh bạc đó thay vì cầu trời cho nó đúng — và là nơi mày học ra rằng chính con số mà ai cũng trích để chứng minh nó, **LTV:CAC**, là một dự báo mặc bộ đồ của một sự thật: gian lận được, chất đầy giả định, và tới lúc quan trọng thì thường sai. Bản năng là đọc "5:1" như một phán quyết — *khỏe đấy, cứ tiêu tiếp đi.* Hết chương này mày sẽ không chấp nhận một con LTV:CAC nào mà không hỏi ba thứ — *CAC nào*, đã chiết khấu hay chưa, và dựa trên giả định churn *nào* — vì mỗi thứ đều có thể lặng lẽ biến một con 5:1 thành 2:1 hoặc thành ảo ảnh. Cái phản xạ tra hỏi đó chính là toàn bộ kỹ năng; công thức chỉ là cách mày chạy nó thôi.
+Mỗi đồng mày sẽ tiêu cho tăng trưởng đều cưỡi trên một canh bạc: rằng một khách hàng đáng giá hơn cái giá để giành được nó. Unit economics là nơi mày *chứng minh* canh bạc đó thay vì cầu trời cho nó đúng — và là nơi mày học ra rằng chính con số mà ai cũng trích để chứng minh nó, **LTV:CAC**, là một dự báo đội lốt sự thật: gian lận được, chất đầy giả định, và tới lúc quan trọng thì thường sai. Bản năng là đọc "5:1" như một phán quyết — *khỏe đấy, cứ tiêu tiếp đi.* Hết chương này mày sẽ không chấp nhận một con LTV:CAC nào mà không hỏi ba thứ — *CAC nào*, đã chiết khấu hay chưa, và dựa trên giả định churn *nào* — vì mỗi thứ đều có thể lặng lẽ biến một con 5:1 thành 2:1 hoặc thành ảo ảnh. Cái phản xạ tra hỏi đó chính là toàn bộ kỹ năng; công thức chỉ là cách mày chạy nó thôi.
 
 Zoom vào một khách hàng. Mọi thuật ngữ dưới đây đều được *dựng nên*, không phải phán bừa.
 
@@ -354,7 +354,7 @@ Zoom vào một khách hàng. Mọi thuật ngữ dưới đây đều được 
 - **Paid CAC** — chi phí trả tiền / khách từ các kênh trả tiền. Quyết định chuyện giành khách có *scale* được không.
 - **Fully-loaded CAC** — tính cả lương/công cụ/chi phí chung của việc giành khách, chứ không chỉ tiền quảng cáo. Con số thật sự đúng.
 
-> Nếu blended CAC trông ngon mà paid CAC chìm dưới nước, mày đang chạy nhờ một *kênh miễn phí không vặn to lên được* — chính là tình huống SHT/PageFly, quy ra số. Blended CAC là chỗ cái phân phối đi mượn ẩn mình. Nó cũng là lý do con $90 của Mailchimp mong manh: bóp chết kênh organic đi thì nó chẳng còn là $90.
+> Nếu blended CAC trông ngon mà paid CAC lại lỗ chỏng gọng, mày đang chạy nhờ một *kênh miễn phí không vặn to lên được* — chính là tình huống SHT/PageFly, quy ra số. Blended CAC là chỗ cái phân phối đi mượn ẩn mình. Nó cũng là lý do con $90 của Mailchimp mong manh: bóp chết kênh organic đi thì nó chẳng còn là $90.
 
 ## 4.2 Biên đóng góp
 `Contribution = ARPA × gross margin%` — doanh thu trừ đi chi phí *biến đổi* để phục vụ, không phải cả doanh thu. Figma: `$100 × 0.82 = $82/mo`. `[established]`
@@ -400,13 +400,13 @@ Nên "chia cho churn" chẳng có gì huyền bí — `1/c` *chính là* số k�
 
 3. **ARPA phẳng là sai.** Có expansion (mở rộng — NRR > 100%) thì biên đóng góp *lớn dần* theo vòng đời; nếu expansion vượt churn+chiết khấu thì công thức ngây thơ chạy tới vô cực — mà đó *chính là* lý do các doanh nghiệp dẫn dắt bằng expansion được định giá khác hẳn (→ M3). NRR 125% của Salesforce nghĩa là đường cong thật của nó cong *lên*; Mailchimp 95% thì cong *xuống*.
 
-4. **Bản thân chỉ số này còn tranh cãi.** `[contested]` LTV:CAC là một *dự báo trong bộ đồ của một sự thật* — nó dựa trên một cú đoán churn về một tương lai mày chưa sống qua (tàn khốc với các công ty non chưa có cohort dài) và bị gian lận dễ như bỡn. Dân vận hành sắc sảo dẫn đầu bằng **CAC payback** (chỉ tính tiền đã thu về) và **đường cong cohort**, coi LTV:CAC như một cú kiểm tra định hướng, không bao giờ là mục tiêu. (Lemkin; các bài phê bình chỉ số của a16z.)
+4. **Bản thân chỉ số này còn tranh cãi.** `[contested]` LTV:CAC là một *dự báo đội lốt sự thật* — nó dựa trên một cú đoán churn về một tương lai mày chưa sống qua (tàn khốc với các công ty non chưa có cohort dài) và bị gian lận dễ như bỡn. Dân vận hành sắc sảo dẫn đầu bằng **CAC payback** (chỉ tính tiền đã thu về) và **đường cong cohort**, coi LTV:CAC như một cú kiểm tra định hướng, không bao giờ là mục tiêu. (Lemkin; các bài phê bình chỉ số của a16z.)
 
 ## 4.6 Vậy trường hợp nào "tốt nhất"? — cái đích của việc chạy cả ba
 - **Theo tỷ lệ:** Salesforce (trước chiết khấu). **Theo payback/tiền mặt:** Mailchimp (hồi vốn trong 3.7 tháng). **Theo độ bền:** Salesforce (churn 0.5%). **Theo giá trị tuyệt đối mỗi khách:** Salesforce, hơn 1,000×. **Theo hiệu quả vốn:** Figma (tự nuôi mình, Chương 3).
 - Không một chỉ số đơn lẻ nào phong vương được. Cái payback đẹp mê của Mailchimp giấu một cái xô thủng (6% mỗi tháng = ~52%/năm — cứ hai năm mày phải thay mới cả tệp khách). Cái tỷ lệ đẹp mê của Salesforce giấu một cái hố tiền 19 tháng và một giá trị mà phần lớn chỉ là ảo ảnh của chiết khấu. Figma là kẻ cộng dồn thầm lặng. **Đây chính là toàn bộ lý do phải giữ đủ ba trường hợp: bất kỳ chỉ số nào, đọc một mình, đều nói dối — và nó nói dối theo kiểu khác nhau cho mỗi hình dáng.**
 
-## Ra quyết định
+## Chốt đi
 Một trưởng nhóm tăng trưởng mang tới cho mày một kênh: **LTV:CAC 6:1 — vượt xa mốc 3:1, đổ tiền vào thôi.** Trước khi đọc tiếp: *mày hỏi gì trước khi duyệt thêm một đồng nào?*
 
 Ba câu hỏi tháo tung nó ra hoặc xác nhận nó. **CAC nào?** Nếu con 6 đó dùng *blended* CAC, thì cái kênh trả tiền mà mày thật sự sẽ scale có khi chỉ là 2:1 — con 6 đó là organic đi mượn, sẽ không vặn to lên được khi mày tiêu tiền. **Đã chiết khấu chưa?** Một con 6:1 trên tệp churn thấp có thể rụng một nửa khi mày tôn trọng giá trị thời gian, vì phần lớn "giá trị" đó nằm ở mấy năm sau (§4.5). **Churn nào?** Với một công ty non, cái churn nằm trong LTV đó là một *cú đoán* về một tương lai nó chưa sống qua; chỉ một cohort tệ là tỷ lệ lộn ngược. Cái duyệt trung thực chẳng dựa vào tỷ lệ chút nào — nó dựa vào **CAC payback** (tiền mày *đã* thu về) và **đường cong cohort** (§4½). Rót vào cái payback, đừng rót vào dự báo.
@@ -530,7 +530,7 @@ Làm hết trước khi mở lời giải — điểm mấu chốt là *làm* to
 
 # Bookings, billings, revenue & ARR — bốn con số người ta hay lẫn
 
-Mày tưởng một công ty có *một* con số doanh thu — một con số thành thật cho "nó kiếm được bao nhiêu tiền." Không hề. Một hợp đồng ký duy nhất nhả ra **bốn** con số "tiền" khác nhau, có thể gấp ba hay gấp mười lần nhau, tất cả về mặt kỹ thuật đều đúng, và *con số nào được đem ra đọc cho mày nghe là một lựa chọn* — có lúc vô tội, có lúc là một cú lừa. Học cách đòi cho ra con số nào và mày thôi làm cái khán giả mà một câu chuyện tăng trưởng đang diễn cho xem; bỏ lỡ nó thì một doanh nghiệp đang lặng lẽ chảy máu tiền có thể trông như một tên lửa. Đây là cả bộ, từ một sự kiện. `[established]`
+Mày tưởng một công ty có *một* con số doanh thu — một con số thành thật cho "nó kiếm được bao nhiêu tiền." Không hề. Một hợp đồng ký duy nhất nhả ra **bốn** con số "tiền" khác nhau, có thể gấp ba hay gấp mười lần nhau, tất cả về mặt kỹ thuật đều đúng, và *con số nào được đem ra đọc cho mày nghe là một lựa chọn* — có lúc vô tội, có lúc là một cú lừa. Học cách đòi cho ra là con số nào, mày thôi làm khán giả ngồi xem một câu chuyện tăng trưởng được dàn dựng; bỏ lỡ nó thì một doanh nghiệp đang lặng lẽ chảy máu tiền có thể trông như một tên lửa. Đây là cả bộ, từ một sự kiện. `[established]`
 
 - **Booking** — tổng giá trị hợp đồng đã ký (TCV). Một hợp đồng Salesforce 2 năm ở mức $48k/năm là một **booking $96k** ngay ngày ký.
 - **Billing** — cái mày thực sự xuất hóa đơn trong kỳ. Thu theo năm, billing Ngày-0 của Salesforce là **$48k**, không phải $96k.
@@ -550,10 +550,10 @@ Mày tưởng một công ty có *một* con số doanh thu — một con số t
 
 > **Chỗ nó cắn.** Bookings có thể bị thổi phồng bằng cách nhồi TCV nhiều năm vào một quý. ARR có thể gồm cả những logo sắp churn. Một công ty có thể lớn "ARR" trong khi doanh thu GAAP và tiền mặt lết theo thảm hại. Khi ai đó đọc cho mày một con số, hỏi *con số nào* — và ba con số kia có khớp không. Cái khoảng cách giữa chúng là nơi cả sự nhầm lẫn thành thật lẫn sự dối trá lặng lẽ trú ngụ.
 
-### Ra quyết định
+### Chốt đi
 Deck của một startup mở màn bằng **"$10M ARR, tăng 3× năm nay."** Mày đang cân nhắc có gia nhập không. Trước khi đọc tiếp: *mày hỏi ba con số nào, và cái gì sẽ biến $10M đó thành ảo ảnh?*
 
-Hỏi **doanh thu GAAP** — nếu nó là $3M so với $10M ARR, phần lớn cái run-rate đó là mới-giao-lèo-tèo hoặc vừa-mới-ký, một niềm hy vọng chứ không phải một lịch sử. Hỏi **billings và tiền đã thu** — nếu ARR gấp ba mà tiền không gấp ba, họ đang ghi những hợp đồng chưa được trả tiền. Hỏi **net revenue retention** — nếu ARR gồm cả những logo đã phát tín hiệu churn, thì $10M của năm sau rò ra ngoài trước khi có một cú bán mới nào đáp xuống. ARR là con số được đọc nhiều nhất và ít phải chịu trách nhiệm nhất trong bốn con số, chính vì nó là một *con trỏ hướng tương lai mà chưa ai phải giao hàng cả*. Con số trên slide chưa bao giờ là câu hỏi; câu hỏi là ba con số kia có khớp với nó không.
+Hỏi **doanh thu GAAP** — nếu nó là $3M so với $10M ARR, phần lớn cái run-rate đó là mới-giao-lèo-tèo hoặc vừa-mới-ký, là kỳ vọng chứ không phải thành tích đã có. Hỏi **billings và tiền đã thu** — nếu ARR gấp ba mà tiền không gấp ba, họ đang ghi những hợp đồng chưa được trả tiền. Hỏi **net revenue retention** — nếu ARR gồm cả những logo đã phát tín hiệu churn, thì $10M của năm sau rò ra ngoài trước khi có một cú bán mới nào đáp xuống. ARR là con số được đọc nhiều nhất và ít phải chịu trách nhiệm nhất trong bốn con số, chính vì nó là một *con trỏ hướng tương lai mà chưa ai phải giao hàng cả*. Con số trên slide chưa bao giờ là câu hỏi; câu hỏi là ba con số kia có khớp với nó không.
 
 Chuyển động MRR/ARR phân rã thành **mới + mở rộng − co lại − churn** — đúng toàn bộ chủ đề của chương retention (§4½), nơi con số cuối cùng đó quyết định liệu tệp khách gộp lãi hay chảy máu.
 </script>
@@ -567,13 +567,13 @@ Chuyển động MRR/ARR phân rã thành **mới + mở rộng − co lại −
 
 Ở Chương 4 mày dựng LTV, và tao đã lén tuồn qua mày một câu: *một tỷ lệ churn trung bình duy nhất là nói dối.* Đó là câu đắt nhất trong M1, và đây là nơi mày cảm được tại sao — vì cái sai lầm nó chỉ ra không phải chuyện hàn lâm. Nó chính xác là cái lỗi khiến một công ty gọi được vốn nhờ một câu chuyện đẹp, đổ hàng triệu đô vào giành khách, rồi hai năm sau phát hiện ra suốt thời gian đó nó chỉ đang châm nước vào một cái xô thủng.
 
-Đặt quyết định lên bàn. Mày sắp nói với hội đồng — hoặc với chính mày — *"một khách đáng giá $X, nên trả $Y để có được một khách là một cú trao đổi ngon."* Cả cái tuyên bố đó treo lơ lửng trên một đại lượng ẩn: **khách thật sự ở lại bao lâu, và trả bao nhiêu trong lúc còn ở đây.** Đoán sai đại lượng đó thì mọi thứ ở hạ nguồn — LTV, LTV:CAC, mày dám tiêu bao nhiêu để giành khách, gọi bao nhiêu vốn, công ty đáng giá bao nhiêu — đều sai *cùng một hướng*, lặng lẽ, suốt nhiều năm. Chẳng ai gửi cảnh báo cả. Cái xô cứ thế không bao giờ đầy.
+Đặt quyết định lên bàn. Mày sắp nói với hội đồng — hoặc với chính mày — *"một khách đáng giá $X, nên trả $Y để có được một khách là một cú trao đổi ngon."* Cả cái tuyên bố đó dựa hết vào một đại lượng ẩn: **khách thật sự ở lại bao lâu, và trả bao nhiêu trong lúc còn ở đây.** Đoán sai đại lượng đó thì mọi thứ ở hạ nguồn — LTV, LTV:CAC, mày dám tiêu bao nhiêu để giành khách, gọi bao nhiêu vốn, công ty đáng giá bao nhiêu — đều sai *cùng một hướng*, lặng lẽ, suốt nhiều năm. Chẳng ai gửi cảnh báo cả. Cái xô cứ thế không bao giờ đầy.
 
-Nên chương này xứng đáng với độ dài của nó. Nó dựng cái nhạc cụ duy nhất đo sự sống sót một cách trung thực — **cohort** — rồi hai con số, **GRR** và **NRR**, biến "khách ở lại" thành đồng đô la và quyết định, hơn gần như bất cứ thứ gì khác, chuyện doanh nghiệp mày cộng dồn hay chảy máu.
+Nên chương này xứng đáng với độ dài của nó. Nó dựng cái công cụ duy nhất đo được sự sống sót một cách trung thực — **cohort** — rồi hai con số, **GRR** và **NRR**, biến "khách ở lại" thành đồng đô la và quyết định, hơn gần như bất cứ thứ gì khác, chuyện doanh nghiệp mày cộng dồn hay chảy máu.
 
 ## Chỗ mà số trung bình đi sai
 
-Mày phải cảm được tại sao cách dễ dàng thất bại trước khi cái cách sửa có ý nghĩa gì.
+Mày phải cảm được vì sao cách làm dễ dãi kia sai đã, thì cách sửa mới có nghĩa.
 
 Dashboard của mày báo: *churn tháng 5%.* Một con số cho cả công ty. Nó có cảm giác như tri thức. Thực ra nó gần với ngụy trang hơn — vì con 5% đó bình quân hóa hai nhóm dân số không thể nào khác nhau hơn. Trong đó có những người đăng ký tuần trước, nhiều đứa thử sản phẩm một lần, không hiểu nó, rồi biến mất trong vòng một tháng. Trong *cùng* cái trung bình đó là những người đã trả tiền mỗi tháng suốt ba năm, đã cắm sản phẩm vào đời sống hàng ngày của cả team và gần như không bao giờ rời đi. Trộn chúng lại và mày được một con số chẳng mô tả **ai cả**: nó phóng đại tốc độ rời đi của phần lõi trung thành và hạ thấp tốc độ rời đi của đám vừa đăng ký.
 
