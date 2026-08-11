@@ -109,505 +109,504 @@
 <aside>
   <div class="brand">
     <h1>The Product-Led Business MBA</h1>
-    <p>Self-paced graduate program. Each module is a subject; each chapter tracks on its own.</p>
+    <p>Chương trình sau đại học, tự học theo nhịp của mày. Mỗi module là một môn; mỗi chương theo dõi tiến độ riêng.</p>
   </div>
   <div class="prog">
     <div class="bar"><div class="fill" id="fill"></div></div>
-    <div class="lbl" id="proglbl">0 chapters complete</div>
+    <div class="lbl" id="proglbl">0 chương đã xong</div>
   </div>
   <nav id="nav"></nav>
 </aside>
 <div class="backdrop" id="backdrop"></div>
 <main>
   <div class="topbar">
-    <button class="navtoggle" id="navtoggle" aria-label="Open chapter menu">☰</button>
+    <button class="navtoggle" id="navtoggle" aria-label="Mở menu chương">☰</button>
     <div class="crumb" id="crumb">—</div>
     <div class="spacer"></div>
-    <button class="btn" id="donebtn">Mark complete</button>
+    <button class="btn" id="donebtn">Đánh dấu đã xong</button>
   </div>
   <div class="scroll" id="scroll">
     <article id="article"></article>
     <div class="pager">
-      <button id="prev"><span class="k">Previous</span><span id="prevt"></span></button>
-      <button id="next"><span class="k">Next</span><span id="nextt"></span></button>
+      <button id="prev"><span class="k">Trước</span><span id="prevt"></span></button>
+      <button id="next"><span class="k">Sau</span><span id="nextt"></span></button>
     </div>
   </div>
 </main>
 
 <!-- ================= M1 CONTENT (one block per chapter) ================= -->
 <script type="text/markdown" id="content-M1-0">
-<p class="kicker">M1 · Corporate Finance & Business Economics</p>
+<p class="kicker">M1 · Tài chính doanh nghiệp & Kinh tế kinh doanh</p>
 
-# Orientation — the subject and the three cases
+# Nhập môn — chủ đề và ba case xuyên suốt
 
-**Level:** graduate · **Prerequisites:** none · This is the largest module in the program and the quantitative spine everything else hangs on.
+**Trình độ:** cao học · **Điều kiện tiên quyết:** không · Đây là module lớn nhất chương trình, và là cái xương sống định lượng mà mọi thứ khác treo lên.
 
-**What you own when you finish** — take any company's raw numbers and: (a) read its three statements as *one interlocking system*; (b) prove whether a single customer is profitable and how the model behaves under stress; (c) locate the two or three levers that actually move enterprise value; (d) sketch what the business is worth and defend the number.
+**Học xong mày cầm được cái gì** — cầm bộ số thô của bất kỳ công ty nào và: (a) đọc ba báo cáo tài chính của nó như *một hệ thống khớp vào nhau*; (b) chứng minh một khách hàng có lời hay không và mô hình cư xử ra sao khi bị ép; (c) chỉ ra hai ba đòn bẩy thực sự làm dịch chuyển giá trị doanh nghiệp (enterprise value); (d) phác được doanh nghiệp đáng giá bao nhiêu và bảo vệ được con số đó.
 
-**Learning outcomes (be able to *do*, not recite):**
-1. Trace one business event through all three financial statements simultaneously.
-2. Separate accounting profit from economic profit from cash — and know why all three differ.
-3. Derive LTV from first principles and state the four assumptions under which it lies.
-4. Build a contribution-margin P&L; compute breakeven and operating leverage.
-5. Apply discounted-cash-flow logic and explain why SaaS trades on forward revenue multiples.
+**Kết quả học tập (làm *được*, không phải đọc thuộc):**
+1. Lần một sự kiện kinh doanh xuyên cả ba báo cáo tài chính cùng lúc.
+2. Tách lợi nhuận kế toán khỏi lợi nhuận kinh tế khỏi tiền mặt — và hiểu vì sao cả ba khác nhau.
+3. Suy ra LTV từ gốc và nêu bốn giả định mà dưới đó nó nói dối.
+4. Dựng một P&L theo biên đóng góp (contribution margin); tính điểm hòa vốn và đòn bẩy vận hành.
+5. Áp logic chiết khấu dòng tiền (discounted cash flow) và giải thích vì sao SaaS được định giá theo bội số doanh thu tương lai.
 
-Confidence tags used throughout: `[established]` textbook-solid · `[synthesis]` my integration · `[contested]` practitioners disagree · `[heuristic]` useful rule, not a law.
+Nhãn độ tin dùng xuyên suốt: `[established]` chắc như sách giáo khoa · `[synthesis]` tao tự ráp lại · `[contested]` dân trong nghề còn cãi nhau · `[heuristic]` quy tắc dùng được, không phải định luật.
 
-## The three running cases
+## Ba case chạy xuyên suốt
 
-One company can only teach one shape. So this module carries **three**, chosen because they diverge on every axis that matters — and the divergence *is* the lesson. When the same formula spits out wildly different verdicts across them, you're learning what the formula actually depends on.
+Một công ty chỉ dạy được một hình dạng. Nên module này vác theo **ba**, chọn vì chúng lệch nhau trên mọi trục quan trọng — và chính cái lệch đó *là* bài học. Khi cùng một công thức nhả ra ba phán quyết khác nhau một trời một vực, mày đang học ra công thức đó thực sự phụ thuộc vào cái gì.
 
 | | **Figma** (A) | **Salesforce** (B) | **Mailchimp** (C) |
 |---|---|---|---|
-| Archetype | PLG, bottom-up, mid-market | Enterprise, sales-led | SMB, self-serve |
-| Motion | Product-led, self-serve | Top-down (AE + sales engineer) | Fully self-serve |
-| List price | $20 / seat / month | $48,000 / year (ACV) | $29 / month |
-| Billing | Annual, upfront | Annual/multi-year, upfront | Monthly |
-| Typical account | 5 seats → $100/mo | ~$4,000/mo effective | $29/mo |
-| Gross margin | 82% | 78% | 85% |
-| Monthly logo churn | 2.5% | 0.5% | 6% |
-| CAC | $600 | $60,000 | $90 |
-| Expansion (NRR) | ~110% | ~125% | ~95% |
+| Mẫu hình | PLG, từ dưới lên, mid-market | Enterprise, sales dẫn dắt | SMB, tự phục vụ |
+| Cách bán | Product-led, tự phục vụ | Từ trên xuống (AE + sales engineer) | Hoàn toàn tự phục vụ |
+| Giá niêm yết | $20 / seat / tháng | $48,000 / năm (ACV) | $29 / tháng |
+| Cách thu tiền | Theo năm, trả trước | Theo năm/nhiều năm, trả trước | Theo tháng |
+| Tài khoản điển hình | 5 seat → $100/tháng | ~$4,000/tháng thực thu | $29/tháng |
+| Biên gộp | 82% | 78% | 85% |
+| Churn logo hàng tháng | 2.5% | 0.5% | 6% |
+| Mở rộng (NRR) | ~110% | ~125% | ~95% |
 
-Three founders, three paths, three ways the same problem — *turn money into more money, repeatably* — gets solved. Keep this table handy; every chapter fills it in.
+Ba nhà sáng lập, ba con đường, ba cách cùng một bài toán — *biến tiền thành nhiều tiền hơn, lặp đi lặp lại được* — được giải. Giữ cái bảng này bên tay; chương nào cũng lấp thêm vào nó.
 
-**These are real giants — use their backgrounds as the memory hook** (the archetypes are real; the specific numbers in this module are illustrative, not their actual books):
-- **Figma (A)** — bottom-up PLG. One designer brings a team, the team brings the org; revenue grows by *seats*, not new logos. Sold to Adobe for ~$20B — the land-and-expand poster child.
-- **Salesforce (B)** — the enterprise sales-led giant. Big annual contracts closed by account execs, brutal CAC, but customers embed so deep they almost never leave. It wrote the modern SaaS playbook.
-- **Mailchimp (C)** — mass-market SMB self-serve. Millions of tiny businesses, credit-card signup, zero salespeople — and a base that churns hard because small businesses themselves come and go. Bootstrapped to a ~$12B Intuit exit.
+**Đây là những gã khổng lồ thật — dùng lai lịch của chúng làm cái móc trí nhớ** (mẫu hình là thật; còn các con số cụ thể trong module này là minh họa, không phải sổ sách thật của chúng):
+- **Figma (A)** — PLG từ dưới lên. Một designer kéo cả team vào, team kéo cả tổ chức vào; doanh thu lớn lên theo *seat*, không phải theo logo mới. Bán cho Adobe ~$20B — hình mẫu land-and-expand kinh điển.
+- **Salesforce (B)** — gã khổng lồ enterprise do sales dẫn dắt. Hợp đồng năm to đùng chốt bởi account exec, CAC tàn bạo, nhưng khách cắm rễ sâu tới mức gần như không bao giờ rời. Nó viết ra cái playbook SaaS hiện đại.
+- **Mailchimp (C)** — SMB tự phục vụ đại trà. Hàng triệu doanh nghiệp tí hon, đăng ký bằng thẻ tín dụng, không một mống sales — và một tệp khách churn dữ dội vì bản thân mấy doanh nghiệp nhỏ đến rồi đi. Bootstrap tới thương vụ bán cho Intuit ~$12B.
 </script>
 
 <script type="text/markdown" id="content-M1-1">
-<p class="kicker">M1 · Chapter 1</p>
+<p class="kicker">M1 · Chương 1</p>
 
-# The firm as a value engine
+# Doanh nghiệp như một cỗ máy tạo giá trị
 
-Here's a decision you'll face with real money on it: someone shows you a company posting a healthy **profit** and asks you to fund it, buy it, or bet your career running it. Say yes on the wrong meaning of "profit" and you can back a business that is quietly dying while its own income statement smiles back at you. This chapter is the inoculation — and it's smaller than the jargon makes it look. By the end you'll never be shown a "profit" again without reflexively asking *which one*, and that single reflex is most of what separates people who read financial statements from people who get fooled by them.
+Đây là một quyết định mày sẽ gặp với tiền thật đặt lên bàn: có người chìa ra một công ty đang báo **lợi nhuận** đẹp và nhờ mày rót vốn, mua lại, hoặc đặt cả sự nghiệp vào việc điều hành nó. Gật đầu dựa trên cái nghĩa sai của chữ "lợi nhuận" và mày có thể chống lưng cho một doanh nghiệp đang chết dần trong khi chính cái báo cáo kết quả kinh doanh của nó vẫn cười với mày. Chương này là liều vắc-xin — và nó nhỏ hơn cái đống thuật ngữ làm ra vẻ. Học xong, không bao giờ có ai chìa cho mày chữ "lợi nhuận" mà mày không phản xạ hỏi lại *loại nào*, và riêng cái phản xạ đó thôi đã là phần lớn cái tách người đọc được báo cáo tài chính khỏi người bị nó lừa.
 
-Because here's the trap you're already in. You have an answer to "did this business make money" — the intuitive one: **money in minus money out**. It feels obviously right, and it *is* right occasionally, by accident. But it quietly fuses three questions that routinely disagree in the same quarter: *did operations create a surplus, did the bank balance rise, and did we create value at all?* A company can post record profit, drain its cash, and destroy value simultaneously — and the one-number instinct sees none of it coming. So the first move of financial literacy is to refuse the fusion and pull the three apart.
+Bởi vì đây là cái bẫy mày đang mắc sẵn. Mày đã có câu trả lời cho "doanh nghiệp này có kiếm được tiền không" — câu trực giác: **tiền vào trừ tiền ra**. Nghe hiển nhiên đúng, và thi thoảng nó *đúng* thật, do tình cờ. Nhưng nó lặng lẽ gộp ba câu hỏi mà quý nào cũng thường xuyên chỏi nhau: *hoạt động có tạo ra thặng dư không, số dư ngân hàng có tăng không, và mình có tạo ra giá trị gì không?* Một công ty có thể báo lợi nhuận kỷ lục, cạn sạch tiền, và phá hủy giá trị cùng một lúc — mà cái bản năng một-con-số chẳng thấy cái nào tới. Nên nước đi đầu tiên của việc biết đọc tài chính là từ chối cái gộp đó, tách ba thứ ra.
 
-The whole thing hangs on one question — *after a stretch of activity, are you better off?* — answered by subtracting what you gave up from what you got. The entire fight is over that first term: **what counts as "given up."** Three honest answers, three profits. Start from the question, not the formula, and each falls out on its own.
+Cả cái này treo lên một câu hỏi — *sau một quãng hoạt động, mày có khá hơn không?* — trả lời bằng cách lấy cái mày thu về trừ đi cái mày bỏ ra. Toàn bộ cuộc chiến nằm ở vế đầu: **cái gì được tính là "bỏ ra."** Ba câu trả lời thành thật, ba loại lợi nhuận. Bắt đầu từ câu hỏi, đừng từ công thức, rồi mỗi cái sẽ tự rơi ra.
 
-### Accounting profit
-*Did operations throw off a surplus this period, judged by a consistent rulebook?*
+### Lợi nhuận kế toán
+*Kỳ này hoạt động có nhả ra thặng dư không, đo bằng một bộ luật nhất quán?*
 
-The problem it solves: raw cash timing lies. You buy a machine once and it earns for five years; you collect a year's fee upfront for a service you deliver monthly. Count cash in a single quarter and you misread whether the activity created anything.
+Vấn đề nó giải: thời điểm tiền mặt thô nói dối. Mày mua một cái máy một lần và nó sinh lời trong năm năm; mày thu phí cả năm trả trước cho một dịch vụ mày giao hàng tháng. Đếm tiền mặt trong một quý và mày đọc sai liệu hoạt động có tạo ra được gì.
 
-So accounting runs on one move — the **matching principle**: book revenue when it's *earned* (value delivered), and set against it the costs *incurred to produce that revenue*, whenever the cash actually moved. "Accounting costs" = the resources burned to generate the revenue you're recognizing now.
+Nên kế toán chạy trên một nước đi — **nguyên tắc khớp (matching principle)**: ghi doanh thu khi nó *được kiếm* (giá trị đã giao), và đặt đối lại là các chi phí *phát sinh để tạo ra doanh thu đó*, bất kể tiền thực sự dịch chuyển lúc nào. "Chi phí kế toán" = nguồn lực đốt để tạo ra doanh thu mày đang ghi nhận lúc này.
 
-Here's the part the textbook drops: this profit is true the way **the rules of chess** are true — a convention we agreed on (GAAP/IFRS), not a law found in nature. `[established-as-convention]` That's *why it's an opinion* — depreciate faster, call revenue "earned" sooner, guess bad debts lower, and the number moves. Two honest accountants land in different places.
+Đây là phần sách giáo khoa bỏ rơi: lợi nhuận này đúng theo kiểu **luật cờ vua** đúng — một quy ước ta thống nhất với nhau (GAAP/IFRS), không phải định luật tìm thấy trong tự nhiên. `[established-as-convention]` Đó là *vì sao nó là một ý kiến* — khấu hao nhanh hơn, gọi doanh thu là "đã kiếm" sớm hơn, đoán nợ xấu thấp hơn, thế là con số dịch. Hai kế toán viên trung thực rơi vào hai chỗ khác nhau.
 
-**Right lens** for comparing operating performance across periods or companies (why the rulebook must be standardized). **Blind to** two things: when cash truly moves, and what your capital could've earned elsewhere — and each blindness is why the next two profits exist.
+**Lăng kính đúng** để so sánh hiệu quả vận hành qua các kỳ hoặc giữa các công ty (vì sao bộ luật phải được chuẩn hóa). **Mù với** hai thứ: khi nào tiền thực sự dịch chuyển, và vốn của mày lẽ ra kiếm được gì ở chỗ khác — và mỗi cái mù đó chính là lý do hai loại lợi nhuận tiếp theo tồn tại.
 
-### Cash profit
-*Did the bank balance actually go up?*
+### Lợi nhuận tiền mặt
+*Số dư ngân hàng có thực sự tăng không?*
 
-Cash in minus cash out. The one number nobody can massage: profit is an opinion, **cash is a fact** — you either have it or you don't. `[established]`
+Tiền vào trừ tiền ra. Con số duy nhất không ai nắn được: lợi nhuận là một ý kiến, **tiền mặt là một sự thật** — mày có nó hoặc mày không có. `[established]`
 
-Businesses rarely die from a bad P&L; they die when cash runs out. That's why a fast-growing, "profitable" company can still go under — growth eats cash (pay to acquire now, collect later). **Blind to** whether value was created this period: you can look cash-rich by stiffing suppliers, or cash-poor while perfectly healthy because you prepaid a year of growth.
+Doanh nghiệp hiếm khi chết vì P&L xấu; chúng chết khi cạn tiền. Đó là lý do một công ty tăng trưởng nhanh, "có lời", vẫn có thể sập — tăng trưởng ăn tiền (trả để giành khách bây giờ, thu về sau). **Mù với** chuyện kỳ này có tạo ra giá trị hay không: mày có thể trông giàu tiền nhờ quỵt nhà cung cấp, hoặc trông cạn tiền trong khi cực khỏe vì mày đã trả trước một năm tăng trưởng.
 
-### Economic profit
-*Did we create value beyond what the money could've earned elsewhere?*
+### Lợi nhuận kinh tế
+*Mình có tạo ra giá trị vượt cái mà đồng tiền đó lẽ ra kiếm được ở chỗ khác không?*
 
-The one business school exists to install, because it catches a lie the other two wave through: **both treat the capital tied up in the business as free.** It isn't. Money parked in your company could've earned a return elsewhere at similar risk — that forgone return, the **cost of capital**, is real even though no invoice arrives for it.
+Cái mà trường kinh doanh tồn tại để cài vào đầu mày, vì nó bắt được một lời nói dối mà hai loại kia cho đi qua: **cả hai đều coi vốn nằm kẹt trong doanh nghiệp là miễn phí.** Không phải. Tiền đậu trong công ty mày lẽ ra kiếm được lợi suất ở chỗ khác với mức rủi ro tương đương — cái lợi suất bị bỏ lỡ đó, tức **chi phí vốn (cost of capital)**, là thật dù chẳng có hóa đơn nào gửi tới đòi nó.
 
-So: economic profit = accounting profit − cost of the capital employed. A company earning 4% on capital that costs 12% posts an accounting profit while *destroying* wealth.
+Nên: lợi nhuận kinh tế = lợi nhuận kế toán − chi phí của vốn đã dùng. Một công ty kiếm 4% trên vốn có giá 12% thì báo lợi nhuận kế toán trong khi *phá hủy* của cải.
 
-Two layers, two kinds of truth: *that opportunity cost is real* is a discovered finding `[established-as-finding]`; the *number* you subtract — your cost of capital — is an estimate by convention people argue about endlessly. `[contested]`
+Hai tầng, hai loại sự thật: *cái chi phí cơ hội đó là thật* là một phát hiện đã được khám phá `[established-as-finding]`; còn *con số* mày trừ đi — chi phí vốn của mày — là một ước lượng theo quy ước mà người ta cãi nhau bất tận. `[contested]`
 
-| Profit | The question | What you subtract | Kind of truth |
+| Lợi nhuận | Câu hỏi | Cái mày trừ đi | Loại sự thật |
 |---|---|---|---|
-| **Accounting** | Did operations surplus this period? | Booked (accrued) costs | Convention — a rulebook |
-| **Cash** | Did the bank balance rise? | Actual cash outflows | Fact — unmassageable |
-| **Economic** | Did we beat our capital's alternative? | Costs *plus* cost of capital | Finding + an estimate |
+| **Kế toán** | Kỳ này hoạt động có thặng dư không? | Chi phí đã ghi sổ (dồn tích) | Quy ước — một bộ luật |
+| **Tiền mặt** | Số dư ngân hàng có tăng không? | Dòng tiền ra thực tế | Sự thật — không nắn được |
+| **Kinh tế** | Mình có thắng phương án thay thế của vốn không? | Chi phí *cộng* chi phí vốn | Phát hiện + một ước lượng |
 
-> Forget the formulas and you rebuild them from one prompt — *what am I subtracting?* "We were profitable" is an accounting claim, "we didn't run out of cash" is survival, "we created value" is economic. All three can disagree in the same quarter.
+> Quên hết công thức đi và mày vẫn dựng lại được từ một câu nhắc — *tao đang trừ đi cái gì?* "Chúng tôi có lời" là một tuyên bố kế toán, "chúng tôi không cạn tiền" là chuyện sống sót, "chúng tôi tạo ra giá trị" là kinh tế. Cả ba có thể chỏi nhau trong cùng một quý.
 
-### How operators actually hold these
-In the room they're not equals, and the ranking flips with stage.
+### Dân vận hành thực sự cầm ba thứ này thế nào
+Ở trên bàn chúng không ngang nhau, và thứ hạng lật theo giai đoạn.
 
-- **Early stage** — a founder/CFO watches **cash/runway** (what kills you) and **gross margin** (whether scale rescues you), and treats net accounting profit as near-fiction until the business is mature enough to be judged on it. `[synthesis]`
-- **When incentives attach** — people *engineer* the number. The tell is **"adjusted EBITDA"**: add back everything ugly for a prettier figure. WeWork ran a "Community-Adjusted EBITDA" that added back even marketing and admin, in its 2019 S-1. `[established — WeWork S-1]` Read that and no deck fools you.
-- **What's actually said at the table** — not accounting profit, but Paul Graham's **"default-alive or default-dead?"** `[established — Graham 2015]` — a pure *cash* question.
-- **Economic profit, unnamed** — every "keep funding this line / buy back stock / greenlight this project" call *is* one. Big firms formalize it as **EVA** (Stern Stewart). `[established]`
+- **Giai đoạn đầu** — một founder/CFO canh **tiền mặt/runway** (cái giết mày) và **biên gộp** (liệu quy mô có cứu được mày), và coi lợi nhuận kế toán ròng gần như hư cấu cho tới khi doanh nghiệp đủ chín để bị đánh giá bằng nó. `[synthesis]`
+- **Khi động cơ lợi ích dính vào** — người ta *chế* con số. Dấu hiệu là **"adjusted EBITDA"**: cộng ngược lại mọi thứ xấu xí để ra một con số đẹp hơn. WeWork chơi hẳn một "Community-Adjusted EBITDA" cộng ngược cả marketing lẫn chi phí quản lý, trong bản S-1 năm 2019. `[established — WeWork S-1]` Đọc được cái đó thì chẳng deck nào lừa được mày.
+- **Cái thực sự được nói ở bàn** — không phải lợi nhuận kế toán, mà là câu **"default-alive hay default-dead?"** của Paul Graham `[established — Graham 2015]` — một câu hỏi *tiền mặt* thuần túy.
+- **Lợi nhuận kinh tế, không gọi tên** — mọi quyết định "có tiếp tục rót vào mảng này / mua lại cổ phiếu / bật đèn xanh cho dự án này" *đều là* nó. Các hãng lớn chính thức hóa nó thành **EVA** (Stern Stewart). `[established]`
 
-The vocabulary hides in the walls; the logic runs every capital decision.
+Từ vựng thì trốn trong tường; còn cái logic thì chạy mọi quyết định về vốn.
 
-### Make the call
-A founder shows you a deck: **record accounting profit, best quarter ever**, and asks for a bridge loan to keep growing. Before reading on, decide in one line: *which of the three numbers do you demand to see, and what would each have to say for you to write the check?*
+### Ra quyết định
+Một founder chìa cho mày một cái deck: **lợi nhuận kế toán kỷ lục, quý đẹp nhất từ trước tới giờ**, và xin một khoản vay bắc cầu để tiếp tục tăng trưởng. Trước khi đọc tiếp, quyết trong một dòng: *trong ba con số, mày đòi xem con số nào, và mỗi con số phải nói gì thì mày mới ký séc?*
 
-The point isn't a right answer — it's that you now refuse the single-number version. A defensible read: **cash/runway** decides whether they even survive to *use* the loan (a profitable company can be insolvent by Friday); **accounting profit** tells you whether the operations actually work or the "profit" is an accrual mirage; **economic profit** tells you whether the money you lend will earn more than it costs — otherwise you're funding value destruction with extra steps. Miss the cash question and the record-profit deck is exactly how you get blindsided. That reflex — *which profit, and what is it blind to* — is the whole chapter.
+Trọng điểm không phải một đáp án đúng — mà là giờ mày từ chối cái phiên bản một-con-số. Một cách đọc bảo vệ được: **tiền mặt/runway** quyết định liệu họ có sống nổi tới lúc *dùng* được khoản vay không (một công ty có lời có thể mất khả năng thanh toán ngay thứ Sáu tuần này); **lợi nhuận kế toán** cho mày biết hoạt động có thực sự chạy hay "lợi nhuận" chỉ là ảo ảnh dồn tích; **lợi nhuận kinh tế** cho mày biết tiền mày cho vay có kiếm được nhiều hơn cái giá của nó không — nếu không thì mày đang tài trợ cho việc phá hủy giá trị theo kiểu vòng vo hơn. Bỏ sót câu hỏi tiền mặt thì cái deck lợi nhuận kỷ lục kia chính là cách mày bị úp sọt. Cái phản xạ đó — *lợi nhuận loại nào, và nó mù với cái gì* — là cả chương này.
 
-### The model is where value gets captured
-A **business model** is a *value-capture architecture*: given the product creates value V for a customer, the model decides how much of V you keep, when, and how defensibly. Our three cases do it three ways — Salesforce extracts a lot from few (high ACV), Mailchimp a little from many (volume), Figma lands small and expands. None is "correct"; each is a different machine, as the numbers will show.
+### Mô hình là nơi giá trị được giữ lại
+Một **mô hình kinh doanh** là một *kiến trúc giữ giá trị (value-capture)*: cho rằng sản phẩm tạo ra giá trị V cho khách, mô hình quyết định mày giữ lại bao nhiêu phần của V, khi nào, và giữ chắc tới đâu. Ba case của ta làm ba kiểu — Salesforce moi nhiều từ ít khách (ACV cao), Mailchimp moi ít từ nhiều khách (số lượng), Figma đáp xuống nhỏ rồi mở rộng. Không cái nào "đúng"; mỗi cái là một cỗ máy khác nhau, như các con số sẽ cho thấy.
 </script>
 
 <script type="text/markdown" id="content-M1-2">
-<p class="kicker">M1 · Chapter 2</p>
+<p class="kicker">M1 · Chương 2</p>
 
-# The three statements as one system
+# Ba báo cáo tài chính như một hệ thống
 
-Two founders show you the same fact — *"$1,200 landed in the account this quarter"* — and it means opposite things: for one it's a gift that funds their growth, for the other it's a debt they'll bleed cash to deliver. **No single statement can tell you which.** Misread it and you mistake a self-funding machine for a cash trap, or worse, the reverse — the exact error that decides who you'd fund and who you'd run. The reassuring part: there are only *three* statements, one identity binds them, and once you've seen them ripple into each other you genuinely can't unsee it. This chapter installs that reflex.
+Hai founder chìa cho mày cùng một sự thật — *"$1,200 rơi vào tài khoản quý này"* — mà nó mang hai nghĩa ngược nhau: với người này nó là món quà tài trợ cho tăng trưởng, với người kia nó là một khoản nợ mà họ sẽ chảy máu tiền để giao hàng. **Không một báo cáo đơn lẻ nào cho mày biết là bên nào.** Đọc sai và mày nhầm một cỗ máy tự nuôi mình thành một cái bẫy tiền mặt, hoặc tệ hơn, nhầm ngược lại — đúng cái lỗi quyết định mày sẽ rót vốn cho ai và bỏ chạy khỏi ai. Phần yên tâm: chỉ có *ba* báo cáo, một đẳng thức trói chúng lại, và một khi mày đã thấy chúng gợn sóng sang nhau thì thật sự không gỡ mắt ra được. Chương này cài cái phản xạ đó.
 
-Beginners read the three statements as three reports. They are one system: **every event touches at least two, often all three.** Mastery is seeing the ripple. The accounting identity that never breaks: `Assets = Liabilities + Equity`. `[established]`
+Người mới đọc ba báo cáo như ba bản báo cáo riêng. Chúng là một hệ thống: **mọi sự kiện đều chạm ít nhất hai, thường là cả ba.** Thành thạo là thấy được cái gợn sóng. Cái đẳng thức kế toán không bao giờ vỡ: `Assets = Liabilities + Equity`. `[established]`
 
-<svg viewBox="0 0 720 250" role="img" aria-label="The three statements as one system: two Balance Sheet snapshots bridged by the Cash Flow and Income statements" style="width:100%;height:auto;margin:24px 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:12px">
+<svg viewBox="0 0 720 250" role="img" aria-label="Ba báo cáo tài chính như một hệ thống: hai ảnh chụp Bảng cân đối kế toán được bắc cầu bởi Báo cáo lưu chuyển tiền tệ và Báo cáo kết quả kinh doanh" style="width:100%;height:auto;margin:24px 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:12px">
   <defs>
     <marker id="m2ah" markerWidth="10" markerHeight="10" refX="7.5" refY="3.5" orient="auto"><path d="M0,0 L8,3.5 L0,7 Z" style="fill:var(--accent)"/></marker>
   </defs>
   <rect x="16" y="30" width="134" height="196" rx="8" style="fill:var(--panel);stroke:var(--line);stroke-width:1"/>
   <rect x="570" y="30" width="134" height="196" rx="8" style="fill:var(--panel);stroke:var(--line);stroke-width:1"/>
-  <text x="83" y="52" text-anchor="middle" style="fill:currentColor;font-weight:700;letter-spacing:.4px">BALANCE SHEET</text>
-  <text x="83" y="68" text-anchor="middle" style="fill:currentColor;opacity:.5;font-size:11px">snapshot · start</text>
-  <text x="32" y="98" style="fill:currentColor;opacity:.5;font-size:10px;letter-spacing:.5px">ASSETS</text>
-  <text x="38" y="116" style="fill:currentColor">Cash</text>
+  <text x="83" y="52" text-anchor="middle" style="fill:currentColor;font-weight:700;letter-spacing:.4px">BẢNG CÂN ĐỐI</text>
+  <text x="83" y="68" text-anchor="middle" style="fill:currentColor;opacity:.5;font-size:11px">ảnh chụp · đầu kỳ</text>
+  <text x="32" y="98" style="fill:currentColor;opacity:.5;font-size:10px;letter-spacing:.5px">TÀI SẢN</text>
+  <text x="38" y="116" style="fill:currentColor">Tiền mặt</text>
   <line x1="28" y1="134" x2="138" y2="134" style="stroke:var(--line);stroke-width:1"/>
-  <text x="32" y="158" style="fill:currentColor;opacity:.5;font-size:10px;letter-spacing:.5px">LIAB + EQUITY</text>
-  <text x="38" y="176" style="fill:currentColor">Equity</text>
-  <text x="637" y="52" text-anchor="middle" style="fill:currentColor;font-weight:700;letter-spacing:.4px">BALANCE SHEET</text>
-  <text x="637" y="68" text-anchor="middle" style="fill:currentColor;opacity:.5;font-size:11px">snapshot · end</text>
-  <text x="586" y="98" style="fill:currentColor;opacity:.5;font-size:10px;letter-spacing:.5px">ASSETS</text>
-  <text x="592" y="116" style="fill:var(--accent);font-weight:650">▸ Cash</text>
+  <text x="32" y="158" style="fill:currentColor;opacity:.5;font-size:10px;letter-spacing:.5px">NỢ + VỐN CSH</text>
+  <text x="38" y="176" style="fill:currentColor">Vốn CSH</text>
+  <text x="637" y="52" text-anchor="middle" style="fill:currentColor;font-weight:700;letter-spacing:.4px">BẢNG CÂN ĐỐI</text>
+  <text x="637" y="68" text-anchor="middle" style="fill:currentColor;opacity:.5;font-size:11px">ảnh chụp · cuối kỳ</text>
+  <text x="586" y="98" style="fill:currentColor;opacity:.5;font-size:10px;letter-spacing:.5px">TÀI SẢN</text>
+  <text x="592" y="116" style="fill:var(--accent);font-weight:650">▸ Tiền mặt</text>
   <line x1="582" y1="134" x2="692" y2="134" style="stroke:var(--line);stroke-width:1"/>
-  <text x="586" y="158" style="fill:currentColor;opacity:.5;font-size:10px;letter-spacing:.5px">LIAB + EQUITY</text>
-  <text x="592" y="176" style="fill:var(--accent);font-weight:650">▸ Equity</text>
-  <text x="360" y="94" text-anchor="middle" style="fill:currentColor;font-weight:650">CASH FLOW STATEMENT</text>
-  <text x="360" y="109" text-anchor="middle" style="fill:currentColor;opacity:.6;font-size:11px">the period's cash movie → updates Cash</text>
+  <text x="586" y="158" style="fill:currentColor;opacity:.5;font-size:10px;letter-spacing:.5px">NỢ + VỐN CSH</text>
+  <text x="592" y="176" style="fill:var(--accent);font-weight:650">▸ Vốn CSH</text>
+  <text x="360" y="94" text-anchor="middle" style="fill:currentColor;font-weight:650">BÁO CÁO LƯU CHUYỂN TIỀN TỆ</text>
+  <text x="360" y="109" text-anchor="middle" style="fill:currentColor;opacity:.6;font-size:11px">cuốn phim tiền của kỳ → cập nhật Tiền mặt</text>
   <line x1="156" y1="120" x2="564" y2="120" marker-end="url(#m2ah)" style="stroke:var(--accent);stroke-width:1.5;fill:none"/>
-  <text x="360" y="150" text-anchor="middle" style="fill:var(--accent);font-size:11px;font-style:italic">A = L + E holds after every single event</text>
-  <text x="360" y="182" text-anchor="middle" style="fill:currentColor;font-weight:650">INCOME STATEMENT · P&amp;L</text>
-  <text x="360" y="197" text-anchor="middle" style="fill:currentColor;opacity:.6;font-size:11px">the period's earnings movie → net profit lands in Equity</text>
+  <text x="360" y="150" text-anchor="middle" style="fill:var(--accent);font-size:11px;font-style:italic">A = L + E đúng sau từng sự kiện một</text>
+  <text x="360" y="182" text-anchor="middle" style="fill:currentColor;font-weight:650">BÁO CÁO KẾT QUẢ KINH DOANH · P&amp;L</text>
+  <text x="360" y="197" text-anchor="middle" style="fill:currentColor;opacity:.6;font-size:11px">cuốn phim lợi nhuận của kỳ → lãi ròng đổ vào Vốn CSH</text>
   <line x1="156" y1="208" x2="564" y2="208" marker-end="url(#m2ah)" style="stroke:var(--accent);stroke-width:1.5;fill:none"/>
 </svg>
 
-*Two snapshots, two movies. The Balance Sheet is the still frame; the Cash Flow and P&L are what happened **between** two of them — one explaining the change in Cash, the other feeding net profit into Equity. The identity survives every event in between.*
+*Hai ảnh chụp, hai cuốn phim. Bảng cân đối là khung hình đứng yên; Lưu chuyển tiền tệ và P&L là cái đã xảy ra **giữa** hai khung đó — một cái giải thích thay đổi ở Tiền mặt, cái kia bơm lãi ròng vào Vốn CSH. Cái đẳng thức sống sót qua mọi sự kiện ở giữa.*
 
-| Statement | Question | Time nature | What it hides |
+| Báo cáo | Câu hỏi | Bản chất thời gian | Cái nó giấu |
 |---|---|---|---|
-| Income Statement (P&L) | Over a period, did we profit? | Movie (period) | Cash timing — it's accrual |
-| Balance Sheet | At an instant, what do we own/owe? | Photo (moment) | Whether the business *works* |
-| Cash Flow Statement | Over a period, where did cash move? | Movie (period) | Nothing — the truth serum |
+| Báo cáo KQKD (P&L) | Trong một kỳ, có lời không? | Phim (cả kỳ) | Thời điểm tiền — nó là dồn tích |
+| Bảng cân đối | Tại một thời điểm, ta sở hữu/nợ gì? | Ảnh (một khoảnh khắc) | Doanh nghiệp có *chạy* không |
+| Báo cáo lưu chuyển tiền tệ | Trong một kỳ, tiền dịch đi đâu? | Phim (cả kỳ) | Không giấu gì — thuốc thử sự thật |
 
-### Worked trace — a Figma contract through all three
+### Lần thử — một hợp đồng Figma xuyên cả ba
 
-Figma signs a new account: **$1,200 paid upfront** for 12 months. Delivery costs 18% of revenue (82% margin), spread evenly.
+Figma ký một tài khoản mới: **$1,200 trả trước** cho 12 tháng. Chi phí giao hàng bằng 18% doanh thu (biên 82%), rải đều.
 
-**Day 0 — cash in, nothing earned.** Cash Flow **+$1,200**. Balance Sheet: Cash **+$1,200**, Deferred Revenue **+$1,200** (a *liability* — you owe 12 months of service; identity holds). P&L: **$0** — you haven't *earned* anything. Revenue is recognized as delivered, not when cash lands. `[established]`
+**Ngày 0 — tiền vào, chưa kiếm được gì.** Lưu chuyển tiền tệ **+$1,200**. Bảng cân đối: Tiền mặt **+$1,200**, Doanh thu chưa thực hiện (Deferred Revenue) **+$1,200** (một khoản *nợ* — mày nợ 12 tháng dịch vụ; đẳng thức vẫn đúng). P&L: **$0** — mày chưa *kiếm* được gì. Doanh thu được ghi nhận khi giao hàng, không phải khi tiền rơi vào. `[established]`
 
-**End of Month 1 — one month earned.** P&L: Revenue **+$100**, COGS **−$18**, gross profit **+$82**. Balance Sheet: Deferred Revenue **−$100** (now $1,100), Equity **+$82**. Cash Flow: **$0** (cash already arrived).
+**Cuối Tháng 1 — kiếm được một tháng.** P&L: Doanh thu **+$100**, COGS **−$18**, lợi nhuận gộp **+$82**. Bảng cân đối: Doanh thu chưa thực hiện **−$100** (giờ còn $1,100), Vốn CSH **+$82**. Lưu chuyển tiền tệ: **$0** (tiền đã tới rồi).
 
-> **The insight most people miss — this is a *cash gift*.** Figma holds $1,200 of the customer's cash while having earned $100. That $1,100 of deferred revenue is an interest-free loan from the customer that *funds growth* — in SaaS, **negative working capital**. It's a structural reason annual-prepaid SaaS grows faster on less outside money than a monthly-billed peer. `[established]`
+> **Cái insight hầu hết bỏ lỡ — đây là một *món quà tiền mặt*.** Figma đang giữ $1,200 tiền của khách trong khi mới kiếm được $100. Cái $1,100 doanh thu chưa thực hiện đó là một khoản vay không lãi từ chính khách hàng, và nó *tài trợ cho tăng trưởng* — trong SaaS, đây là **vốn lưu động âm (negative working capital)**. Đó là một lý do mang tính cấu trúc khiến SaaS thu năm-trả-trước lớn nhanh hơn trên ít tiền ngoài hơn so với một đối thủ thu theo tháng. `[established]`
 
-**Now contrast Mailchimp.** Mailchimp bills **$29 monthly** — no upfront gift. Day 0: Cash +$29, revenue recognized ~$29 that month, deferred revenue ≈ $0. Mailchimp never gets the customer-funded loan. Same product logic, opposite balance-sheet behavior — purely from the **billing choice.** (Salesforce behaves like Figma but 40× larger: a $48k prepaid deal parks a big deferred-revenue liability that funds it.)
+**Giờ so với Mailchimp.** Mailchimp thu **$29 theo tháng** — không có món quà trả trước. Ngày 0: Tiền mặt +$29, doanh thu ghi nhận ~$29 tháng đó, doanh thu chưa thực hiện ≈ $0. Mailchimp không bao giờ được khoản vay do khách tài trợ. Cùng một logic sản phẩm, hành vi bảng cân đối ngược nhau — hoàn toàn từ **lựa chọn cách thu tiền.** (Salesforce cư xử như Figma nhưng to gấp 40 lần: một hợp đồng trả trước $48k đậu một khoản nợ doanh thu chưa thực hiện to đùng, và nó nuôi luôn công ty.)
 
-**Punchline:** the P&L said "+$82," the bank said "+$1,200 once, then nothing," the balance sheet recorded a customer loan. All true. Reading one statement is how competent people get blindsided.
+**Chốt hạ:** P&L nói "+$82," ngân hàng nói "+$1,200 một lần, rồi hết," bảng cân đối ghi lại một khoản vay từ khách. Tất cả đều đúng. Chỉ đọc một báo cáo là cách người giỏi bị úp sọt.
 
-### Make the call
-Two SaaS companies both report **$1.2M revenue, growing 80%.** Company A bills annually upfront; Company B bills monthly. Before reading on: *without seeing their bank balances, which is more likely to need to raise money this year — and where on the statements would you look to confirm it?*
+### Ra quyết định
+Hai công ty SaaS đều báo **doanh thu $1.2M, tăng trưởng 80%.** Công ty A thu năm trả trước; Công ty B thu theo tháng. Trước khi đọc tiếp: *không cần nhìn số dư ngân hàng, bên nào nhiều khả năng phải đi gọi vốn trong năm nay hơn — và mày nhìn chỗ nào trên báo cáo để xác nhận?*
 
-The revenue line can't answer it — it's identical, and it's accrual. The answer lives in the ripple. A's upfront billing parks a fat **deferred-revenue** liability: the customer's cash is already in hand, funding growth (negative working capital, the "gift" above). B collects in dribs while paying to acquire customers *before* their cash arrives, so it's underwater on every new logo for months. Same top line, opposite cash lives — so you look at **deferred revenue** and at the **gap between profit and cash flow**, never the revenue line. That gap is the whole of Chapter 3.
+Dòng doanh thu không trả lời được — nó giống hệt nhau, và nó là dồn tích. Câu trả lời sống trong cái gợn sóng. Việc A thu trả trước đậu một khoản nợ **doanh thu chưa thực hiện** béo múp: tiền của khách đã nằm sẵn trong tay, nuôi tăng trưởng (vốn lưu động âm, đúng cái "món quà" ở trên). B thu nhỏ giọt trong khi trả tiền giành khách *trước khi* tiền của khách tới, nên nó chìm nghỉm dưới mặt nước ở mỗi logo mới suốt mấy tháng. Cùng dòng đỉnh, hai cuộc đời tiền mặt ngược nhau — nên mày nhìn vào **doanh thu chưa thực hiện** và vào **khoảng cách giữa lợi nhuận và dòng tiền**, đừng bao giờ nhìn dòng doanh thu. Cái khoảng cách đó là toàn bộ Chương 3.
 </script>
 
 <script type="text/markdown" id="content-M1-3">
-<p class="kicker">M1 · Chapter 3</p>
+<p class="kicker">M1 · Chương 3</p>
 
-# Accrual, cash, and why growth burns money
+# Dồn tích, tiền mặt, và tại sao tăng trưởng đốt tiền
 
-You'd bet, reasonably, that a profitable company is a safe one — that if the P&L is in the black, running out of money is someone else's problem. That intuition has killed more good businesses than almost any other. Because profit and cash are *not the same thing*, and a fast-growing company can have plenty of the first and none of the second: the numbers all say you're winning, and then one week payroll doesn't clear. This chapter is how you see that wall coming from months out — which, the day you run or fund a growing business, is the whole difference between a calm raise and a fire sale.
+Mày sẽ cá, một cách hợp lý thôi, rằng một công ty có lãi là một công ty an toàn — rằng nếu P&L (báo cáo lãi lỗ) đang xanh thì chuyện cạn tiền là việc của thằng khác. Cái trực giác đó đã giết nhiều doanh nghiệp tốt hơn gần như bất kỳ thứ gì khác. Vì lợi nhuận và tiền mặt *không phải là một*, và một công ty tăng trưởng nhanh có thể thừa cái thứ nhất mà không có cái thứ hai: mọi con số đều bảo mày đang thắng, rồi một tuần nào đó lương không trả nổi. Chương này là cách mày nhìn thấy bức tường đó lù lù tới từ nhiều tháng trước — mà cái ngày mày vận hành hay rót vốn cho một doanh nghiệp đang lớn, đó chính là toàn bộ khác biệt giữa một vòng gọi vốn ung dung và một cuộc bán tháo.
 
-Start from *why* the two diverge. Growth costs money **now** — you pay to acquire a customer, build the product, hire ahead of revenue — but the cash that growth generates arrives **later**, dribbled out over the customer's life. So every act of growth is a "pay now, collect later" bet, and the faster you grow the more of them you're running at once. **Growth itself widens the gap between profit and cash** — which is the cruel part: the healthier your demand, the more cash a naively-run business can burn. Watch the same "acquire one account" decision in the three cases — one event, three cash lives:
+Bắt đầu từ *tại sao* hai thứ này lệch nhau. Tăng trưởng tốn tiền **ngay bây giờ** — mày trả để giành khách, xây sản phẩm, tuyển người trước cả khi doanh thu tới — nhưng dòng tiền mà tăng trưởng đẻ ra lại tới **muộn hơn**, rỉ ra dần suốt vòng đời khách hàng. Nên mỗi động tác tăng trưởng là một canh bạc "trả trước, thu sau", và mày lớn càng nhanh thì càng chạy nhiều canh bạc kiểu đó cùng lúc. **Bản thân tăng trưởng nới rộng khoảng cách giữa lợi nhuận và tiền mặt** — đây mới là chỗ tàn nhẫn: nhu cầu càng khỏe, một doanh nghiệp vận hành ngây thơ càng đốt nhiều tiền. Xem cùng một quyết định "giành một tài khoản" trong ba trường hợp — một sự kiện, ba số phận tiền mặt:
 
-| At the moment of acquiring one account | Figma | Salesforce | Mailchimp |
+| Tại thời điểm giành một tài khoản | Figma | Salesforce | Mailchimp |
 |---|---|---|---|
-| Cash collected upfront | $1,200 | $48,000 | $29 |
-| CAC paid upfront | $600 | $60,000 | $90 |
-| **Net cash at Day 0** | **+$600** | **−$12,000** | **−$61** |
-| Cash-flow shape | Self-funding | Deep hole per deal | Underwater ~3–4 months |
+| Tiền thu về trước | $1,200 | $48,000 | $29 |
+| CAC trả trước | $600 | $60,000 | $90 |
+| **Tiền ròng ở Ngày 0** | **+$600** | **−$12,000** | **−$61** |
+| Hình dáng dòng tiền | Tự nuôi mình | Hố sâu mỗi thương vụ | Chìm dưới nước ~3–4 tháng |
 
-Read it: **Figma is cash-positive the moment it signs a customer** — it grows on its customers' money. **Salesforce is $12,000 underwater per deal even after a big prepayment** — every new logo demands capital up front; sales-led enterprise growth is capital-hungry by construction. **Mailchimp looks cheap ($90 CAC!) but bills monthly**, so it's cash-negative for the first ~3–4 months of every customer and never receives a prepayment cushion. `[established]`
+Đọc đi: **Figma dương tiền ngay khoảnh khắc ký được khách** — nó lớn lên bằng tiền của chính khách hàng. **Salesforce chìm $12,000 dưới nước mỗi thương vụ dù đã có khoản trả trước bự** — mỗi logo mới đòi vốn trả trước; tăng trưởng doanh nghiệp kiểu sales-led đói vốn ngay từ trong thiết kế. **Mailchimp trông rẻ ($90 CAC cơ mà!) nhưng thu theo tháng**, nên nó âm tiền suốt ~3–4 tháng đầu của mỗi khách và chẳng bao giờ có được cái đệm trả-trước. `[established]`
 
-That trapped money has a name: **working capital** — the cash tied up in the gap between when you *pay out* (to build, deliver, acquire, make payroll) and when you *collect* from customers. Picture the operating cycle as a loop: cash leaves to produce and sell, then returns when the customer pays. Whatever is "in flight" around that loop at any moment is working capital — **money you own but can't spend.** Grow, and the loop carries more of it, which is why scaling a slow-collecting business drains the bank even as the P&L climbs. The billing model sets the *sign*: collect **before** you deliver (annual prepay) and customers fund your loop — *negative* working capital, the gift from Chapter 2; collect **after** (monthly, or net-60 invoices) and you fund theirs.
+Cái mớ tiền bị kẹt đó có tên hẳn hoi: **vốn lưu động** (working capital) — số tiền bị chôn trong khoảng cách giữa lúc mày *chi ra* (để xây, giao hàng, giành khách, trả lương) và lúc mày *thu về* từ khách. Hình dung chu kỳ vận hành như một vòng lặp: tiền rời đi để sản xuất và bán, rồi quay về khi khách trả tiền. Bất cứ thứ gì đang "bay lơ lửng" quanh vòng lặp đó tại một thời điểm chính là vốn lưu động — **tiền mày sở hữu nhưng không tiêu được.** Lớn lên đi, vòng lặp gánh nhiều tiền hơn, đó là lý do scale một doanh nghiệp thu tiền chậm sẽ rút cạn ngân hàng ngay cả khi P&L leo dốc. Mô hình thu tiền quyết định *dấu*: thu **trước** khi giao (trả trước cả năm) thì khách nuôi vòng lặp của mày — vốn lưu động *âm*, món quà từ Chương 2; thu **sau** (theo tháng, hoặc hóa đơn net-60) thì mày nuôi vòng lặp của họ.
 
-Now the impossible sentence dissolves. **"Profitable but out of cash"** = profit is booked on accrual (earned, not collected) while cash is a matter of timing, and the gap between them *is* working capital plus your up-front growth spend. A company posting healthy net profit while its balance falls isn't lying — it's growing faster than it collects, covering the difference from its own reserves until they run dry. `[established-as-finding]`
+Giờ thì cái câu tưởng vô lý tan ra. **"Có lãi mà hết tiền"** = lợi nhuận ghi theo dồn tích (kiếm được rồi, chưa thu về) trong khi tiền mặt là chuyện thời điểm, và khoảng cách giữa hai thứ đó *chính là* vốn lưu động cộng với khoản chi tăng trưởng trả trước của mày. Một công ty báo lợi nhuận ròng khỏe mạnh trong khi số dư tụt dần không hề nói dối — nó đang lớn nhanh hơn tốc độ thu tiền, lấy dự trữ của chính mình bù vào phần chênh cho tới khi cạn. `[established-as-finding]`
 
-> **Operating rule** `[heuristic]`: for a monthly-billed subscription, the cash trough per cohort ≈ `CAC − (months-to-payback × monthly contribution)`, deepest right at acquisition and climbing back as contribution trickles in. Annual prepay flips its sign — you start *above* water. How you bill can be the whole difference between needing a round and not.
+> **Quy tắc vận hành** `[heuristic]`: với gói thuê bao thu theo tháng, cái đáy tiền mặt mỗi cohort ≈ `CAC − (months-to-payback × monthly contribution)`, sâu nhất ngay lúc giành khách và leo dần lên khi biên đóng góp nhỏ giọt về. Trả trước cả năm lật ngược cái dấu — mày khởi đầu *trên* mặt nước. Cách mày thu tiền có thể là toàn bộ khác biệt giữa cần một vòng gọi vốn và không cần.
 
-**How operators actually live this.** The two numbers a founder watches daily aren't on the P&L: **burn rate** (net cash out per month) and **runway** (months left = cash ÷ burn). `[synthesis]` The CFO's real instrument is a rolling 13-week cash forecast — the income statement is for the board, the cash forecast is for survival. And billing terms are a *cash weapon*: the reason SaaS pushes annual prepay so hard, dangling 15–20% discounts for it, isn't revenue — it's pulling a year of cash forward to fund growth without raising; enterprise buyers push back with net-60/90 terms to fund *their* working capital out of *yours*. Every payment-term negotiation is a working-capital fight wearing a discount's clothing. The sentence in the room is never "are we profitable" — it's **"what's our runway, and does this decision lengthen or shorten it?"**
+**Dân vận hành sống với cái này ra sao.** Hai con số một founder theo dõi mỗi ngày không nằm trên P&L: **burn rate** (tiền ròng chảy ra mỗi tháng) và **runway** (số tháng còn lại = tiền ÷ burn). `[synthesis]` Nhạc cụ thật của CFO là bản dự báo tiền mặt cuốn chiếu 13 tuần — báo cáo kết quả kinh doanh là để trình hội đồng, còn dự báo tiền mặt là để sống sót. Và điều khoản thu tiền là một *vũ khí tiền mặt*: lý do SaaS ép trả trước cả năm dữ vậy, treo lơ lửng mức giảm 15–20% cho nó, không phải vì doanh thu — mà là kéo cả một năm tiền về phía trước để nuôi tăng trưởng mà khỏi phải gọi vốn; khách doanh nghiệp thì đẩy ngược lại bằng điều khoản net-60/90 để nuôi vốn lưu động của *họ* bằng tiền của *mày*. Mọi cuộc thương lượng điều khoản thanh toán đều là một trận đánh vốn lưu động khoác áo giảm giá. Cái câu vang lên trong phòng chưa bao giờ là "mình có lãi không" — mà là **"runway của mình còn bao nhiêu, và quyết định này kéo dài hay rút ngắn nó?"**
 
-### Make the call
-Two businesses grow identically at 80%/yr with the same margins. Business A bills annually upfront; Business B sells to enterprises on net-60 terms. Before reading on: *which one can grow faster without raising outside money — and if you ran the cash-hungry one, what's the first lever you'd pull before taking a dime of dilution?*
+### Ra quyết định
+Hai doanh nghiệp tăng trưởng y hệt nhau ở 80%/năm với cùng biên. Doanh nghiệp A thu tiền cả năm trả trước; doanh nghiệp B bán cho khách doanh nghiệp với điều khoản net-60. Trước khi đọc tiếp: *cái nào có thể lớn nhanh hơn mà không cần gọi vốn ngoài — và nếu mày vận hành cái đói tiền kia, cần gạt cái đòn bẩy nào đầu tiên trước khi nhận một xu pha loãng cổ phần?*
 
-A grows on its customers' cash (negative working capital); B *lends* to its customers and must finance the gap, so at the same growth rate B needs far more capital just to stand still. And the lever on B isn't "raise" — it's **change the terms**: shorten collection, add a prepay discount, invoice on signature not delivery. Freeing working capital is often a bigger, faster, cheaper source of cash than a funding round — and it costs no equity. Look at working capital *before* you assume you need capital.
+A lớn lên bằng tiền của khách (vốn lưu động âm); B *cho khách vay* và phải tài trợ khoảng chênh đó, nên ở cùng tốc độ tăng trưởng, B cần nhiều vốn hơn hẳn chỉ để đứng yên tại chỗ. Và cái đòn bẩy cho B không phải "gọi vốn" — mà là **đổi điều khoản**: rút ngắn kỳ thu, thêm chiết khấu trả trước, xuất hóa đơn ngay khi ký chứ không đợi giao hàng. Giải phóng vốn lưu động thường là nguồn tiền lớn hơn, nhanh hơn, rẻ hơn một vòng gọi vốn — và nó không tốn cổ phần nào. Nhìn vào vốn lưu động *trước khi* mày cho rằng mình cần vốn.
 </script>
 
 <script type="text/markdown" id="content-M1-4">
-<p class="kicker">M1 · Chapter 4</p>
+<p class="kicker">M1 · Chương 4</p>
 
-# Unit economics, rigorously
+# Unit economics, làm cho chặt
 
-Every dollar you will ever spend on growth rides on one bet: that a customer is worth more than it costs to acquire. Unit economics is where you *prove* that bet instead of hoping it — and where you learn that the very number everyone quotes to prove it, **LTV:CAC**, is a forecast wearing a fact's costume: gameable, assumption-loaded, and routinely wrong by the time it matters. The instinct is to read "5:1" as a verdict — *healthy, keep spending.* By the end of this chapter you won't accept an LTV:CAC without asking three things — *which* CAC, discounted or not, and on *what* churn assumption — because each one can quietly turn a 5:1 into a 2:1 or a mirage. That interrogation reflex is the entire skill; the formulas are just how you run it.
+Mỗi đồng mày sẽ tiêu cho tăng trưởng đều cưỡi trên một canh bạc: rằng một khách hàng đáng giá hơn cái giá để giành được nó. Unit economics là nơi mày *chứng minh* canh bạc đó thay vì cầu trời cho nó đúng — và là nơi mày học ra rằng chính con số mà ai cũng trích để chứng minh nó, **LTV:CAC**, là một dự báo mặc bộ đồ của một sự thật: gian lận được, chất đầy giả định, và tới lúc quan trọng thì thường sai. Bản năng là đọc "5:1" như một phán quyết — *khỏe đấy, cứ tiêu tiếp đi.* Hết chương này mày sẽ không chấp nhận một con LTV:CAC nào mà không hỏi ba thứ — *CAC nào*, đã chiết khấu hay chưa, và dựa trên giả định churn *nào* — vì mỗi thứ đều có thể lặng lẽ biến một con 5:1 thành 2:1 hoặc thành ảo ảnh. Cái phản xạ tra hỏi đó chính là toàn bộ kỹ năng; công thức chỉ là cách mày chạy nó thôi.
 
-Zoom to one customer. Every term below is built, not asserted.
+Zoom vào một khách hàng. Mọi thuật ngữ dưới đây đều được *dựng nên*, không phải phán bừa.
 
-## 4.1 CAC — three honest versions
-`CAC = (all acquisition spend) / (new customers it produced)`. The word *all* is where people lie. `[synthesis of established parts]`
-- **Blended CAC** — total S&M / all new customers (paid + organic). Flatters you; organic drags the average down.
-- **Paid CAC** — paid spend / customers from paid channels. Decides whether acquisition *scales.*
-- **Fully-loaded CAC** — includes the salaries/tools/overhead of acquisition, not just ad spend. The number that's actually true.
+## 4.1 CAC — ba phiên bản trung thực
+`CAC = (toàn bộ chi phí giành khách) / (số khách mới nó tạo ra)`. Chữ *toàn bộ* là chỗ người ta nói dối. `[synthesis of established parts]`
+- **Blended CAC** — tổng S&M / toàn bộ khách mới (trả tiền + tự nhiên tới). Nịnh mày; khách organic kéo cái trung bình xuống.
+- **Paid CAC** — chi phí trả tiền / khách từ các kênh trả tiền. Quyết định chuyện giành khách có *scale* được không.
+- **Fully-loaded CAC** — tính cả lương/công cụ/chi phí chung của việc giành khách, chứ không chỉ tiền quảng cáo. Con số thật sự đúng.
 
-> If blended CAC looks great but paid CAC is underwater, you run on a *free channel you can't turn up* — the SHT/PageFly situation, in numbers. Blended CAC is where borrowed distribution hides. It's also why Mailchimp's $90 is fragile: kill the organic and it isn't $90.
+> Nếu blended CAC trông ngon mà paid CAC chìm dưới nước, mày đang chạy nhờ một *kênh miễn phí không vặn to lên được* — chính là tình huống SHT/PageFly, quy ra số. Blended CAC là chỗ cái phân phối đi mượn ẩn mình. Nó cũng là lý do con $90 của Mailchimp mong manh: bóp chết kênh organic đi thì nó chẳng còn là $90.
 
-## 4.2 Contribution margin
-`Contribution = ARPA × gross margin%` — revenue minus the *variable* cost to serve, not revenue. Figma: `$100 × 0.82 = $82/mo`. `[established]`
+## 4.2 Biên đóng góp
+`Contribution = ARPA × gross margin%` — doanh thu trừ đi chi phí *biến đổi* để phục vụ, không phải cả doanh thu. Figma: `$100 × 0.82 = $82/mo`. `[established]`
 
-## 4.3 LTV — derived, not handed to you
-A customer pays contribution `m` each period, surviving each period with probability `r = 1 − c` (c = churn). Expected lifetime value is a **geometric series**:
+## 4.3 LTV — suy ra, không phải trao tận tay
+Một khách trả biên đóng góp `m` mỗi kỳ, sống sót qua mỗi kỳ với xác suất `r = 1 − c` (c = churn). Giá trị vòng đời kỳ vọng là một **chuỗi cấp số nhân**:
 ```
 LTV = m × Σ rᵗ  (t=0,1,2,…) = m × 1/(1−r) = m / c
 ```
-So "divide by churn" isn't magic — `1/c` *is* the expected number of periods survived (mean of a geometric distribution). `[established]`
+Nên "chia cho churn" chẳng có gì huyền bí — `1/c` *chính là* số kỳ kỳ vọng sống sót (kỳ vọng của phân phối hình học). `[established]`
 
-## 4.4 The three cases, computed
+## 4.4 Ba trường hợp, tính ra hẳn
 
-| Metric | Figma | Salesforce | Mailchimp |
+| Chỉ số | Figma | Salesforce | Mailchimp |
 |---|---|---|---|
-| Contribution / mo | $82 | $3,120 | $24.65 |
-| Avg lifetime (1/c) | 40 mo | 200 mo | 16.7 mo |
-| **LTV (undiscounted)** | **$3,280** | **$624,000** | **$411** |
+| Biên đóng góp / tháng | $82 | $3,120 | $24.65 |
+| Vòng đời trung bình (1/c) | 40 mo | 200 mo | 16.7 mo |
+| **LTV (chưa chiết khấu)** | **$3,280** | **$624,000** | **$411** |
 | CAC | $600 | $60,000 | $90 |
-| **LTV:CAC (undisc.)** | **5.5 : 1** | **10.4 : 1** | **4.6 : 1** |
-| Payback (months) | 7.3 | 19.2 | 3.7 |
+| **LTV:CAC (chưa chiết khấu)** | **5.5 : 1** | **10.4 : 1** | **4.6 : 1** |
+| Payback (tháng) | 7.3 | 19.2 | 3.7 |
 
-Read the undiscounted row naively and Salesforce is the obvious winner (10.4:1, $624k LTV). Hold that thought.
+Đọc hàng chưa-chiết-khấu một cách ngây thơ thì Salesforce thắng rõ ràng (10.4:1, LTV $624k). Giữ suy nghĩ đó lại đã.
 
-## 4.5 The four assumptions under which LTV lies
+## 4.5 Bốn giả định mà dưới nó LTV nói dối
 
-1. **Constant churn is false.** Churn falls with tenure — leavers leave early, survivors stick. A blended rate applied forever misprices everyone. The honest LTV is the *area under the real cohort-retention curve*, `Σ (surviving fraction at t) × m` — the formula is its lazy approximation, and it *understates* LTV when the curve flattens. `[established]`
+1. **Churn cố định là sai.** Churn giảm theo thâm niên — đứa nào bỏ thì bỏ sớm, đứa nào sống sót thì bám lại. Một tỷ lệ trung bình đem áp mãi mãi sẽ định giá sai tất cả mọi người. LTV trung thực là *diện tích dưới đường cong giữ chân cohort thật*, `Σ (phần còn sống ở t) × m` — công thức kia chỉ là bản xấp xỉ lười biếng của nó, và nó *tính thiếu* LTV khi đường cong đi ngang. `[established]`
 
-2. **No discounting — and this is where Salesforce's halo breaks.** A dollar in month 200 is not worth a dollar today. Discount at `d`:
+2. **Không chiết khấu — và đây là chỗ hào quang của Salesforce vỡ.** Một đồng ở tháng 200 không đáng một đồng của hôm nay. Chiết khấu ở `d`:
    ```
    LTV = m × Σ [r/(1+d)]ᵗ = m × (1+d)/(c+d)
    ```
-   **The discount rate simply adds to churn in the denominator** — waiting costs you like a second, silent churn. Apply `d = 1%/month`:
+   **Tỷ lệ chiết khấu đơn giản là cộng thẳng vào churn dưới mẫu số** — sự chờ đợi ăn của mày như một cú churn thứ hai, lặng lẽ. Áp `d = 1%/month`:
 
    | | Figma | Salesforce | Mailchimp |
    |---|---|---|---|
-   | LTV undiscounted | $3,280 | $624,000 | $411 |
-   | LTV discounted @1%/mo | ~$2,366 | ~$210,000 | ~$356 |
-   | **Haircut from time value** | **−28%** | **−66%** | **−13%** |
-   | LTV:CAC after discounting | 3.9:1 | **3.5:1** | 4.0:1 |
+   | LTV chưa chiết khấu | $3,280 | $624,000 | $411 |
+   | LTV chiết khấu @1%/mo | ~$2,366 | ~$210,000 | ~$356 |
+   | **Bị cắt do giá trị thời gian** | **−28%** | **−66%** | **−13%** |
+   | LTV:CAC sau chiết khấu | 3.9:1 | **3.5:1** | 4.0:1 |
 
-   Look what happened: **the 10.4:1 monster and the 4.6:1 minnow both collapse to ~3.5–4:1 once you honor time value.** The lower the churn, the more of your "LTV" sits decades out, and the harder discounting bites — Salesforce loses two-thirds of its value to the clock. Undiscounted LTV *systematically flatters low-churn businesses*, which is exactly the kind selling you the story. `[established — the (1+d)/(c+d) form is the clean version most decks never show]`
+   Nhìn xem chuyện gì xảy ra: **con quái vật 10.4:1 và con cá con 4.6:1 đều sụp về ~3.5–4:1 một khi mày tôn trọng giá trị thời gian.** Churn càng thấp thì càng nhiều "LTV" của mày nằm ở tít mấy thập kỷ sau, và chiết khấu cắn càng đau — Salesforce mất hai phần ba giá trị vào tay cái đồng hồ. LTV chưa chiết khấu *nịnh một cách có hệ thống các doanh nghiệp churn thấp*, mà đó lại đúng là loại đang bán câu chuyện cho mày. `[established — dạng (1+d)/(c+d) là bản gọn mà hầu hết mấy slide chẳng bao giờ trưng ra]`
 
-3. **Flat ARPA is false.** With expansion (NRR > 100%), contribution *grows* over the life; if expansion outpaces churn+discount the naive formula runs to infinity — which is *why* expansion-led businesses are valued differently (→ M3). Salesforce's 125% NRR means its real curve bends *up*; Mailchimp's 95% bends *down*.
+3. **ARPA phẳng là sai.** Có expansion (mở rộng — NRR > 100%) thì biên đóng góp *lớn dần* theo vòng đời; nếu expansion vượt churn+chiết khấu thì công thức ngây thơ chạy tới vô cực — mà đó *chính là* lý do các doanh nghiệp dẫn dắt bằng expansion được định giá khác hẳn (→ M3). NRR 125% của Salesforce nghĩa là đường cong thật của nó cong *lên*; Mailchimp 95% thì cong *xuống*.
 
-4. **The metric itself is contested.** `[contested]` LTV:CAC is a *forecast in the costume of a fact* — it rests on a churn guess about a future you haven't lived (brutal for young companies with no long cohorts) and is trivially gamed. Sharp operators lead with **CAC payback** (only money already collected) and **cohort curves**, treating LTV:CAC as a directional check, never a target. (Lemkin; a16z metric critiques.)
+4. **Bản thân chỉ số này còn tranh cãi.** `[contested]` LTV:CAC là một *dự báo trong bộ đồ của một sự thật* — nó dựa trên một cú đoán churn về một tương lai mày chưa sống qua (tàn khốc với các công ty non chưa có cohort dài) và bị gian lận dễ như bỡn. Dân vận hành sắc sảo dẫn đầu bằng **CAC payback** (chỉ tính tiền đã thu về) và **đường cong cohort**, coi LTV:CAC như một cú kiểm tra định hướng, không bao giờ là mục tiêu. (Lemkin; các bài phê bình chỉ số của a16z.)
 
-## 4.6 So which case is "best"? — the point of running three
-- **By ratio:** Salesforce (before discounting). **By payback/cash:** Mailchimp (recovers in 3.7 months). **By durability:** Salesforce (0.5% churn). **By absolute value per customer:** Salesforce by 1,000×. **By capital efficiency:** Figma (self-funding, Chapter 3).
-- No single metric crowns a winner. Mailchimp's beautiful payback hides a leaky bucket (6% monthly = ~52%/yr — you refill the whole base every two years). Salesforce's beautiful ratio hides a 19-month cash hole and a value that's mostly a discounting mirage. Figma is the quiet compounder. **This is the entire reason to hold three cases: any one metric, read alone, lies — and it lies differently for each shape.**
+## 4.6 Vậy trường hợp nào "tốt nhất"? — cái đích của việc chạy cả ba
+- **Theo tỷ lệ:** Salesforce (trước chiết khấu). **Theo payback/tiền mặt:** Mailchimp (hồi vốn trong 3.7 tháng). **Theo độ bền:** Salesforce (churn 0.5%). **Theo giá trị tuyệt đối mỗi khách:** Salesforce, hơn 1,000×. **Theo hiệu quả vốn:** Figma (tự nuôi mình, Chương 3).
+- Không một chỉ số đơn lẻ nào phong vương được. Cái payback đẹp mê của Mailchimp giấu một cái xô thủng (6% mỗi tháng = ~52%/năm — cứ hai năm mày phải thay mới cả tệp khách). Cái tỷ lệ đẹp mê của Salesforce giấu một cái hố tiền 19 tháng và một giá trị mà phần lớn chỉ là ảo ảnh của chiết khấu. Figma là kẻ cộng dồn thầm lặng. **Đây chính là toàn bộ lý do phải giữ đủ ba trường hợp: bất kỳ chỉ số nào, đọc một mình, đều nói dối — và nó nói dối theo kiểu khác nhau cho mỗi hình dáng.**
 
-## Make the call
-A growth lead brings you a channel: **LTV:CAC of 6:1 — way over the 3:1 bar, let's pour money in.** Before reading on: *what do you ask before approving one extra dollar?*
+## Ra quyết định
+Một trưởng nhóm tăng trưởng mang tới cho mày một kênh: **LTV:CAC 6:1 — vượt xa mốc 3:1, đổ tiền vào thôi.** Trước khi đọc tiếp: *mày hỏi gì trước khi duyệt thêm một đồng nào?*
 
-Three questions dismantle it or confirm it. **Which CAC?** If that 6 uses *blended* CAC, the paid channel you'd actually be scaling might be 2:1 — the 6 is borrowed organic that won't turn up when you spend. **Discounted?** A 6:1 on a low-churn base can halve once you honour time value, because most of that "value" sits years out (§4.5). **What churn?** For a young company the churn inside that LTV is a *guess* about a future it hasn't lived; one bad cohort and the ratio inverts. The honest approval doesn't rest on the ratio at all — it rests on **CAC payback** (cash you've *already* collected back) and the **cohort curve** (§4½). Fund the payback, not the forecast.
+Ba câu hỏi tháo tung nó ra hoặc xác nhận nó. **CAC nào?** Nếu con 6 đó dùng *blended* CAC, thì cái kênh trả tiền mà mày thật sự sẽ scale có khi chỉ là 2:1 — con 6 đó là organic đi mượn, sẽ không vặn to lên được khi mày tiêu tiền. **Đã chiết khấu chưa?** Một con 6:1 trên tệp churn thấp có thể rụng một nửa khi mày tôn trọng giá trị thời gian, vì phần lớn "giá trị" đó nằm ở mấy năm sau (§4.5). **Churn nào?** Với một công ty non, cái churn nằm trong LTV đó là một *cú đoán* về một tương lai nó chưa sống qua; chỉ một cohort tệ là tỷ lệ lộn ngược. Cái duyệt trung thực chẳng dựa vào tỷ lệ chút nào — nó dựa vào **CAC payback** (tiền mày *đã* thu về) và **đường cong cohort** (§4½). Rót vào cái payback, đừng rót vào dự báo.
 </script>
 
 <script type="text/markdown" id="content-M1-5">
-<p class="kicker">M1 · Chapter 5</p>
+<p class="kicker">M1 · Chương 5</p>
 
-# Cost structure, breakeven, and operating leverage
+# Cấu trúc chi phí, điểm hòa vốn, và đòn bẩy vận hành
 
-Two companies sell the identical product at the identical price with the identical per-customer economics — yet one is a money-printer at scale and the other is trapped near break-even forever. Nothing about the *unit* explains it. The difference is **cost structure**, and it's the reason "we just need to sell more" rescues one business and bankrupts the other. The intuition that profit scales in step with revenue — sell 20% more, make 20% more — is wrong in *both* directions, and this chapter teaches you to read which way a given business bends *before* you scale it, when the answer is still cheap to act on.
+Hai công ty bán cùng một sản phẩm y hệt, cùng một giá y hệt, kinh tế trên đầu mỗi khách hàng y hệt — vậy mà khi lên quy mô, một thằng in tiền còn thằng kia mắc kẹt quanh điểm hòa vốn (breakeven) mãi mãi. Chẳng có gì ở *cái đơn vị* giải thích nổi chuyện đó. Khác biệt nằm ở **cấu trúc chi phí**, và đó là lý do vì sao câu "chỉ cần bán nhiều hơn thôi" cứu được doanh nghiệp này nhưng làm phá sản doanh nghiệp kia. Cái trực giác rằng lợi nhuận tăng đều theo doanh thu — bán nhiều hơn 20% thì lời thêm 20% — sai theo *cả hai* chiều, và chương này dạy mày đọc ra một doanh nghiệp sẽ bẻ về hướng nào *trước khi* mày lên quy mô nó, khi mà câu trả lời còn rẻ để hành động.
 
-Everything hinges on one split. A **variable cost** moves with each additional sale — for SaaS: hosting, payment fees, support minutes, the marginal cost to serve one more account. A **fixed cost** doesn't move with the next sale in the short run — most R&D salaries, G&A, the platform you'd run for 10 customers or 10,000. This isn't accounting pedantry; it's the hinge the chapter swings on, because **fixed costs are precisely what let profit and revenue come apart.**
+Mọi thứ xoay quanh một phép chia đôi. **Chi phí biến đổi** (variable cost) nhúc nhích theo mỗi lần bán thêm — với SaaS: hosting, phí thanh toán, phút hỗ trợ, chi phí biên để phục vụ thêm một tài khoản. **Chi phí cố định** (fixed cost) trong ngắn hạn không nhúc nhích theo lần bán tiếp theo — phần lớn lương R&D, chi phí quản lý chung, cái nền tảng mà mày vẫn phải chạy dù có 10 khách hay 10,000 khách. Đây không phải chuyện học thuật kế toán chẻ sợi tóc; đây là cái bản lề cả chương này xoay quanh, vì **chính chi phí cố định là thứ khiến lợi nhuận và doanh thu tách rời nhau ra.**
 
-**First consequence — breakeven.** Each sale throws off its *contribution* (revenue minus its variable cost — the $82/mo from Ch4). But you carry the fixed costs whether you sell or not, so you begin each month in a hole the size of fixed costs, and each unit's contribution fills it. The count to climb out is forced, not memorised:
+**Hệ quả thứ nhất — điểm hòa vốn.** Mỗi lần bán tạo ra một khoản *đóng góp* của nó (doanh thu trừ chi phí biến đổi của nó — cái $82/mo ở Ch4). Nhưng chi phí cố định thì mày gánh dù có bán hay không, nên mỗi tháng mày bắt đầu ở dưới một cái hố sâu bằng đúng chi phí cố định, và biên đóng góp (contribution margin) của từng đơn vị lấp dần cái hố đó. Con số phải leo để thoát hố là bị ép ra, không phải học thuộc:
 ```
 Breakeven units = Fixed costs / Contribution per unit
 ```
-Figma carrying **$200k/mo** fixed: 200,000 / 82 ≈ **2,440 accounts** just to reach zero. Below it you lose money no matter how lovely each unit looks; above it, every marginal account drops its full **$82** to the bottom line — the fixed nut is already paid.
+Figma gánh **$200k/mo** chi phí cố định: 200,000 / 82 ≈ **2,440 accounts** chỉ để về mốc 0. Dưới mốc đó mày lỗ bất kể mỗi đơn vị trông đẹp đến đâu; trên mốc đó, mỗi tài khoản tăng thêm đổ trọn **$82** thẳng xuống dòng cuối — cái khoản cố định đã trả xong rồi.
 
-**Second consequence — operating leverage.** That last sentence is the one that changes strategy. Past breakeven, fixed costs don't grow with revenue, so profit grows *faster* than revenue. Figma at 3,000 accounts: `(3,000 × 82) − 200,000 = `**$46,000/mo**. Grow accounts just **+20%** to 3,600: `(3,600 × 82) − 200,000 = `**$95,200** — a **+107%** jump in profit off a one-fifth jump in revenue, with nothing about the product or the unit changed. That amplification is operating leverage, and it runs *both ways*: a 20% revenue drop would savage profit just as violently. High leverage is a lever with no safety — glorious above scale, brutal below it. `[established-as-finding]`
+**Hệ quả thứ hai — đòn bẩy vận hành.** Chính câu vừa rồi là câu làm thay đổi chiến lược. Qua khỏi điểm hòa vốn, chi phí cố định không tăng theo doanh thu, nên lợi nhuận tăng *nhanh hơn* doanh thu. Figma ở 3,000 accounts: `(3,000 × 82) − 200,000 = `**$46,000/mo**. Tăng số tài khoản đúng **+20%** lên 3,600: `(3,600 × 82) − 200,000 = `**$95,200** — lợi nhuận nhảy **+107%** từ một cú tăng doanh thu chỉ một phần năm, mà chẳng đổi gì ở sản phẩm hay ở đơn vị cả. Cái khuếch đại đó là đòn bẩy vận hành, và nó chạy *cả hai chiều*: doanh thu rớt 20% cũng sẽ băm nát lợi nhuận đúng kiểu tàn bạo như vậy. Đòn bẩy cao là một cái cần gạt không có phanh — huy hoàng khi trên quy mô, tàn khốc khi dưới nó. `[established-as-finding]`
 
-**How operators actually play this.** Cost structure is a **strategic bet, not an accident.** Salesforce runs *fixed-cost-heavy* (expensive AEs, sales engineers) — ugly below scale, spectacular above it, which is exactly why it's a venture bet: you fund the losses to *buy* the leverage. Mailchimp runs *fixed-cost-light* (self-serve, no sales team) — profitable early, lower ceiling. Neither is "right"; they're different wagers on where the volume lands. `[synthesis]` The phrase every board says in a downturn — "**path to profitability**" — is literally this: how many units to the nut, and how hard does profit bend once we clear it. And the tell to watch: a company far below breakeven quoting **"contribution-margin positive!"** to sound healthy while the fixed-cost hole stays bottomless — contribution-positive and *profitable* are different planets, and the gap is the fixed cost nobody put on the slide.
+**Dân vận hành thực sự chơi ván này thế nào.** Cấu trúc chi phí là một **canh bạc chiến lược, không phải tai nạn.** Salesforce chạy *nặng chi phí cố định* (đội bán hàng đắt đỏ, kỹ sư bán hàng) — xấu xí khi dưới quy mô, ngoạn mục khi trên nó, đó đúng là lý do nó là một canh bạc kiểu venture: mày bỏ tiền nuôi lỗ để *mua* lấy cái đòn bẩy. Mailchimp chạy *nhẹ chi phí cố định* (tự phục vụ, không đội bán hàng) — có lời sớm, nhưng trần thấp hơn. Chẳng cái nào "đúng"; chúng là những canh bạc khác nhau về chuyện khối lượng sẽ rơi vào đâu. `[synthesis]` Cái câu mà hội đồng quản trị nào cũng nói lúc suy thoái — "**con đường tới lợi nhuận**" — nghĩa đen chính là cái này: còn bao nhiêu đơn vị nữa thì lấp xong cái hố cố định, và một khi vượt qua thì lợi nhuận bẻ lên mạnh cỡ nào. Và cái dấu hiệu cần canh: một công ty còn lỗ xa dưới điểm hòa vốn mà lại rao "**contribution-margin dương!**" cho ra vẻ khỏe mạnh trong khi cái hố chi phí cố định vẫn không đáy — biên-đóng-góp-dương và *có lời* là hai hành tinh khác nhau, và khoảng cách giữa chúng chính là cái chi phí cố định chẳng ai đưa lên slide.
 
-Underneath all of it: **gross margin is destiny.** `[heuristic]` It's the fraction of each revenue dollar left after variable cost — the fuel that must cover *every* fixed cost and still leave profit. High-gross-margin software (80%+) can afford heavy R&D and sales and still win; a low-gross-margin business is starved before the fixed costs even show up. That's the cheap-price + heavy-support trap in one line: pile human support into COGS and you crush the very margin meant to fund growth — which is why Mailchimp *must* stay near-zero-touch to hold 85%.
+Nằm dưới tất cả: **gross margin là số phận.** `[heuristic]` Nó là phần còn lại của mỗi đồng doanh thu sau khi trừ chi phí biến đổi — nhiên liệu phải trang trải *mọi* chi phí cố định mà vẫn còn dư ra lợi nhuận. Phần mềm gross margin cao (80%+) có thể gánh nổi R&D nặng, bán hàng nặng, mà vẫn thắng; một doanh nghiệp gross margin thấp thì đã đói ngay trước khi chi phí cố định kịp lộ diện. Đó là cái bẫy giá-rẻ + hỗ-trợ-nặng gói gọn trong một dòng: chất đống hỗ trợ bằng con người vào COGS thì mày bóp chết chính cái biên lẽ ra dùng để nuôi tăng trưởng — đó là lý do Mailchimp *bắt buộc* phải giữ mức gần-như-không-đụng-tay mới giữ nổi 85%.
 
-**Rule of 40** `[heuristic]`: growth% + profit-margin% > 40 — a rough market shorthand for the growth-vs-margin trade you can now actually reason about (Chapter 6), not just recite.
+**Rule of 40** `[heuristic]`: growth% + profit-margin% > 40 — một câu tốc ký thô của thị trường về cái đánh đổi tăng-trưởng-vs-biên mà giờ mày thực sự có thể lý luận được (Chương 6), chứ không chỉ đọc vẹt.
 
-### Make the call
-Two SaaS businesses, both at **$5M revenue and both losing money.** A is fixed-cost-heavy (big sales team, deep R&D); B is fixed-cost-light (pure self-serve). Same loss today. Before reading on: *which would you rather own heading into a growth phase — and which into a downturn?*
+### Chốt đi
+Hai doanh nghiệp SaaS, cả hai đều **doanh thu $5M và cả hai đều đang lỗ.** A nặng chi phí cố định (đội bán hàng to, R&D sâu); B nhẹ chi phí cố định (thuần tự phục vụ). Hôm nay lỗ như nhau. Trước khi đọc tiếp: *mày muốn sở hữu cái nào khi bước vào giai đoạn tăng trưởng — và cái nào khi bước vào suy thoái?*
 
-Into growth you want **A**: its losses are the price of leverage, and once it clears breakeven profit bends up violently — the loss was an investment in the slope. Into a downturn you want **B**: with little fixed cost it sits near breakeven already and can't be crushed by a revenue drop, while A's leverage runs in reverse and the same fixed nut that was going to make it rich now drowns it. The *identical* income statement implies opposite bets — depending on the one thing the P&L doesn't show you: **where the costs are fixed.** That read is what this chapter buys you.
+Vào tăng trưởng thì mày muốn **A**: khoản lỗ của nó là cái giá của đòn bẩy, và một khi vượt điểm hòa vốn thì lợi nhuận bẻ lên dữ dội — khoản lỗ đó là một khoản đầu tư vào độ dốc. Vào suy thoái thì mày muốn **B**: chi phí cố định ít nên nó vốn đã ngồi sát điểm hòa vốn rồi, không thể bị doanh thu rớt đè bẹp, còn đòn bẩy của A chạy ngược lại và chính cái khoản cố định lẽ ra làm nó giàu giờ dìm chết nó. Cùng một báo cáo kết quả kinh doanh *y hệt* mà hàm ý hai canh bạc ngược nhau — tùy vào đúng cái thứ mà bảng P&L không cho mày thấy: **chi phí nằm cố định ở đâu.** Đọc ra được cái đó chính là thứ chương này mua cho mày.
 </script>
 
 <script type="text/markdown" id="content-M1-6">
-<p class="kicker">M1 · Chapter 6</p>
+<p class="kicker">M1 · Chương 6</p>
 
-# Time value and an intro to valuation
+# Giá trị thời gian và nhập môn định giá
 
-Everything in M1 has been building to the one question an owner, board, or acquirer actually asks: **what is this worth?** Most people answer it with a number they don't understand — *"it's a 10× ARR business"* — as if the multiple were a fact stamped on the company rather than a **bet** someone is making about its future. It isn't a fact. This chapter shows you the machine under every valuation, so that when a founder or a banker quotes you a multiple you can ask the only question that matters — *what has to be true about the future for that number to hold, and is it?* The math is a single idea (a dollar later is worth less than a dollar now) applied relentlessly; the judgment is knowing what the number is quietly assuming.
+Mọi thứ trong M1 đều dồn về đúng một câu hỏi mà một người chủ, một hội đồng, hay một bên mua thực sự đặt ra: **cái này đáng giá bao nhiêu?** Đa số người trả lời câu đó bằng một con số họ không hiểu — *"đây là một doanh nghiệp 10× ARR"* — cứ như cái bội số là một sự thật đóng dấu lên công ty chứ không phải một **canh bạc** mà ai đó đang đặt về tương lai của nó. Nó không phải sự thật. Chương này chỉ cho mày thấy cái cỗ máy nằm dưới mọi phép định giá, để khi một founder hay một banker phang cho mày một con bội số, mày hỏi được đúng cái câu duy nhất đáng hỏi — *cái gì phải đúng về tương lai thì con số đó mới đứng, và nó có đúng không?* Phần toán chỉ là một ý duy nhất (một đồng ở tương lai đáng giá ít hơn một đồng bây giờ) áp không khoan nhượng; phần phán đoán là biết con số đó đang ngầm giả định cái gì.
 
-**Time value of money.** A dollar today beats a dollar next year — today's can be invested. Discount future cash to compare: `PV = FV / (1+d)ⁿ`. `[established]` Same `d` that taxed LTV in Chapter 4, now applied to a whole company.
+**Giá trị thời gian của tiền.** Một đồng hôm nay hơn một đồng năm sau — đồng hôm nay đem đầu tư được. Chiết khấu dòng tiền tương lai về để so sánh: `PV = FV / (1+d)ⁿ`. `[established]` Vẫn cái `d` đã đánh thuế lên LTV ở Chương 4, giờ áp cho cả một công ty.
 
-**Discounted Cash Flow (DCF).** A business is worth the present value of all future owner cash: `Value = Σ FCFₜ / (1+d)ᵗ`. For a stable growing stream this collapses to **Gordon growth**: `Value = FCF_next / (d − g)`. Danger: as `g → d`, value explodes — tiny growth-assumption changes swing valuation wildly, which is why DCFs are argued, not trusted. `[established]`
+**Dòng tiền chiết khấu (DCF).** Một doanh nghiệp đáng giá bằng giá trị hiện tại của toàn bộ dòng tiền tương lai về tay chủ: `Value = Σ FCFₜ / (1+d)ᵗ`. Với một dòng tiền tăng trưởng ổn định, cái này rút gọn thành **Gordon growth**: `Value = FCF_next / (d − g)`. Nguy hiểm: khi `g → d`, giá trị nổ tung — chỉnh nhẹ giả định tăng trưởng là định giá đảo điên, đó là lý do người ta *cãi nhau* về DCF chứ không *tin* nó. `[established]`
 
-**Why SaaS trades on revenue multiples.** Young SaaS has little current cash, so a DCF of *today's* cash says ~zero. The market prices *forward* via a **revenue multiple** ("10× ARR") — really a compressed DCF: high when growth, retention (NRR), and margin are high. `[synthesis — established underneath]`
+**Vì sao SaaS được định giá theo bội số doanh thu.** SaaS còn non thì tiền hiện tại ít, nên DCF của tiền *hôm nay* ra gần bằng 0. Thị trường định giá *tương lai* qua một **bội số doanh thu** ("10× ARR") — thực chất là một DCF nén lại: cao khi tăng trưởng, retention (NRR), và biên đều cao. `[synthesis — established underneath]`
 
-> **The three cases get three multiples — and it isn't the ratio that decides.** Salesforce commands the *highest* multiple despite its 19-month payback, because 125% NRR and 0.5% churn make its future almost certain — the market pays for durability. Mailchimp earns the *lowest* multiple despite the fastest payback, because 6%/month churn caps terminal value — you can't build a decade of compounding on a bucket that empties every two years. Figma lands in between. **Payback speed wins you cash; retention wins you the multiple.** That is the sentence M1 exists to earn.
+> **Ba ca nhận ba bội số — và không phải cái tỷ số quyết định.** Salesforce nắm bội số *cao nhất* dù payback 19 tháng, vì 125% NRR và 0.5% churn khiến tương lai của nó gần như chắc chắn — thị trường trả tiền cho độ bền. Mailchimp lãnh bội số *thấp nhất* dù payback nhanh nhất, vì churn 6%/tháng chặn trần giá trị cuối kỳ (terminal value) — mày không thể xây một thập kỷ tích lũy trên một cái thùng cứ hai năm lại cạn sạch. Figma nằm giữa. **Tốc độ payback thắng cho mày tiền mặt; retention thắng cho mày cái bội số.** Đó là câu mà cả M1 tồn tại để giành cho được.
 
-**The through-line of M1:** unit economics (Ch 4) → aggregate P&L and leverage (Ch 5) → discounted future cash (Ch 6). Enterprise value is just unit economics, multiplied and discounted. Every lever the rest of the program teaches — retention, pricing, growth — is a lever on *this* number.
+**Sợi chỉ xuyên suốt M1:** unit economics (Ch 4) → gộp thành P&L và đòn bẩy (Ch 5) → dòng tiền tương lai chiết khấu (Ch 6). Giá trị doanh nghiệp chẳng qua là unit economics, đem nhân lên rồi chiết khấu. Mọi cần gạt mà phần còn lại của chương trình dạy — retention, định giá bán, tăng trưởng — đều là cần gạt lên *chính* con số này.
 
-### Make the call
-Two SaaS companies, same **$10M ARR, same growth rate.** A banker prices Company X at **12× ARR** and Company Y at **4×**. Before reading on: *what single number most likely explains the 3× gap — and what would you check to tell whether X's premium is earned or a bubble?*
+### Chốt đi
+Hai công ty SaaS, cùng **$10M ARR, cùng tốc độ tăng trưởng.** Một banker định giá Công ty X là **12× ARR** còn Công ty Y là **4×**. Trước khi đọc tiếp: *con số duy nhất nào nhiều khả năng giải thích khoảng cách 3× đó — và mày sẽ kiểm cái gì để biết phần bù giá của X là xứng đáng hay là bong bóng?*
 
-Almost certainly **retention (NRR)** — not growth, not margin. X's 12× says the market believes its revenue is *durable*: an appreciating base that compounds with little new selling (NRR > 120%). Y's 4× says its base leaks, so every future dollar has to be re-won (NRR < 100%). To test whether the premium is real you don't stare at the multiple — you look at the **cohort curves and net revenue retention** beneath it, because the multiple is exactly those, compressed into one number. Payback speed wins you cash; retention wins you the multiple — and a multiple bought on a retention story nobody verified is precisely how bubbles price.
+Gần như chắc chắn là **retention (NRR)** — không phải tăng trưởng, không phải biên. Con 12× của X nói thị trường tin doanh thu của nó *bền*: một nền đang tăng giá trị, tự tích lũy mà chẳng cần bán thêm mấy (NRR > 120%). Con 4× của Y nói cái nền của nó rỉ, nên mỗi đồng tương lai đều phải đi giành lại (NRR < 100%). Để kiểm phần bù giá có thật hay không, mày đừng chằm chằm nhìn cái bội số — mày nhìn xuống **đường cong cohort và net revenue retention** nằm dưới nó, vì cái bội số chính là mấy thứ đó nén lại thành một con số. Tốc độ payback thắng cho mày tiền mặt; retention thắng cho mày cái bội số — và một bội số mua bằng một câu chuyện retention chẳng ai kiểm chứng thì đó đúng là cách bong bóng định giá.
 </script>
 
 <script type="text/markdown" id="content-M1-7">
-<p class="kicker">M1 · Assessment</p>
+<p class="kicker">M1 · Tự kiểm tra</p>
 
-# Test yourself — can you *use* it, not just recognize it?
+# Tự kiểm tra — mày có *dùng* được nó không, hay chỉ nhận ra nó?
 
-Work them before opening the solutions — the point is to *do* the math, not read it. They're **interleaved on purpose**: each one makes you first decide *which* tool applies, which is the real skill (a problem that announces its formula tests nothing). And before you check any answer, **jot your confidence (0–100%) on each.** The gap between how sure you felt and how you actually did is a sharper signal for what to restudy than the score itself.
+Làm hết trước khi mở lời giải — điểm mấu chốt là *làm* toán, không phải đọc toán. Chúng được **trộn lẫn có chủ đích**: mỗi bài bắt mày trước hết phải quyết *công cụ nào* mới hợp, đó mới là kỹ năng thật (một bài tự khai ra công thức của nó thì chẳng kiểm được gì). Và trước khi dò bất kỳ đáp án nào, **ghi lại độ tự tin (0–100%) cho mỗi bài.** Khoảng cách giữa mức mày thấy chắc chắn và mức mày thực sự làm được là một tín hiệu sắc hơn cả điểm số để biết phải học lại cái gì.
 
-**P1.** A monthly-billed SaaS: ARPA $50, gross margin 75%, monthly churn 4%, CAC $500. Compute contribution, lifetime, LTV, LTV:CAC, payback. Healthy?
+**P1.** Một SaaS tính phí theo tháng: ARPA $50, gross margin 75%, churn tháng 4%, CAC $500. Tính contribution, lifetime, LTV, LTV:CAC, payback. Khỏe không?
 
-**P2.** Same business, monthly discount rate 1.5%. Discounted LTV, and the % haircut vs undiscounted?
+**P2.** Cùng doanh nghiệp đó, suất chiết khấu tháng 1.5%. LTV chiết khấu, và % bị cắt so với chưa chiết khấu?
 
-**P3.** Fixed costs $120,000/mo. Breakeven accounts? Operating profit at 4,000 accounts? If accounts grow 15%, by what % does operating profit change?
+**P3.** Chi phí cố định $120,000/mo. Số accounts hòa vốn? Lợi nhuận vận hành ở 4,000 accounts? Nếu số accounts tăng 15%, lợi nhuận vận hành đổi bao nhiêu %?
 
-**P4.** Two businesses have identical 4:1 LTV:CAC. One (like Salesforce) has 0.5% monthly churn; the other (like Mailchimp) has 6%. After discounting at 1%/mo, whose LTV:CAC falls further, and why? What does that imply about which deserves the higher valuation multiple?
+**P4.** Hai doanh nghiệp có LTV:CAC y hệt 4:1. Một cái (như Salesforce) churn tháng 0.5%; cái kia (như Mailchimp) là 6%. Sau khi chiết khấu ở 1%/mo, LTV:CAC của cái nào rớt nhiều hơn, và vì sao? Điều đó hàm ý gì về chuyện cái nào xứng bội số định giá cao hơn?
 
-**P5.** A cohort starts at $200k MRR. Over a year it loses $30k to churn, $10k to contraction, and gains $50k to expansion. Compute GRR and NRR. With zero new customers, is the cohort growing or shrinking?
+**P5.** Một cohort khởi đầu ở $200k MRR. Qua một năm nó mất $30k vì churn, $10k vì contraction, và được thêm $50k từ expansion. Tính GRR và NRR. Với zero khách hàng mới, cohort đang lớn lên hay teo lại?
 
-**P6.** You raise $3M at a $12M pre-money valuation. What is post-money, what % does the investor own, and — if you held 70% before — what is your stake after?
+**P6.** Mày gọi vốn $3M ở mức định giá pre-money $12M. Post-money là bao nhiêu, nhà đầu tư sở hữu bao nhiêu %, và — nếu trước đó mày giữ 70% — sau vòng này phần của mày còn bao nhiêu?
 
-**P7 · trap — the obvious tool is wrong.** A founder boasts: *"Blended CAC $40, LTV $1,200 — a 30:1 machine. Let's raise and pour it all into paid growth."* You dig: ~90% of signups come from one viral referral loop that's already slowing, and **paid** CAC is **$600**. What's wrong with acting on the 30:1 — and what's the number that actually governs whether they can scale?
+**P7 · bẫy — công cụ hiển nhiên lại là công cụ sai.** Một founder khoe: *"Blended CAC $40, LTV $1,200 — cỗ máy 30:1. Gọi vốn rồi dồn hết vào paid growth thôi."* Mày đào sâu: ~90% lượt đăng ký đến từ một vòng lặp giới thiệu lan truyền vốn đã chậm lại, và CAC **paid** là **$600**. Hành động dựa trên con 30:1 thì sai ở đâu — và con số nào mới thực sự quyết định chuyện họ có scale được không?
 
-**P8 · judgment — no answer key.** You can back exactly one of two SaaS companies, same price. **A:** 8%/mo churn, but **200% NRR** driven by a *few* whales expanding fast; 2-month payback; self-funding. **B:** 1%/mo churn, **102% NRR** spread evenly across a broad base; 14-month payback; needs one more raise. The data does not crown a winner. Make the call, name the **one variable** that drove it, say what would flip you, and steelman the company you rejected. *(Scored on the reasoning, not the pick.)*
+**P8 · phán đoán — không có đáp án chuẩn.** Mày chỉ được rót vốn cho đúng một trong hai công ty SaaS, cùng giá. **A:** churn 8%/mo, nhưng **200% NRR** nhờ một *vài* con cá voi mở rộng nhanh; payback 2 tháng; tự nuôi thân. **B:** churn 1%/mo, **102% NRR** trải đều trên một nền rộng; payback 14 tháng; cần gọi thêm một vòng nữa. Dữ liệu không phong vương cho ai. Ra quyết định, gọi tên **một biến số** đã dẫn tới nó, nói điều gì sẽ khiến mày đổi phe, và biện hộ hết mình cho công ty mày đã loại. *(Chấm theo lập luận, không theo lựa chọn.)*
 </script>
 
 <script type="text/markdown" id="content-M1-8">
-<p class="kicker">M1 · Solutions & feedback</p>
+<p class="kicker">M1 · Lời giải & phản hồi</p>
 
-# Solutions, feedback & the output artifact
+# Lời giải, phản hồi & sản phẩm đầu ra
 
-## Solutions
+## Lời giải
 
-**S1.** Contribution `50×0.75 = $37.50`. Lifetime `1/0.04 = 25 mo`. LTV `37.5/0.04 = $937.50`. LTV:CAC `1.9:1`. Payback `500/37.5 = 13.3 mo`. **Unhealthy:** ratio under 3:1 and a 13-month cash exposure per customer — likely a churn problem (4%/mo = 25-month life). *If you got ~2.5:1 and called it healthy, you almost certainly used revenue ($50) instead of contribution ($37.50) in LTV — the single most common unit-economics error; LTV runs on contribution, always.*
+**S1.** Contribution `50×0.75 = $37.50`. Lifetime `1/0.04 = 25 mo`. LTV `37.5/0.04 = $937.50`. LTV:CAC `1.9:1`. Payback `500/37.5 = 13.3 mo`. **Không khỏe:** tỷ số dưới 3:1 và mỗi khách hàng phơi tiền 13 tháng — nhiều khả năng là vấn đề churn (4%/mo = đời 25 tháng). *Nếu mày ra ~2.5:1 rồi gọi là khỏe, thì gần như chắc chắn mày đã lấy doanh thu ($50) thay vì contribution ($37.50) đút vào LTV — đây là lỗi unit-economics phổ biến nhất; LTV luôn chạy trên contribution, luôn luôn.*
 
-**S2.** Disc. LTV `= 37.5 × (1.015/(0.04+0.015)) = 37.5 × 18.45 ≈ $691.9`. Haircut `1 − 691.9/937.5 ≈ 26%`.
+**S2.** LTV chiết khấu `= 37.5 × (1.015/(0.04+0.015)) = 37.5 × 18.45 ≈ $691.9`. Phần cắt `1 − 691.9/937.5 ≈ 26%`.
 
-**S3.** Breakeven `120,000/37.5 = 3,200`. At 4,000: `(4,000×37.5) − 120,000 = $30,000`. At 4,600 (+15%): `(4,600×37.5) − 120,000 = $52,500`, **+75%**. Operating leverage.
+**S3.** Hòa vốn `120,000/37.5 = 3,200`. Ở 4,000: `(4,000×37.5) − 120,000 = $30,000`. Ở 4,600 (+15%): `(4,600×37.5) − 120,000 = $52,500`, **+75%**. Đòn bẩy vận hành.
 
-**S4.** The **low-churn** one (Salesforce-like) falls further: its value sits far in the future, so discounting bites harder — its `(1+d)/(c+d)` denominator goes from 0.005 to 0.015 (×3), vs the high-churn one from 0.06 to 0.07 (×1.17). Counter-intuitively, the *stickier* business loses more LTV to discounting — **yet still deserves the higher multiple**, because low churn means its cash is nearly certain and compounds for years; the discount haircut is a one-time repricing, the durability is forever.
+**S4.** Cái **churn thấp** (kiểu Salesforce) rớt nhiều hơn: giá trị của nó nằm xa tít trong tương lai, nên chiết khấu cắn mạnh hơn — mẫu số `(1+d)/(c+d)` của nó đi từ 0.005 lên 0.015 (×3), so với cái churn cao đi từ 0.06 lên 0.07 (×1.17). Trái với trực giác, doanh nghiệp *dính hơn* lại mất nhiều LTV vì chiết khấu hơn — **nhưng vẫn xứng bội số cao hơn**, vì churn thấp nghĩa là tiền của nó gần như chắc chắn và tích lũy qua nhiều năm; cú cắt do chiết khấu là một lần định giá lại, còn độ bền thì kéo dài mãi.
 
-**S5.** GRR `= (200 − 30 − 10)/200 = 80%`. NRR `= (200 − 30 − 10 + 50)/200 = 105%`. **Growing** — NRR above 100% means expansion outruns losses, so the base compounds even with no new logos.
+**S5.** GRR `= (200 − 30 − 10)/200 = 80%`. NRR `= (200 − 30 − 10 + 50)/200 = 105%`. **Đang lớn** — NRR trên 100% nghĩa là expansion vượt qua các khoản mất, nên cái nền tự tích lũy dù không có logo mới nào.
 
-**S6.** Post-money `= 12 + 3 = $15M`. Investor `= 3/15 = 20%`. Your stake `= 70% × (1 − 0.20) = 56%`.
+**S6.** Post-money `= 12 + 3 = $15M`. Nhà đầu tư `= 3/15 = 20%`. Phần của mày `= 70% × (1 − 0.20) = 56%`.
 
-**S7 (trap).** The 30:1 rides on **blended** CAC dominated by a viral loop that's both *saturating* and *unbuyable* — you can't "pour money into" organic. The number that governs scaling is **paid CAC = $600**, i.e. LTV:CAC ≈ **2:1**, below the bar. Spend into it and the blend reverts toward the paid economics as the free channel taps out. *If you took the 30:1 at face value you fell for exactly the Ch4 "which CAC?" trap — the tool was right; the input was a lie.*
+**S7 (bẫy).** Con 30:1 cưỡi trên CAC **blended** bị chi phối bởi một vòng lặp lan truyền vừa *đang bão hòa* vừa *không mua được* — mày không thể "dồn tiền vào" cái organic. Con số quyết định chuyện scale là **paid CAC = $600**, tức LTV:CAC ≈ **2:1**, dưới mức chuẩn. Cứ đổ tiền vào thì cái blend sẽ tụt dần về đúng kinh tế của paid khi kênh miễn phí cạn. *Nếu mày cầm con 30:1 tin luôn thì mày đã dính đúng cái bẫy "CAC nào?" ở Ch4 — công cụ thì đúng; đầu vào mới là lời nói dối.*
 
-**S8 (judgment — no key, by design).** A strong answer *sees what each number hides*: A's 200% NRR is **concentration risk** (a few whales — lose one and it craters, with 8% churn burning underneath), while B's 102% is durable and broad but slow and capital-hungry. It names a decisive variable (*whale-concentration vs. durability*), a flip condition (*"if A's expansion is <5 accounts, I switch to B"*), and steelmans the reject. A weak answer just picks higher-NRR or lower-churn without seeing the hidden risk. No pick is "right" — only reasoning that survives its own strongest counter-argument.
+**S8 (phán đoán — không đáp án chuẩn, có chủ đích).** Một câu trả lời mạnh *nhìn ra cái mà mỗi con số đang giấu*: 200% NRR của A là **rủi ro tập trung** (vài con cá voi — mất một con là sập, với 8% churn đang cháy bên dưới), còn 102% của B thì bền và rộng nhưng chậm và ngốn vốn. Nó gọi tên được một biến số quyết định (*tập trung cá voi vs. độ bền*), một điều kiện đổi phe (*"nếu expansion của A đến từ <5 accounts, tao chuyển sang B"*), và biện hộ hết mình cho cái bị loại. Một câu trả lời yếu chỉ chọn NRR-cao-hơn hoặc churn-thấp-hơn mà không thấy rủi ro ẩn. Không lựa chọn nào "đúng" — chỉ có lập luận sống sót nổi trước phản biện mạnh nhất của chính nó.
 
-**Now check your confidence notes against your results.** Where you were *confident and wrong* is where the mechanism never really landed — reread that chapter's **derivation**, not its formula. That gap, not the raw score, is your study list.
+**Giờ đối chiếu ghi chú độ tự tin với kết quả của mày.** Chỗ mày *tự tin mà sai* là chỗ cơ chế chưa bao giờ thực sự thấm — đọc lại phần **suy dẫn** của chương đó, không phải công thức. Chính cái khoảng cách đó, không phải điểm thô, mới là danh sách học lại của mày.
 
-## Output artifact
+## Sản phẩm đầu ra
 
-**A Unit Economics + P&L + Valuation dashboard** (spreadsheet), ideally with all three cases side by side: CAC three ways, contribution, churn, lifetime, LTV undiscounted *and* discounted, LTV:CAC, payback; a contribution-margin P&L to operating profit with gross margin and breakeven; an operating-leverage sensitivity (±20% volume); and a one-line valuation (ARR × a defended multiple, cross-checked against Rule of 40). When you can defend every cell — and explain why the three cases diverge — M1 is done.
+**Một dashboard Unit Economics + P&L + Định giá** (bảng tính), lý tưởng là bày cả ba ca cạnh nhau: CAC ba kiểu, contribution, churn, lifetime, LTV chưa chiết khấu *và* đã chiết khấu, LTV:CAC, payback; một bảng P&L kiểu contribution-margin xuống tới lợi nhuận vận hành có gross margin và điểm hòa vốn; một phân tích độ nhạy đòn bẩy vận hành (±20% khối lượng); và một dòng định giá (ARR × một bội số có bảo vệ được, đối chiếu chéo với Rule of 40). Khi mày bảo vệ được từng ô — và giải thích được vì sao ba ca lại rẽ nhánh khác nhau — thì M1 xong.
 
-## Primary sources to drill into (audit me)
+## Nguồn gốc để đào sâu (soi lại tao)
 
-- **David Skok — forEntrepreneurs** — canonical SaaS-metrics essays. `[established]`
-- **Berman & Knight — Financial Intelligence** — the readable operator's guide to the three statements.
-- **Aswath Damodaran (NYU) — free valuation lectures/spreadsheets** — the rigorous Chapter 6; the best free finance education that exists.
-- **McKinsey — Valuation (Koller et al.)** — the standard on value creation and cost of capital, for the deep end.
+- **David Skok — forEntrepreneurs** — bộ bài luận kinh điển về SaaS-metrics. `[established]`
+- **Berman & Knight — Financial Intelligence** — cuốn cẩm nang dễ đọc cho dân vận hành về ba báo cáo tài chính.
+- **Aswath Damodaran (NYU) — bài giảng/bảng tính định giá miễn phí** — bản Chương 6 chặt chẽ; nền giáo dục tài chính miễn phí tốt nhất đang tồn tại.
+- **McKinsey — Valuation (Koller et al.)** — chuẩn mực về tạo giá trị và chi phí vốn, cho phần sâu nhất.
 </script>
 
 <script type="text/markdown" id="content-M1-2b">
-<p class="kicker">M1 · Chapter 2½</p>
+<p class="kicker">M1 · Chương 2½</p>
 
-# Bookings, billings, revenue & ARR — the four numbers people confuse
+# Bookings, billings, revenue & ARR — bốn con số người ta hay lẫn
 
-You think a company has *a* revenue number — one honest figure for "how much money it made." It doesn't. A single signed deal throws off **four** different "money" numbers that can be three or ten times each other, all technically true, and *which one gets quoted to you is a choice* — sometimes innocent, sometimes a con. Learn to demand which one and you stop being the audience a growth story is performed for; miss it and a business quietly bleeding cash can look like a rocket ship. Here's the whole set, from one event. `[established]`
+Mày tưởng một công ty có *một* con số doanh thu — một con số thành thật cho "nó kiếm được bao nhiêu tiền." Không hề. Một hợp đồng ký duy nhất nhả ra **bốn** con số "tiền" khác nhau, có thể gấp ba hay gấp mười lần nhau, tất cả về mặt kỹ thuật đều đúng, và *con số nào được đem ra đọc cho mày nghe là một lựa chọn* — có lúc vô tội, có lúc là một cú lừa. Học cách đòi cho ra con số nào và mày thôi làm cái khán giả mà một câu chuyện tăng trưởng đang diễn cho xem; bỏ lỡ nó thì một doanh nghiệp đang lặng lẽ chảy máu tiền có thể trông như một tên lửa. Đây là cả bộ, từ một sự kiện. `[established]`
 
-- **Booking** — total contract value signed (TCV). A 2-year Salesforce deal at $48k/yr is a **$96k booking** the day it's signed.
-- **Billing** — what you actually invoiced this period. Billed annually, Salesforce's Day-0 billing is **$48k**, not $96k.
-- **Revenue** — what you *earned* this period under accrual/GAAP. Salesforce earns **~$4,000/month**, recognized ratably as service is delivered.
-- **ARR / MRR** — annual/monthly *recurring-revenue run-rate*: an annualized snapshot at a point in time. The deal adds **$48k ARR**. It is a forward-looking pointer, **not** GAAP revenue.
+- **Booking** — tổng giá trị hợp đồng đã ký (TCV). Một hợp đồng Salesforce 2 năm ở mức $48k/năm là một **booking $96k** ngay ngày ký.
+- **Billing** — cái mày thực sự xuất hóa đơn trong kỳ. Thu theo năm, billing Ngày-0 của Salesforce là **$48k**, không phải $96k.
+- **Revenue** — cái mày *kiếm được* trong kỳ theo dồn tích/GAAP. Salesforce kiếm **~$4,000/tháng**, ghi nhận đều đặn khi dịch vụ được giao.
+- **ARR / MRR** — *run-rate doanh thu định kỳ* năm/tháng: một ảnh chụp đã quy về năm tại một thời điểm. Hợp đồng này thêm **$48k ARR**. Nó là một con trỏ hướng về tương lai, **không phải** doanh thu GAAP.
 
-### The same event, four numbers (Salesforce signs a 2-year deal, Jan 1)
+### Cùng một sự kiện, bốn con số (Salesforce ký hợp đồng 2 năm, ngày 1/1)
 
-| Metric | Value | What it measures |
+| Chỉ số | Giá trị | Nó đo cái gì |
 |---|---|---|
-| Bookings | $96,000 | Total contracted (TCV) |
-| Billings | $48,000 | Invoiced now (annual) |
-| Revenue (Jan) | $4,000 | Earned this month |
-| ARR added | $48,000 | Recurring run-rate |
+| Bookings | $96,000 | Tổng đã ký hợp đồng (TCV) |
+| Billings | $48,000 | Xuất hóa đơn bây giờ (theo năm) |
+| Revenue (Tháng 1) | $4,000 | Kiếm được tháng này |
+| ARR thêm vào | $48,000 | Run-rate định kỳ |
 
-**The gap between billings and revenue is deferred revenue** (Chapter 2). The gap between bookings and billings is future, uncollected contract. `[established]`
+**Khoảng cách giữa billings và revenue chính là doanh thu chưa thực hiện** (Chương 2). Khoảng cách giữa bookings và billings là phần hợp đồng tương lai, chưa thu. `[established]`
 
-> **Where this bites.** Bookings can be inflated by stuffing multi-year TCV into one quarter. ARR can include logos about to churn. A company can grow "ARR" while GAAP revenue and cash lag badly. When someone quotes one number, ask *which* — and whether the other three agree. The distance between them is where both honest confusion and quiet deception live.
+> **Chỗ nó cắn.** Bookings có thể bị thổi phồng bằng cách nhồi TCV nhiều năm vào một quý. ARR có thể gồm cả những logo sắp churn. Một công ty có thể lớn "ARR" trong khi doanh thu GAAP và tiền mặt lết theo thảm hại. Khi ai đó đọc cho mày một con số, hỏi *con số nào* — và ba con số kia có khớp không. Cái khoảng cách giữa chúng là nơi cả sự nhầm lẫn thành thật lẫn sự dối trá lặng lẽ trú ngụ.
 
-### Make the call
-A startup's deck leads with **"$10M ARR, up 3× this year."** You're deciding whether to join. Before reading on: *which three numbers do you ask for, and what would turn that $10M into a mirage?*
+### Ra quyết định
+Deck của một startup mở màn bằng **"$10M ARR, tăng 3× năm nay."** Mày đang cân nhắc có gia nhập không. Trước khi đọc tiếp: *mày hỏi ba con số nào, và cái gì sẽ biến $10M đó thành ảo ảnh?*
 
-Ask for **GAAP revenue** — if it's $3M against $10M ARR, most of that run-rate is barely-delivered or freshly-signed, a hope rather than a history. Ask for **billings and cash collected** — if ARR tripled but cash didn't, they're booking deals they haven't been paid for. Ask for **net revenue retention** — if the ARR includes logos already signalling churn, next year's $10M leaks out before a single new sale lands. ARR is the most-quoted and least-accountable of the four precisely because it's a *forward pointer nobody has to deliver yet*. The number on the slide is never the question; whether the other three agree with it is.
+Hỏi **doanh thu GAAP** — nếu nó là $3M so với $10M ARR, phần lớn cái run-rate đó là mới-giao-lèo-tèo hoặc vừa-mới-ký, một niềm hy vọng chứ không phải một lịch sử. Hỏi **billings và tiền đã thu** — nếu ARR gấp ba mà tiền không gấp ba, họ đang ghi những hợp đồng chưa được trả tiền. Hỏi **net revenue retention** — nếu ARR gồm cả những logo đã phát tín hiệu churn, thì $10M của năm sau rò ra ngoài trước khi có một cú bán mới nào đáp xuống. ARR là con số được đọc nhiều nhất và ít phải chịu trách nhiệm nhất trong bốn con số, chính vì nó là một *con trỏ hướng tương lai mà chưa ai phải giao hàng cả*. Con số trên slide chưa bao giờ là câu hỏi; câu hỏi là ba con số kia có khớp với nó không.
 
-MRR/ARR movement decomposes into **new + expansion − contraction − churn** — the entire subject of the retention chapter (§4½), where that last number decides whether the base compounds or bleeds.
+Chuyển động MRR/ARR phân rã thành **mới + mở rộng − co lại − churn** — đúng toàn bộ chủ đề của chương retention (§4½), nơi con số cuối cùng đó quyết định liệu tệp khách gộp lãi hay chảy máu.
 </script>
 
 <script type="text/markdown" id="content-M1-4b">
-<p class="kicker">M1 · Chapter 4½</p>
+<p class="kicker">M1 · Chương 4½</p>
 
-# Cohorts, retention, and the two numbers that decide your fate
+# Cohort, giữ chân, và hai con số quyết định số phận của mày
 
-## Why bother — the most expensive mistake in the module
+## Cất công làm gì — sai lầm đắt nhất trong cả module
 
-In Chapter 4 you built LTV, and I slipped one sentence past you: *a single blended churn rate lies.* That is the most expensive sentence in M1, and this is where you feel why — because the error it names isn't academic. It's the exact mistake that lets a company raise on a beautiful story, pour millions into acquisition, and discover two years later it was refilling a leaking bucket the whole time.
+Ở Chương 4 mày dựng LTV, và tao đã lén tuồn qua mày một câu: *một tỷ lệ churn trung bình duy nhất là nói dối.* Đó là câu đắt nhất trong M1, và đây là nơi mày cảm được tại sao — vì cái sai lầm nó chỉ ra không phải chuyện hàn lâm. Nó chính xác là cái lỗi khiến một công ty gọi được vốn nhờ một câu chuyện đẹp, đổ hàng triệu đô vào giành khách, rồi hai năm sau phát hiện ra suốt thời gian đó nó chỉ đang châm nước vào một cái xô thủng.
 
-Put the decision on the table. You're about to tell a board — or yourself — *"a customer is worth $X, so paying $Y to get one is a great trade."* That whole claim hangs on one hidden quantity: **how long a customer really stays, and how much they pay while they're here.** Misjudge that quantity and everything downstream — LTV, LTV:CAC, how much you dare spend to acquire, how much you raise, what the company is worth — is wrong in the *same direction*, quietly, for years. Nobody sends an alert. The bucket just never fills.
+Đặt quyết định lên bàn. Mày sắp nói với hội đồng — hoặc với chính mày — *"một khách đáng giá $X, nên trả $Y để có được một khách là một cú trao đổi ngon."* Cả cái tuyên bố đó treo lơ lửng trên một đại lượng ẩn: **khách thật sự ở lại bao lâu, và trả bao nhiêu trong lúc còn ở đây.** Đoán sai đại lượng đó thì mọi thứ ở hạ nguồn — LTV, LTV:CAC, mày dám tiêu bao nhiêu để giành khách, gọi bao nhiêu vốn, công ty đáng giá bao nhiêu — đều sai *cùng một hướng*, lặng lẽ, suốt nhiều năm. Chẳng ai gửi cảnh báo cả. Cái xô cứ thế không bao giờ đầy.
 
-So this chapter earns its length. It builds the one instrument that measures survival honestly — the **cohort** — then the two numbers, **GRR** and **NRR**, that turn "customers stay" into dollars and decide, more than almost anything else, whether your business compounds or bleeds.
+Nên chương này xứng đáng với độ dài của nó. Nó dựng cái nhạc cụ duy nhất đo sự sống sót một cách trung thực — **cohort** — rồi hai con số, **GRR** và **NRR**, biến "khách ở lại" thành đồng đô la và quyết định, hơn gần như bất cứ thứ gì khác, chuyện doanh nghiệp mày cộng dồn hay chảy máu.
 
-## Where the blended average goes wrong
+## Chỗ mà số trung bình đi sai
 
-You have to feel why the easy way fails before the fix means anything.
+Mày phải cảm được tại sao cách dễ dàng thất bại trước khi cái cách sửa có ý nghĩa gì.
 
-Your dashboard says: *monthly churn 5%.* One number for the whole company. It feels like knowledge. It's closer to camouflage — because that 5% averages two populations that could not be more different. In it are people who signed up last week, many of whom tried the product once, didn't get it, and vanish inside a month. In the *same* average are people who've paid every month for three years, who've wired the product into their team's daily life and are almost never leaving. Blend them and you get a number that describes **nobody**: it overstates how fast your loyal core leaves and understates how fast fresh signups do.
+Dashboard của mày báo: *churn tháng 5%.* Một con số cho cả công ty. Nó có cảm giác như tri thức. Thực ra nó gần với ngụy trang hơn — vì con 5% đó bình quân hóa hai nhóm dân số không thể nào khác nhau hơn. Trong đó có những người đăng ký tuần trước, nhiều đứa thử sản phẩm một lần, không hiểu nó, rồi biến mất trong vòng một tháng. Trong *cùng* cái trung bình đó là những người đã trả tiền mỗi tháng suốt ba năm, đã cắm sản phẩm vào đời sống hàng ngày của cả team và gần như không bao giờ rời đi. Trộn chúng lại và mày được một con số chẳng mô tả **ai cả**: nó phóng đại tốc độ rời đi của phần lõi trung thành và hạ thấp tốc độ rời đi của đám vừa đăng ký.
 
-Worse, the blended rate *moves for reasons that have nothing to do with retention.* Pour in a wave of new signups and your "churn rate" lurches — because you changed the *mix*, not the loyalty. You cannot fix retention you cannot see, and a blended rate is built to hide the one thing you most need to see: **customers behave differently depending on how long they've already survived.**
+Tệ hơn, cái tỷ lệ trung bình đó *dịch chuyển vì những lý do chẳng liên quan gì tới giữ chân.* Đổ vào một đợt sóng đăng ký mới thì "tỷ lệ churn" của mày giật nảy — vì mày đã đổi *cơ cấu*, không phải lòng trung thành. Mày không thể sửa cái giữ chân mà mày không nhìn thấy, và một tỷ lệ trung bình được sinh ra để giấu đúng cái thứ mà mày cần thấy nhất: **khách hành xử khác nhau tùy vào việc họ đã sống sót được bao lâu rồi.**
 
-## Building the fix: what a cohort actually is
+## Dựng cái cách sửa: cohort thực ra là gì
 
-Here's the move, and it's almost embarrassingly simple once you see it.
+Đây là nước đi, và nó gần như đơn giản đến ngượng một khi mày thấy nó.
 
-Stop averaging across everyone. Instead take **one group of customers who all started in the same period** — say, *everyone who signed up in January* — and from now on track *only that group.* You never add anyone to it. That frozen group is a **cohort.**
+Ngừng lấy trung bình trên tất cả mọi người. Thay vào đó lấy **một nhóm khách hàng cùng bắt đầu trong một kỳ** — chẳng hạn, *tất cả những người đăng ký trong tháng Một* — và từ giờ chỉ theo dõi *đúng nhóm đó.* Mày không bao giờ thêm ai vào nó nữa. Cái nhóm bị đóng băng đó là một **cohort.**
 
-Why freeze it? That's the whole trick. Because the group never takes in new members, anything that happens to it from here is **pure retention** — no fresh signups pouring in to paper over the losses. If January started with 1,000 customers and 880 remain in March, you know something true and uncontaminated: this class retains 88% to its third month. No mix effect, no camouflage. One class, watched as it graduates — or drops out — month by month:
+Đóng băng để làm gì? Đó là toàn bộ mẹo. Vì nhóm không bao giờ nhận thêm thành viên mới, nên bất cứ chuyện gì xảy ra với nó từ đây trở đi đều là **giữ chân thuần túy** — không có đám đăng ký mới nào tràn vào để tô đậy các tổn thất. Nếu tháng Một khởi đầu với 1,000 khách và 880 còn lại vào tháng Ba, mày biết một điều đúng và không bị nhiễm bẩn: lớp này giữ được 88% tới tháng thứ ba của nó. Không hiệu ứng cơ cấu, không ngụy trang. Một lớp, quan sát khi nó tốt nghiệp — hoặc rơi rụng — từng tháng một:
 
 ```
-Month 0 (January):   1,000 customers   — 100% of the cohort
-Month 1 (February):    920 remain      —  92%
-Month 2 (March):       880 remain      —  88%
-Month 3 (April):       855 remain      —  85.5%
+Tháng 0 (Tháng Một):   1,000 khách   — 100% của cohort
+Tháng 1 (Tháng Hai):     920 còn lại  —  92%
+Tháng 2 (Tháng Ba):      880 còn lại  —  88%
+Tháng 3 (Tháng Tư):      855 còn lại  —  85.5%
 ```
 
-Notice *what* we're measuring: not calendar time, but **age** — months since *that customer* started. That shift, from "what happened in March" to "what happens to a customer in their third month," is the entire unlock. Hold onto it, because the next term is built directly on top of it.
+Để ý *cái* ta đang đo: không phải thời gian theo lịch, mà là **tuổi** — số tháng kể từ khi *chính khách đó* bắt đầu. Cái chuyển đổi ấy, từ "chuyện gì xảy ra trong tháng Ba" sang "chuyện gì xảy ra với một khách ở tháng thứ ba của họ," chính là toàn bộ chìa khóa. Giữ lấy nó, vì thuật ngữ tiếp theo được dựng thẳng lên trên nó.
 
-## From cohort to cohort curve — and why its shape is the whole game
+## Từ cohort tới đường cong cohort — và tại sao hình dáng của nó là cả ván bài
 
-Now do the obvious next thing: plot that surviving-fraction column. Month 0 at 100%, month 1 at 92%, month 2 at 88%, and on as the cohort ages. Connect the dots and you have a line — the **cohort curve** (also called a retention curve).
+Giờ làm cái việc hiển nhiên tiếp theo: vẽ cái cột phần-còn-sống đó lên. Tháng 0 ở 100%, tháng 1 ở 92%, tháng 2 ở 88%, và cứ thế khi cohort già đi. Nối các điểm lại và mày có một đường — **đường cong cohort** (còn gọi là đường cong giữ chân).
 
-That's *all* a cohort curve is: **a cohort's survival, drawn against age.** If "cohort" felt like a new word four paragraphs ago, "cohort curve" should now feel like nothing new at all — same group of people, just graphed. (That bridge is exactly what a cheat-sheet skips, and skipping it is how a term gets dropped on you as if you already knew it.)
+Đường cong cohort *chỉ* có thế: **sự sống sót của một cohort, vẽ theo tuổi.** Nếu "cohort" nghe như một từ mới bốn đoạn trước, thì "đường cong cohort" giờ nên nghe chẳng có gì mới cả — vẫn nhóm người đó, chỉ là đem vẽ lên đồ thị. (Cái cây cầu đó chính là thứ một tờ cheat-sheet bỏ qua, và bỏ qua nó là cách một thuật ngữ bị quăng vào mặt mày như thể mày đã biết sẵn rồi.)
 
-Here's why the curve, not the average, decides fortunes — the **shape.** The blended-average model quietly assumes retention is a *constant percentage every month* — lose 5% of whoever's left, forever. Drawn out, that's a smooth exponential slide to zero. But real customers almost never do that. Real cohort curves **flatten**: they fall steeply at first — bad-fit customers, tire-kickers, wrong-segment signups bail early — then the slope eases, because the people still standing after a year are *true believers* who've built their workflow around you. The curve stops being a slide and becomes a shelf.
+Đây là tại sao đường cong, chứ không phải số trung bình, quyết định vận mệnh — cái **hình dáng.** Mô hình trung-bình lặng lẽ giả định rằng giữ chân là một *phần trăm cố định mỗi tháng* — mất 5% của bất kỳ ai còn lại, mãi mãi. Vẽ ra thì đó là một cú trượt hàm mũ mượt mà về không. Nhưng khách hàng thật gần như không bao giờ làm vậy. Đường cong cohort thật thì **đi ngang**: chúng rớt dốc lúc đầu — khách không hợp, đám thử cho vui, đám đăng ký sai phân khúc bỏ đi sớm — rồi độ dốc dịu lại, vì những người còn đứng vững sau một năm là *tín đồ thật sự*, đã xây quy trình làm việc của mình quanh mày. Đường cong thôi là một cú trượt và trở thành một cái kệ.
 
-Put the two side by side and the stakes jump out:
+Đặt hai cái cạnh nhau và cái được-mất bật ra:
 
-| Age (months) | Naïve flat 5%/mo | Real cohort (flattens) |
+| Tuổi (tháng) | Phẳng ngây thơ 5%/tháng | Cohort thật (đi ngang) |
 |---|---|---|
 | 0 | 100% | 100% |
 | 3 | 86% | 84% |
@@ -615,99 +614,99 @@ Put the two side by side and the stakes jump out:
 | 12 | 54% | 63% |
 | 24 | 29% | 55% |
 
-Read the bottom row. By month 24 the flat-rate model has written off **71%** of the cohort as gone; the real, flattening curve still has **55%** paying. That's not a rounding difference — it's nearly *double* the surviving base two years out, and it compounds into every valuation of the company.
+Đọc hàng dưới cùng. Đến tháng 24, mô hình tỷ-lệ-phẳng đã xóa sổ **71%** cohort coi như mất; đường cong thật, đi ngang, vẫn còn **55%** đang trả tiền. Đó không phải chênh lệch làm tròn — nó gần như *gấp đôi* tệp còn sống sau hai năm, và nó cộng dồn vào mọi cách định giá công ty.
 
-Now connect it straight back to Chapter 4's money. Your true lifetime value is the **area under the real cohort curve** (each month's surviving fraction × the contribution they pay), not `m/c`. The `m/c` formula *is* the flat-rate assumption in disguise — it draws the slide, not the shelf. So the direction of its lie is now precise:
+Giờ nối thẳng ngược về đồng tiền của Chương 4. Giá trị vòng đời thật của mày là **diện tích dưới đường cong cohort thật** (phần còn sống mỗi tháng × biên đóng góp họ trả), chứ không phải `m/c`. Công thức `m/c` *chính là* giả định tỷ-lệ-phẳng cải trang — nó vẽ cú trượt, không vẽ cái kệ. Nên hướng nói dối của nó giờ đã rõ chính xác:
 
-> **Blended-churn LTV understates the value of any product whose curve flattens, and overstates any product whose curve keeps sliding.** For a sticky product, the real value sits on the shelf the formula pretends isn't there. This is why Chapter 4's "assumption #1, constant churn is false" wasn't hand-waving — it's this exact gap, now drawn. `[established-as-finding]`
+> **LTV dùng churn trung bình tính thiếu giá trị của bất kỳ sản phẩm nào có đường cong đi ngang, và tính thừa bất kỳ sản phẩm nào có đường cong cứ trượt mãi.** Với một sản phẩm dính chặt, giá trị thật nằm trên cái kệ mà công thức giả vờ không có ở đó. Đây là lý do cái "giả định #1, churn cố định là sai" ở Chương 4 không phải nói suông — nó chính là cái khoảng chênh này, giờ đã vẽ ra. `[established-as-finding]`
 
-*Provenance, honestly: the specific numbers in that table are illustrative, picked to show the shape. That real retention curves flatten rather than decay at a constant rate is the well-established finding (David Skok's SaaS essays; most B2B retention data). `[established-as-finding]` The magnitude of flattening is wildly product-dependent — measure your own, never borrow mine.*
+*Nói thẳng về xuất xứ: các con số cụ thể trong bảng đó là minh họa, chọn ra để cho thấy hình dáng. Việc các đường cong giữ chân thật đi ngang chứ không phân rã ở một tỷ lệ cố định mới là phát hiện đã được xác lập vững (các bài viết về SaaS của David Skok; hầu hết dữ liệu giữ chân B2B). `[established-as-finding]` Độ đi ngang mạnh cỡ nào thì phụ thuộc điên cuồng vào từng sản phẩm — đo cái của chính mày, đừng bao giờ mượn của tao.*
 
-## From "how many stay" to "how many dollars stay"
+## Từ "bao nhiêu người ở lại" sang "bao nhiêu đô la ở lại"
 
-The cohort curve counts *customers.* A business runs on *dollars*, and here the two come apart in a way that matters enormously.
+Đường cong cohort đếm *khách hàng.* Một doanh nghiệp chạy bằng *đô la*, và ở đây hai thứ tách nhau ra theo một kiểu cực kỳ quan trọng.
 
-Take two customers who both "stayed" this year — neither churned. Customer A quietly downgraded from the $500 plan to $100. Customer B loved you and upgraded from $500 to $900. By a headcount curve, both are simply "retained," identical. By *revenue*, they're opposite events: one leaked $400, the other added $400. A business can keep every logo and still bleed revenue, or lose logos and still grow revenue. To see that, you retain-count in **dollars** — which gives the two numbers every SaaS board now lives on. Both roll an existing revenue base forward one year touching **only existing customers** (no new logos — we're measuring retention, not sales).
+Lấy hai khách cùng "ở lại" năm nay — không đứa nào churn. Khách A lặng lẽ hạ cấp từ gói $500 xuống $100. Khách B mê mày và nâng cấp từ $500 lên $900. Xét theo đường cong đầu người, cả hai chỉ đơn giản là "được giữ lại", y hệt nhau. Xét theo *doanh thu*, chúng là hai sự kiện trái ngược: một đứa rò $400, đứa kia thêm $400. Một doanh nghiệp có thể giữ nguyên mọi logo mà vẫn chảy máu doanh thu, hoặc mất logo mà vẫn tăng doanh thu. Để thấy điều đó, mày đếm-giữ-chân bằng **đô la** — cái đó cho ra hai con số mà giờ hội đồng SaaS nào cũng sống với nó. Cả hai đều cuộn một tệp doanh thu hiện có tiến lên một năm, chỉ chạm vào **khách hiện có** (không có logo mới — ta đang đo giữ chân, không đo bán hàng).
 
-**Gross Revenue Retention (GRR)** measures pure leak: of the revenue you started with, how much survived, counting *only* the ways revenue leaves — customers churning out entirely, and customers contracting (downgrading). It deliberately ignores expansion.
+**Gross Revenue Retention (GRR)** đo cái rò thuần: trong tệp doanh thu mày khởi đầu, bao nhiêu sống sót, chỉ tính *những* cách doanh thu ra đi — khách churn ra hẳn, và khách co lại (hạ cấp). Nó cố tình bỏ qua expansion.
 ```
-GRR = (starting revenue − churn − contraction) / starting revenue
+GRR = (doanh thu đầu kỳ − churn − co lại) / doanh thu đầu kỳ
 ```
-Because it only ever subtracts, **GRR can never exceed 100%.** It answers a defensive question: *if we sold nothing new and nobody upgraded, how fast does the floor fall out?* GRR of 89% means you lose 11% of your base a year to leak alone — the current you forever swim against.
+Vì nó luôn chỉ trừ đi, **GRR không bao giờ vượt quá 100%.** Nó trả lời một câu hỏi phòng thủ: *nếu ta không bán được gì mới và không ai nâng cấp, cái sàn tụt nhanh cỡ nào?* GRR 89% nghĩa là mày mất 11% tệp mỗi năm chỉ riêng vào cái rò — dòng nước mày phải bơi ngược mãi mãi.
 
-**Net Revenue Retention (NRR)** adds the one thing GRR omits: **expansion** — existing customers paying you *more* over time (upgrades, seats, usage).
+**Net Revenue Retention (NRR)** cộng thêm cái thứ GRR bỏ đi: **expansion** — khách hiện có trả cho mày *nhiều hơn* theo thời gian (nâng cấp, thêm ghế, dùng nhiều hơn).
 ```
-NRR = (starting revenue − churn − contraction + expansion) / starting revenue
+NRR = (doanh thu đầu kỳ − churn − co lại + expansion) / doanh thu đầu kỳ
 ```
-Because expansion can outweigh the leak, **NRR can exceed 100%** — and when it does, something remarkable happens.
+Vì expansion có thể lớn hơn cái rò, **NRR có thể vượt 100%** — và khi nó vượt, một điều đáng kinh ngạc xảy ra.
 
-### Worked example — both from one cohort
-A cohort starts the year at **$100k MRR.** Over the year, among *only* these existing customers: **$8k** churns out, **$3k** contracts, **$20k** of expansion arrives from upgrades and added seats.
+### Ví dụ tính tay — cả hai từ một cohort
+Một cohort khởi đầu năm ở **$100k MRR.** Trong năm, chỉ tính *riêng* đám khách hiện có này: **$8k** churn ra, **$3k** co lại, **$20k** expansion tới từ nâng cấp và thêm ghế.
 ```
 GRR = (100 − 8 − 3) / 100        = 89%
 NRR = (100 − 8 − 3 + 20) / 100   = 109%
 ```
-Two numbers, one cohort, a two-layer story: the business leaks 11% a year (GRR 89% — worth fixing), but its existing customers expand fast enough to cover the leak *and* grow the base 9% on top (NRR 109%).
+Hai con số, một cohort, một câu chuyện hai tầng: doanh nghiệp rò 11% một năm (GRR 89% — đáng sửa), nhưng khách hiện có của nó mở rộng đủ nhanh để bù cái rò *và* làm tệp lớn thêm 9% nữa trên đó (NRR 109%).
 
-### Why NRR > 100% is called the holy grail
-Sit with what 109% NRR means. Sign **zero** new customers — shut off all sales and marketing — and the existing base still *grows*, like a fund reinvesting its own dividends:
+### Tại sao NRR > 100% được gọi là chén thánh
+Ngồi với cái nghĩa của NRR 109%. Ký **zero** khách mới — tắt hết sales và marketing — mà tệp hiện có vẫn *lớn lên*, như một quỹ đang tái đầu tư chính cổ tức của nó:
 ```
-$100k → $109k → $118.8k → $129.5k     (3 years, no new customers)
+$100k → $109k → $118.8k → $129.5k     (3 năm, không khách mới)
 ```
-Now Mailchimp's ~95%, the same machine in reverse:
+Giờ tới Mailchimp ~95%, cùng cỗ máy đó chạy ngược:
 ```
-$100k → $95k → $90.3k → $85.7k        (decaying — you acquire just to stand still)
+$100k → $95k → $90.3k → $85.7k        (phân rã — mày giành khách chỉ để đứng yên tại chỗ)
 ```
 
 | | Figma | Salesforce | Mailchimp |
 |---|---|---|---|
 | NRR | ~110% | ~125% | ~95% |
-| Base with zero new customers | slowly compounds | strongly compounds | decays |
+| Tệp với zero khách mới | cộng dồn chậm | cộng dồn mạnh | phân rã |
 
-Same product effort, opposite destiny — and the fork is entirely NRR crossing the 100% line. **An NRR above 100% is an appreciating asset; below 100% a depreciating one.** This is the mechanism behind the valuation gap you'll meet in Chapter 6: Salesforce earns its premium multiple *here*, in its 125% NRR — not in its CAC ratio, which we already saw is a discounting mirage.
+Cùng công sức sản phẩm, số phận trái ngược — và cái ngã ba hoàn toàn nằm ở chuyện NRR vượt qua vạch 100%. **NRR trên 100% là một tài sản đang lên giá; dưới 100% là một tài sản đang mất giá.** Đây là cơ chế đằng sau cái khoảng chênh định giá mày sẽ gặp ở Chương 6: Salesforce kiếm được cái bội số cao cấp của nó *ngay đây*, ở NRR 125% — không phải ở tỷ lệ CAC, cái mà ta đã thấy chỉ là ảo ảnh của chiết khấu.
 
-## How operators actually use these — and how they get gamed
+## Dân vận hành thật sự dùng mấy cái này ra sao — và chúng bị gian lận thế nào
 
-Here's what happens in the real room, because that's where the number lives.
+Đây là chuyện xảy ra trong phòng họp thật, vì đó là nơi con số sống.
 
-- **NRR is *the* number.** For a modern SaaS board or investor it's close to the single most-watched health metric — on nearly every board deck, framed as *"for every dollar we had a year ago, how many do we have now from those same customers?"* Top-quartile B2B SaaS NRR is commonly cited around 120%+; sustained sub-100% for a self-described "recurring" business is a quiet alarm. `[heuristic — benchmark, varies by segment and year; source your own comparables]`
-- **Where it gets gamed** — the war-layer version of Chapter 2½'s "which number are you being shown." A blended NRR can be propped up by a handful of **whale expansions** (a few big accounts doubling) while the *median* customer quietly contracts underneath. "NRR" quoted without saying whether it's dollar-weighted or by-segment can hide a rotting SMB base under two happy enterprise logos. Watch too for NRR measured on a base that *includes* revenue already flagged to churn, and the ever-popular "NRR excluding [the segment where we bleed]." `[synthesis — from how the incentive works]`
-- **The sentence in the room.** The sharp question isn't "what's our NRR?" — it's *"is net dollar retention above 100% for the median customer, not just dollar-weighted?"* If yes, the growth engine is partly self-propelled. If no, you're running up a down escalator, and any story about scale is really a story about needing ever-cheaper acquisition forever.
-- **The pairing that can't be faked.** GRR and NRR *together* is the honest picture: 115% NRR on an 82% GRR means the business grows only because a few accounts expand hard while the base leaks badly — a far more fragile animal than 115% NRR on 97% GRR. Anyone showing you only NRR is showing you the flattering half.
+- **NRR là *THE* con số.** Với một hội đồng hay nhà đầu tư SaaS hiện đại, nó gần như là chỉ số sức khỏe được soi nhiều nhất — có mặt trên gần như mọi bộ slide hội đồng, đóng khung thành *"cứ mỗi đô la ta có một năm trước, giờ ta còn bao nhiêu từ đúng đám khách đó?"* NRR top phần tư của B2B SaaS thường được trích quanh 120%+; dưới 100% kéo dài với một doanh nghiệp tự nhận là "định kỳ" là một hồi chuông báo động lặng lẽ. `[heuristic — benchmark, thay đổi theo phân khúc và theo năm; tự tìm cái so sánh của riêng mày]`
+- **Chỗ nó bị gian lận** — phiên bản tầng-chiến-tranh của cái "mày đang bị cho xem con số nào" ở Chương 2½. Một NRR trung bình có thể được chống đỡ bằng một dúm **cá voi expansion** (vài tài khoản lớn tăng gấp đôi) trong khi khách *trung vị* lặng lẽ co lại phía dưới. "NRR" trích ra mà không nói rõ nó có trọng-số-đô-la hay theo-phân-khúc thì có thể giấu một tệp SMB đang thối rữa dưới hai cái logo doanh nghiệp vui vẻ. Cũng canh chừng NRR đo trên một tệp *bao gồm* cả doanh thu đã bị đánh dấu sẽ churn, và cái muôn thuở được ưa chuộng "NRR không tính [phân khúc mà tụi tôi chảy máu]." `[synthesis — từ cách cái động cơ khuyến khích vận hành]`
+- **Cái câu vang lên trong phòng.** Câu hỏi sắc bén không phải "NRR của mình là bao nhiêu?" — mà là *"net dollar retention có trên 100% cho khách trung vị không, chứ không chỉ trọng-số-đô-la?"* Nếu có, cỗ máy tăng trưởng tự đẩy được một phần. Nếu không, mày đang chạy ngược lên một cái thang cuốn đi xuống, và mọi câu chuyện về scale thật ra là câu chuyện về việc phải giành khách ngày một rẻ hơn mãi mãi.
+- **Cái cặp không giả được.** GRR và NRR *cùng nhau* mới là bức tranh trung thực: NRR 115% trên GRR 82% nghĩa là doanh nghiệp lớn lên chỉ vì vài tài khoản mở rộng dữ dội trong khi tệp rò nặng — một con thú mong manh hơn nhiều so với NRR 115% trên GRR 97%. Ai chỉ cho mày xem mỗi NRR là đang cho mày xem cái nửa nịnh nọt.
 
-> **Quick gut-check** `[heuristic]`: the **quick ratio** = `(new + expansion) / (churn + contraction)`. Above ~4, growth is efficient — you add far more than you lose. Near 1, you're bailing water as fast as it comes in, and no amount of top-of-funnel saves you until the leak is fixed.
+> **Kiểm tra nhanh bằng trực giác** `[heuristic]`: **quick ratio** = `(new + expansion) / (churn + contraction)`. Trên ~4, tăng trưởng hiệu quả — mày thêm vào nhiều hơn hẳn cái mất đi. Gần 1, mày đang tát nước ra nhanh ngang với nước tràn vào, và bao nhiêu đầu-phễu cũng chẳng cứu nổi cho tới khi cái rò được vá.
 
-## What you carry out of this chapter
-- A **cohort** is one frozen group of customers who started together, tracked by *age* — the only clean way to see retention, because new signups can't camouflage it.
-- The **cohort curve** is that group's survival drawn against age; its *shape* (flattening vs. constant slide) is what makes blended-churn LTV lie, and in which direction.
-- **GRR** measures leak (≤100%); **NRR** adds expansion (can exceed 100%). NRR crossing 100% is the line between an appreciating and a depreciating business — and it, not the LTV:CAC ratio, earns the valuation multiple in Chapter 6.
+## Mày mang gì ra khỏi chương này
+- Một **cohort** là một nhóm khách bị đóng băng cùng bắt đầu với nhau, theo dõi theo *tuổi* — cách sạch duy nhất để thấy giữ chân, vì đám đăng ký mới không ngụy trang được nó.
+- **Đường cong cohort** là sự sống sót của nhóm đó vẽ theo tuổi; cái *hình dáng* của nó (đi ngang hay trượt đều) chính là thứ khiến LTV dùng churn trung bình nói dối, và nói dối theo hướng nào.
+- **GRR** đo cái rò (≤100%); **NRR** cộng thêm expansion (có thể vượt 100%). NRR vượt qua 100% là ranh giới giữa một doanh nghiệp đang lên giá và một doanh nghiệp đang mất giá — và chính nó, không phải tỷ lệ LTV:CAC, kiếm được cái bội số định giá ở Chương 6.
 
-If you can't yet explain to someone else why a blended average hides the very thing you need to see, reread the first two sections — that's the load-bearing idea, and everything here is built on it.
+Nếu mày chưa giải thích được cho người khác tại sao một số trung bình lại giấu đúng cái thứ mày cần thấy, đọc lại hai phần đầu — đó là cái ý chịu lực, và mọi thứ ở đây đều được dựng lên trên nó.
 </script>
 
 <script type="text/markdown" id="content-M1-6b">
-<p class="kicker">M1 · Chapter 6½</p>
+<p class="kicker">M1 · Chương 6½</p>
 
-# The discount rate, and a worked valuation
+# Suất chiết khấu, và một ví dụ định giá làm tay
 
-Chapters 4 and 6 leaned on a discount rate `d` I set casually at 1%/month — and most people treat that number as a technical footnote. It's the opposite: **`d` is the single most powerful and most *arguable* input in any valuation.** It's the place where the very same company is worth $10M or $30M depending on one assumption about risk — so whoever sets `d` sets the answer, and understanding where it comes from is the difference between *valuing* a business and being *handed* a valuation to swallow. It comes from one idea: the return your money could earn elsewhere at equal risk.
+Chương 4 và 6 dựa vào một suất chiết khấu `d` mà tao đặt bừa ở 1%/tháng — và phần lớn người ta coi con số đó như một chú thích kỹ thuật. Ngược lại mới đúng: **`d` là đầu vào mạnh nhất và *gây tranh cãi* nhất trong bất kỳ phép định giá nào.** Nó là chỗ mà cùng một công ty y hệt đáng giá $10M hay $30M tùy vào đúng một giả định về rủi ro — nên ai đặt `d` thì người đó đặt luôn đáp án, và hiểu nó đến từ đâu chính là khác biệt giữa việc *tự định giá* một doanh nghiệp và việc bị *dúi* cho một con định giá bắt nuốt. Nó đến từ một ý duy nhất: cái lợi suất mà tiền của mày kiếm được ở chỗ khác với cùng mức rủi ro.
 
-## Where d comes from: the cost of capital
-`d` is your **cost of capital** — the return investors could earn elsewhere at equal risk, and therefore the hurdle every dollar in the business must clear. `[established]`
+## d đến từ đâu: chi phí vốn
+`d` chính là **chi phí vốn** của mày — lợi suất mà nhà đầu tư kiếm được ở chỗ khác với rủi ro ngang bằng, và do đó là cái ngưỡng mà mỗi đồng trong doanh nghiệp phải vượt qua. `[established]`
 
-- **WACC** blends the cost of debt and the cost of equity by their weights.
-- **Cost of equity**, via **CAPM**: `rf + β × (market risk premium)`. A public firm at rf 4%, β 1.3, premium 5% → ~10.5%. `[established]`
-- **Why startups discount brutally.** More risk → higher required return. VCs underwrite to 30–50%+ IRR; a startup's hurdle sits far above a mature firm's ~8–10%. Realistic `d` for early SaaS is **20–40%/year** (~1.5–2.8%/month) — *higher* than the gentle 1% used earlier.
+- **WACC** trộn chi phí nợ và chi phí vốn chủ theo tỷ trọng của chúng.
+- **Chi phí vốn chủ**, qua **CAPM**: `rf + β × (market risk premium)`. Một công ty đại chúng với rf 4%, β 1.3, premium 5% → ~10.5%. `[established]`
+- **Vì sao startup bị chiết khấu tàn nhẫn.** Rủi ro nhiều hơn → lợi suất đòi hỏi cao hơn. VC nhắm tới IRR 30–50%+; ngưỡng của một startup nằm cao hơn hẳn con ~8–10% của một công ty trưởng thành. `d` thực tế cho SaaS giai đoạn đầu là **20–40%/năm** (~1.5–2.8%/tháng) — *cao hơn* con 1% hiền lành dùng trước đó.
 
-## What a realistic d does to Salesforce
-Salesforce: `m = $3,120`, churn `0.5%/mo`. Redo LTV at `d = 2.5%/month` (~30%/yr):
+## Một con d thực tế làm gì với Salesforce
+Salesforce: `m = $3,120`, churn `0.5%/mo`. Tính lại LTV ở `d = 2.5%/month` (~30%/yr):
 ```
 LTV = 3,120 × (1.025 / (0.005 + 0.025)) = 3,120 × 34.2 ≈ $106,700
 ```
-Against **$624,000 undiscounted — an 83% haircut.** For low-churn businesses most "LTV" is a promise decades out, and any honest cost of capital collapses it. The stickier the business, the more its headline LTV is a discount-rate illusion. `[established]`
+So với **$624,000 chưa chiết khấu — cắt mất 83%.** Với doanh nghiệp churn thấp, phần lớn "LTV" là một lời hứa cách đây hàng chục năm, và bất kỳ chi phí vốn trung thực nào cũng làm nó sụp. Doanh nghiệp càng dính chặt thì cái LTV giật tít của nó càng là một ảo ảnh của suất chiết khấu. `[established]`
 
-## A worked DCF → an implied multiple
-Value Figma directly. Assume next-year free cash flow **$1.0M**, growing **25%/yr** for five years, `d = 20%`, terminal growth `g = 4%`:
+## Một DCF làm tay → một bội số ngầm
+Định giá Figma trực tiếp. Giả sử dòng tiền tự do (FCF) năm sau **$1.0M**, tăng **25%/yr** trong năm năm, `d = 20%`, tăng trưởng cuối kỳ `g = 4%`:
 
 | Year | FCF ($M) | PV @20% |
 |---|---|---|
@@ -716,61 +715,61 @@ Value Figma directly. Assume next-year free cash flow **$1.0M**, growing **25%/y
 | 3 | 1.56 | 0.90 |
 | 4 | 1.95 | 0.94 |
 | 5 | 2.44 | 0.98 |
-| **Explicit PV sum** | | **≈ 4.52** |
+| **Tổng PV tường minh** | | **≈ 4.52** |
 
-Terminal value at end of Year 5 = `FCF₆ / (d − g) = (2.44 × 1.04) / (0.20 − 0.04) = $15.9M`; its present value = `15.9 × 0.40 ≈ $6.4M`.
+Giá trị cuối kỳ ở cuối Năm 5 = `FCF₆ / (d − g) = (2.44 × 1.04) / (0.20 − 0.04) = $15.9M`; giá trị hiện tại của nó = `15.9 × 0.40 ≈ $6.4M`.
 
-**Enterprise value ≈ 4.52 + 6.40 = ~$10.9M.** If Figma's ARR is ~$3M, the **implied multiple ≈ 3.6× ARR** — *derived*, not assumed. Carry two things: the **terminal value is ~59% of the total** and rests on the shakiest input (`g`), which is why DCFs are argued; and a "revenue multiple" is just this whole calculation compressed into one number. `[synthesis — established underneath]`
+**Giá trị doanh nghiệp ≈ 4.52 + 6.40 = ~$10.9M.** Nếu ARR của Figma là ~$3M, thì **bội số ngầm ≈ 3.6× ARR** — *suy ra*, không phải giả định. Nhớ hai điều: **terminal value chiếm ~59% tổng** và tựa trên cái đầu vào lung lay nhất (`g`), đó là lý do người ta cãi nhau về DCF; và một "bội số doanh thu" chẳng qua là toàn bộ phép tính này nén lại thành một con số. `[synthesis — established underneath]`
 
-### Make the call
-A founder shows you a DCF valuing the company at **$40M** and offers you in at that price. You notice the discount rate is **10%**. Before reading on: *why is `d` the first number you challenge — and what happens to the $40M if the honest rate is 30%?*
+### Chốt đi
+Một founder chìa cho mày một DCF định giá công ty ở **$40M** và mời mày vào ở đúng giá đó. Mày để ý suất chiết khấu là **10%**. Trước khi đọc tiếp: *vì sao `d` là con số đầu tiên mày phải chất vấn — và cái $40M ra sao nếu suất trung thực là 30%?*
 
-10% is a *mature public company's* cost of capital; an early startup's real hurdle is 25–40%, because its risk is enormous. Swapping 10% for 30% doesn't trim the valuation — it can **collapse** it, because the terminal value (the majority of most DCFs, ~59% here) is the single most discount-sensitive piece: a higher `d` shrinks every future dollar *and* shrinks the `1/(d−g)` terminal term at once. A DCF built on a too-low discount rate is the most common honest-*looking* way to inflate a price. You don't argue the cash flows first — you argue `d`, because that's where the number was really made.
+10% là chi phí vốn của một *công ty đại chúng trưởng thành*; ngưỡng thật của một startup giai đoạn đầu là 25–40%, vì rủi ro của nó khổng lồ. Đổi 10% thành 30% không phải cắt tỉa cái định giá — nó có thể làm nó **sụp**, vì terminal value (phần lớn của hầu hết mọi DCF, ~59% ở đây) là mảnh nhạy với chiết khấu nhất: một con `d` cao hơn vừa làm teo mọi đồng tương lai *vừa* làm teo cái số hạng cuối kỳ `1/(d−g)` cùng một lúc. Một DCF dựng trên suất chiết khấu quá thấp là cách *trông có vẻ* trung thực phổ biến nhất để thổi phồng một cái giá. Mày không cãi dòng tiền trước — mày cãi `d`, vì đó mới là chỗ con số thực sự được nặn ra.
 </script>
 
 <script type="text/markdown" id="content-M1-cap">
-<p class="kicker">M1 · Chapter 7</p>
+<p class="kicker">M1 · Chương 7</p>
 
-# Capital, dilution, and when to raise
+# Vốn, pha loãng, và khi nào nên gọi vốn
 
-There's a reflex, near-universal among founders, to treat *raising money* as a milestone — a headline, proof you've made it. That reflex is an expensive trap. A raise is not revenue, not a win, and not free: it's the **most expensive money there is**, and at the moment of the round it makes you exactly zero dollars richer. This chapter is the antidote — what capital actually costs, what it buys, and when taking it is brilliant versus when it's just selling the future cheap to feel like progress. It's the other side of the cash story from Chapter 3; you flagged financing as a blind spot, so we build it from the ground.
+Có một phản xạ, gần như phổ biến ở mọi founder, là coi chuyện *gọi được vốn* như một cột mốc — một cái tít, bằng chứng mày đã thành. Phản xạ đó là một cái bẫy đắt tiền. Gọi vốn không phải doanh thu, không phải chiến thắng, và không miễn phí: nó là **đồng tiền đắt nhất trên đời**, và ngay tại thời điểm chốt vòng, nó không làm mày giàu thêm đúng một xu. Chương này là thuốc giải — vốn thực sự tốn cái gì, mua được cái gì, và khi nào nhận nó là nước cờ tài tình so với khi nào nó chỉ là bán rẻ tương lai để có cảm giác đang tiến. Nó là mặt còn lại của câu chuyện tiền mặt từ Chương 3; mày đã đánh dấu tài trợ vốn là một điểm mù, nên tụi mình xây nó từ móng lên.
 
-## Two ways to fund the machine
-- **Debt** — borrowed money repaid with interest; no ownership given up, but it must be serviced from cash. Cheaper, but unforgiving when cash is tight.
-- **Equity** — sell ownership for cash; nothing to repay, but the slice is gone forever. It's the highest-cost capital there is (see CAPM), and it dilutes you.
+## Hai cách nuôi cỗ máy
+- **Nợ (Debt)** — tiền vay trả lại kèm lãi; không nhường quyền sở hữu, nhưng phải trả từ tiền mặt. Rẻ hơn, nhưng không khoan nhượng khi tiền eo hẹp.
+- **Vốn chủ (Equity)** — bán quyền sở hữu lấy tiền mặt; không phải trả lại gì, nhưng miếng đã cắt là mất vĩnh viễn. Đây là loại vốn đắt nhất (xem CAPM), và nó pha loãng (dilution) mày.
 
-## The dilution math
-Raise **$2M** at an **$8M pre-money** valuation:
+## Phép toán pha loãng
+Gọi **$2M** ở mức định giá **pre-money $8M**:
 ```
 Post-money  = pre + raise = 8 + 2 = $10M
 Investor %  = 2 / 10 = 20%
 Founder stake: 100% → 80%
 ```
-**Dilution is not destruction.** Before: 100% of $8M = $8M. After: 80% of $10M = still $8M — *plus* $2M of fuel in the tank. Raising is value-neutral at the moment of the round; it only pays off if the capital earns **more than its cost** (economic profit, Chapter 1). Raise to fund a cash trough you can't self-fund, or to buy growth whose return beats the dilution — not because raising feels like progress. `[established]`
+**Pha loãng không phải là phá hủy.** Trước: 100% của $8M = $8M. Sau: 80% của $10M = vẫn $8M — *cộng* thêm $2M nhiên liệu trong bình. Gọi vốn là trung tính về giá trị ngay tại thời điểm chốt vòng; nó chỉ có lời nếu đồng vốn kiếm được **nhiều hơn cái nó tốn** (lợi nhuận kinh tế, Chương 1). Gọi vốn để lấp một vũng trũng tiền mặt mà mày không tự nuôi nổi, hoặc để mua tăng trưởng mà lợi suất của nó thắng được cái pha loãng — chứ không phải vì gọi vốn cho cảm giác như đang tiến. `[established]`
 
-## When the three cases *need* to raise
-- **Salesforce** — almost must. It's $12k underwater per deal (Chapter 3); sales-led enterprise growth without capital is throttled.
-- **Figma** — often needn't. Self-funding at Day 0; it can raise only to *accelerate*, from a position of choice.
-- **Mailchimp** — shouldn't raise into a leaky bucket; capital poured into 6%-churn acquisition drains out the bottom. Fix retention first, or the round funds the hole.
+## Khi nào ba ca *cần* gọi vốn
+- **Salesforce** — gần như bắt buộc. Nó âm $12k mỗi thương vụ (Chương 3); tăng trưởng enterprise dẫn dắt bởi bán hàng mà không có vốn thì bị bóp nghẹt.
+- **Figma** — thường là không cần. Tự nuôi thân từ Ngày 0; nó chỉ gọi vốn để *tăng tốc*, từ vị thế được quyền chọn.
+- **Mailchimp** — không nên gọi vốn đổ vào một cái thùng thủng; vốn dốc vào việc mua khách với churn 6% thì rỉ ra đáy hết. Sửa retention trước đã, không thì vòng gọi vốn chỉ đi nuôi cái lỗ.
 
-> **Burn multiple** `[heuristic — Bessemer]`: `net cash burned / net new ARR added`. Below 1 is elite; 1–1.5 healthy; above 2 you're buying growth inefficiently. The fastest read on whether raising more will compound or evaporate.
+> **Burn multiple** `[heuristic — Bessemer]`: `net cash burned / net new ARR added`. Dưới 1 là hàng đỉnh; 1–1.5 là khỏe; trên 2 là mày đang mua tăng trưởng một cách kém hiệu quả. Cách đọc nhanh nhất xem gọi thêm vốn sẽ tích lũy hay bốc hơi.
 
-### Make the call
-Two founders can each raise **$5M at a $20M pre-money.** Founder A is Figma-like (self-funding, negative working capital); Founder B is Mailchimp-like (6%/mo churn, leaky bucket). Both are tempted. Before reading on: *who should take the money, who shouldn't, and why the identical term sheet is a great deal for one and a trap for the other?*
+### Chốt đi
+Hai founder đều có thể gọi **$5M ở mức pre-money $20M.** Founder A giống Figma (tự nuôi thân, vốn lưu động âm); Founder B giống Mailchimp (churn 6%/mo, thùng thủng). Cả hai đều bị cám dỗ. Trước khi đọc tiếp: *ai nên nhận tiền, ai không nên, và vì sao cùng một term sheet y hệt lại là món hời cho người này và cái bẫy cho người kia?*
 
-**A should — but only to accelerate**, from choice: A can already fund itself, so the capital just buys a faster version of a machine that already works, and if it earns more than its ~30% cost the dilution pays for itself. **B should not**: pouring $5M into 6%-monthly-churn acquisition funds a bucket that empties out the bottom — the round doesn't build value, it *subsidizes the leak*, and hands away 20% of the company to do it. The dilution math is identical; the *return on the capital* is opposite. Raising is never the question — **what the capital earns against what it costs** is (economic profit, Ch1). Fix B's retention before B raises a dollar, or the round just buys a bigger hole.
+**A nên — nhưng chỉ để tăng tốc**, từ vị thế được chọn: A vốn đã tự nuôi được mình, nên đồng vốn chỉ mua một phiên bản nhanh hơn của một cỗ máy đã chạy tốt, và nếu nó kiếm nhiều hơn chi phí ~30% thì cái pha loãng tự trả cho chính nó. **B không nên**: dốc $5M vào việc mua khách với churn 6%/tháng là đi nuôi một cái thùng cạn ra đáy — vòng gọi vốn không xây giá trị, nó *trợ giá cho chỗ rỉ*, và còn dâng đi 20% công ty để làm cái đó. Phép toán pha loãng thì y hệt; *lợi suất trên đồng vốn* thì ngược nhau. Gọi vốn chưa bao giờ là câu hỏi — **đồng vốn kiếm được cái gì so với cái nó tốn** mới là (lợi nhuận kinh tế, Ch1). Sửa retention của B trước khi B gọi lấy một đô, không thì vòng gọi vốn chỉ mua về một cái lỗ to hơn.
 
-The craft of the raise — narrative, terms, process — lives in M10–M11. This chapter is the *finance* of it: what capital costs, what it buys, and what it takes.
+Nghề gọi vốn — dựng câu chuyện, điều khoản, quy trình — nằm ở M10–M11. Chương này là *phần tài chính* của nó: vốn tốn cái gì, mua được cái gì, và đòi hỏi cái gì.
 </script>
 
 <script type="text/markdown" id="content-M1-gloss">
-<p class="kicker">M1 · Reference</p>
+<p class="kicker">M1 · Tra cứu</p>
 
-# Glossary & formula sheet
+# Bảng tra thuật ngữ & công thức
 
-Everything in one place. If you can reconstruct each formula *and say what it assumes*, you own the module.
+Tất cả gom về một chỗ. Nếu mày dựng lại được từng công thức *và nói ra được nó giả định cái gì*, thì mày làm chủ module này.
 
-## Formulas
+## Công thức
 ```
 Contribution margin   = ARPA × gross margin%
 Gross margin %        = (Revenue − COGS) / Revenue
@@ -793,129 +792,129 @@ Rule of 40            = growth% + profit-margin%     (> 40)
 Burn multiple         = net burn / net new ARR       (< 1 elite)
 ```
 
-## Terms
-- **Accrual accounting** — revenue booked when earned, cost when incurred, regardless of cash timing.
-- **ARR / MRR** — annual/monthly recurring-revenue run-rate; a snapshot, not GAAP revenue.
-- **Bookings / Billings / Revenue** — contracted / invoiced / earned. Rarely equal.
-- **Cohort** — customers grouped by join date, tracked over time; the honest unit of retention.
-- **Contribution margin** — revenue minus *variable* cost to serve; funds fixed costs + profit.
-- **Cost of capital (d)** — required return given risk; the hurdle every dollar must clear. High for startups (20–40%).
-- **Deferred revenue** — cash collected but not yet earned; a liability, and a growth-funding gift.
-- **Economic profit** — accounting profit minus the opportunity cost of capital. The real scoreboard.
-- **GRR / NRR** — gross / net revenue retention; NRR > 100% = a self-compounding base.
-- **Operating leverage** — profit growing faster than revenue because fixed costs don't scale 1:1.
-- **Payback period** — months to recover CAC from contribution; a cash-risk measure.
-- **Unit economics** — the profitability of a single customer over their life.
-- **Working capital** — cash frozen in the operating cycle; negative working capital funds you.
+## Thuật ngữ
+- **Accrual accounting** — kế toán dồn tích: doanh thu ghi khi kiếm được, chi phí ghi khi phát sinh, bất kể tiền vào ra lúc nào.
+- **ARR / MRR** — nhịp chạy doanh thu định kỳ theo năm/tháng; một ảnh chụp nhanh, không phải doanh thu GAAP.
+- **Bookings / Billings / Revenue** — đã ký hợp đồng / đã xuất hóa đơn / đã kiếm được. Hiếm khi bằng nhau.
+- **Cohort** — nhóm khách hàng gộp theo ngày gia nhập, theo dõi qua thời gian; đơn vị trung thực để đo retention.
+- **Contribution margin** — biên đóng góp: doanh thu trừ chi phí *biến đổi* để phục vụ; nuôi chi phí cố định + lợi nhuận.
+- **Cost of capital (d)** — chi phí vốn: lợi suất đòi hỏi ứng với rủi ro; cái ngưỡng mỗi đồng phải vượt qua. Cao với startup (20–40%).
+- **Deferred revenue** — doanh thu chưa thực hiện: tiền đã thu nhưng chưa kiếm được; một khoản nợ, và một món quà tài trợ tăng trưởng.
+- **Economic profit** — lợi nhuận kinh tế: lợi nhuận kế toán trừ đi chi phí cơ hội của vốn. Bảng điểm thật.
+- **GRR / NRR** — retention doanh thu gộp / ròng; NRR > 100% = một cái nền tự tích lũy.
+- **Operating leverage** — đòn bẩy vận hành: lợi nhuận tăng nhanh hơn doanh thu vì chi phí cố định không tăng theo tỷ lệ 1:1.
+- **Payback period** — kỳ hoàn vốn: số tháng để lấy lại CAC từ contribution; một thước đo rủi ro tiền mặt.
+- **Unit economics** — mức sinh lời của một khách hàng đơn lẻ qua suốt đời họ.
+- **Working capital** — vốn lưu động: tiền bị đóng băng trong chu kỳ vận hành; vốn lưu động âm thì đi nuôi mày.
 
-*This sheet is the compression. The chapters are why each line is true — and when it lies.*
+*Bảng này là bản nén. Các chương mới là lý do vì sao mỗi dòng đúng — và khi nào nó nói dối.*
 </script>
 <!-- ===================================================================== -->
 
 <script>
 const MODULES = [
-  {id:'M1', num:'M1', title:'Corporate Finance & Business Economics', status:'filled', chapters:[
-    {id:'M1-0', title:'Orientation · the three cases'},
-    {id:'M1-1', title:'1 · The firm as a value engine'},
-    {id:'M1-2', title:'2 · The three statements'},
-    {id:'M1-2b', title:'2½ · Bookings, billings, revenue & ARR'},
-    {id:'M1-3', title:'3 · Cash & working capital'},
+  {id:'M1', num:'M1', title:'Tài chính doanh nghiệp & Kinh tế kinh doanh', status:'filled', chapters:[
+    {id:'M1-0', title:'Nhập môn · ba case'},
+    {id:'M1-1', title:'1 · Doanh nghiệp như cỗ máy giá trị'},
+    {id:'M1-2', title:'2 · Ba báo cáo tài chính'},
+    {id:'M1-2b', title:'2½ · Bookings, billings, doanh thu & ARR'},
+    {id:'M1-3', title:'3 · Tiền mặt & vốn lưu động'},
     {id:'M1-4', title:'4 · Unit economics'},
-    {id:'M1-4b', title:'4½ · Cohorts, GRR & NRR'},
-    {id:'M1-5', title:'5 · Cost, breakeven & leverage'},
-    {id:'M1-6', title:'6 · Time value & valuation'},
-    {id:'M1-6b', title:'6½ · Discount rate & a worked DCF'},
-    {id:'M1-cap', title:'7 · Capital, dilution & raising'},
-    {id:'M1-7', title:'Test yourself — problems & judgment'},
-    {id:'M1-8', title:'Solutions & feedback'},
-    {id:'M1-gloss', title:'Glossary & formula sheet'},
+    {id:'M1-4b', title:'4½ · Cohort, GRR & NRR'},
+    {id:'M1-5', title:'5 · Chi phí, hòa vốn & đòn bẩy'},
+    {id:'M1-6', title:'6 · Giá trị thời gian & định giá'},
+    {id:'M1-6b', title:'6½ · Suất chiết khấu & một DCF làm tay'},
+    {id:'M1-cap', title:'7 · Vốn, pha loãng & gọi vốn'},
+    {id:'M1-7', title:'Tự kiểm tra — bài tập & phán đoán'},
+    {id:'M1-8', title:'Lời giải & phản hồi'},
+    {id:'M1-gloss', title:'Bảng tra & công thức'},
   ]},
-  {id:'M2', num:'M2', title:'Product Strategy & Systems', status:'queued', stub:
-`# M2 — Product Strategy & Systems
+  {id:'M2', num:'M2', title:'Chiến lược Sản phẩm & Hệ thống', status:'queued', stub:
+`# M2 — Chiến lược Sản phẩm & Hệ thống
 
-**Objective:** what strategy actually is (fit, not a list of good activities), business-model design, North Star / OKRs, and growth loops.
+**Mục tiêu:** chiến lược thực chất là gì (sự ăn khớp, không phải một danh sách hoạt động hay ho), thiết kế mô hình kinh doanh, North Star / OKR, và growth loop.
 
-**Reading anchors:** Porter (*What Is Strategy?*), Rumelt (*Good Strategy Bad Strategy*), *Business Model Generation*, Doerr (*Measure What Matters*), Casey Winters / Reforge.
+**Nguồn đọc:** Porter (*What Is Strategy?*), Rumelt (*Good Strategy Bad Strategy*), *Business Model Generation*, Doerr (*Measure What Matters*), Casey Winters / Reforge.
 
-**Output:** strategy map · metric hierarchy · growth-loop diagram.`},
-  {id:'M3', num:'M3', title:'Retention, CS & Expansion', status:'queued', stub:
-`# M3 — Retention, CS & Expansion
+**Đầu ra:** bản đồ chiến lược · cây chỉ số · sơ đồ growth-loop.`},
+  {id:'M3', num:'M3', title:'Giữ chân, CS & Mở rộng', status:'queued', stub:
+`# M3 — Giữ chân, CS & Mở rộng
 
-**Objective:** activation and onboarding, churn (logo vs revenue), Net Revenue Retention, and expansion mechanics. The leg that quietly decides everything downstream.
+**Mục tiêu:** activation và onboarding, churn (logo vs doanh thu), Net Revenue Retention, và cơ chế mở rộng. Cái chân âm thầm quyết định mọi thứ phía sau.
 
-**Reading anchors:** Ramli John (*Product-Led Onboarding*), *Customer Success* (Mehta et al.), Patrick Campbell.
+**Nguồn đọc:** Ramli John (*Product-Led Onboarding*), *Customer Success* (Mehta et al.), Patrick Campbell.
 
-**Output:** activation/onboarding flow · retention & expansion playbook.`},
-  {id:'M4', num:'M4', title:'Data & Experimentation', status:'queued', stub:
-`# M4 — Data & Experimentation
+**Đầu ra:** luồng activation/onboarding · playbook giữ chân & mở rộng.`},
+  {id:'M4', num:'M4', title:'Dữ liệu & Thử nghiệm', status:'queued', stub:
+`# M4 — Dữ liệu & Thử nghiệm
 
-**Objective:** funnels, cohorts, the analytics stack, and trustworthy A/B testing. Instrumentation *after* you understand the mechanism it measures.
+**Mục tiêu:** funnel, cohort, bộ công cụ analytics, và A/B testing đáng tin. Gắn đo *sau khi* đã hiểu cơ chế mà nó đo.
 
-**Reading anchors:** Amplitude / Mixpanel playbooks, Kohavi (*Trustworthy Online Controlled Experiments*).
+**Nguồn đọc:** playbook của Amplitude / Mixpanel, Kohavi (*Trustworthy Online Controlled Experiments*).
 
-**Output:** funnel + cohort view · A/B test design doc.`},
-  {id:'M5', num:'M5', title:'Positioning', status:'queued', stub:
-`# M5 — Positioning
+**Đầu ra:** view funnel + cohort · doc thiết kế A/B test.`},
+  {id:'M5', num:'M5', title:'Định vị', status:'queued', stub:
+`# M5 — Định vị
 
-**Objective:** the headwater of pricing, GTM, and narrative. Who the product is *for*, against what alternatives, on what unique value.
+**Mục tiêu:** đầu nguồn của pricing, GTM, và narrative. Sản phẩm dành *cho ai*, đấu với lựa chọn thay thế nào, trên giá trị độc nhất gì.
 
-**Reading anchors:** April Dunford (*Obviously Awesome*, *Sales Pitch*).
+**Nguồn đọc:** April Dunford (*Obviously Awesome*, *Sales Pitch*).
 
-**Output:** positioning canvas (feeds M6, M7, M8, M11).`},
-  {id:'M6', num:'M6', title:'Pricing & Monetization', status:'queued', stub:
-`# M6 — Pricing & Monetization
+**Đầu ra:** canvas định vị (nuôi M6, M7, M8, M11).`},
+  {id:'M6', num:'M6', title:'Định giá & Kiếm tiền', status:'queued', stub:
+`# M6 — Định giá & Kiếm tiền
 
-**Objective:** value-based pricing, the value metric, packaging (Good-Better-Best), and why underpricing is a silent killer at scale.
+**Mục tiêu:** định giá theo giá trị, value metric, đóng gói (Good-Better-Best), và vì sao định giá thấp là kẻ giết người thầm lặng khi scale.
 
-**Reading anchors:** Ramanujam & Tacke (*Monetizing Innovation*), Patrick Campbell.
+**Nguồn đọc:** Ramanujam & Tacke (*Monetizing Innovation*), Patrick Campbell.
 
-**Output:** pricing strategy doc.`},
-  {id:'M7', num:'M7', title:'GTM & Growth', status:'queued', stub:
-`# M7 — GTM & Growth
+**Đầu ra:** doc chiến lược giá.`},
+  {id:'M7', num:'M7', title:'GTM & Tăng trưởng', status:'queued', stub:
+`# M7 — GTM & Tăng trưởng
 
-**Objective:** channels, the growth model, and the product-led acquisition motion. Turning "some people love it" into "many people, repeatably, through channels."
+**Mục tiêu:** kênh, growth model, và cỗ máy giành khách kiểu product-led. Biến "vài người mê nó" thành "nhiều người, lặp lại, qua các kênh".
 
-**Reading anchors:** Lenny Rachitsky, Andy Raskin, Brian Balfour / Reforge.
+**Nguồn đọc:** Lenny Rachitsky, Andy Raskin, Brian Balfour / Reforge.
 
-**Output:** GTM one-pager · growth model.`},
-  {id:'M8', num:'M8', title:'Sales Motion & Revenue Org', status:'queued', stub:
-`# M8 — Sales Motion & Revenue Org
+**Đầu ra:** GTM one-pager · growth model.`},
+  {id:'M8', num:'M8', title:'Vận hành Bán hàng & Bộ máy Doanh thu', status:'queued', stub:
+`# M8 — Vận hành Bán hàng & Bộ máy Doanh thu
 
-**Objective:** Product-Led Sales, the PQL, the self-serve → sales handoff, and how a revenue org is structured and forecast. Where PLG and classic sales collide.
+**Mục tiêu:** Product-Led Sales, PQL, cú chuyển self-serve → sales, và cách một bộ máy doanh thu được cấu trúc và dự báo. Chỗ PLG đụng độ sales cổ điển.
 
-**Reading anchors:** Kyle Poyar / Elena Verna (PLS), Mark Roberge (*The Sales Acceleration Formula*).
+**Nguồn đọc:** Kyle Poyar / Elena Verna (PLS), Mark Roberge (*The Sales Acceleration Formula*).
 
-**Output:** PLS motion doc · revenue-org & forecast read.`},
-  {id:'M9', num:'M9', title:'Leadership & Org', status:'queued', stub:
-`# M9 — Leadership & Org
+**Đầu ra:** doc cỗ máy PLS · bản đọc bộ máy doanh thu & dự báo.`},
+  {id:'M9', num:'M9', title:'Lãnh đạo & Tổ chức', status:'queued', stub:
+`# M9 — Lãnh đạo & Tổ chức
 
-**Objective:** managing people, feedback, delegation, operating cadence, and negotiation. The shift from *doing* to *designing a machine that does*.
+**Mục tiêu:** quản người, phản hồi, giao việc, nhịp vận hành, và đàm phán. Cú chuyển từ *tự làm* sang *thiết kế cỗ máy tự làm*.
 
-**Reading anchors:** Kim Scott (*Radical Candor*), Andy Grove (*High Output Management*), Fisher & Ury (*Getting to Yes*).
+**Nguồn đọc:** Kim Scott (*Radical Candor*), Andy Grove (*High Output Management*), Fisher & Ury (*Getting to Yes*).
 
-**Output:** feedback & delegation playbook · org chart + R&R · negotiation script.`},
-  {id:'M10', num:'M10', title:'General Management & Business Ops', status:'queued', stub:
-`# M10 — General Management & Business Ops
+**Đầu ra:** playbook phản hồi & giao việc · sơ đồ tổ chức + R&R · kịch bản đàm phán.`},
+  {id:'M10', num:'M10', title:'Quản trị chung & Vận hành kinh doanh', status:'queued', stub:
+`# M10 — Quản trị chung & Vận hành kinh doanh
 
-**Objective:** the GM delta — owning the number, business-review rhythm, hiring beyond tech, commercial/legal literacy (enough to not be fooled by your own hires).
+**Mục tiêu:** cái delta của GM — gánh con số, nhịp business-review, tuyển ngoài mảng tech, đủ hiểu biết thương mại/pháp lý (đủ để không bị chính người mình tuyển qua mặt).
 
-**Reading anchors:** Matt Mochary (*The Great CEO Within*), Geoff Smart (*Who*), a SaaS commercial-contract primer.
+**Nguồn đọc:** Matt Mochary (*The Great CEO Within*), Geoff Smart (*Who*), một cuốn primer về hợp đồng thương mại SaaS.
 
-**Output:** BU operating-system doc.`},
-  {id:'M11', num:'M11', title:'Narrative & Executive Presence', status:'queued', stub:
-`# M11 — Narrative & Executive Presence
+**Đầu ra:** doc hệ điều hành của BU.`},
+  {id:'M11', num:'M11', title:'Kể chuyện & Khí chất lãnh đạo', status:'queued', stub:
+`# M11 — Kể chuyện & Khí chất lãnh đạo
 
-**Objective:** communicating the thing you built — to a team, a board, an investor.
+**Mục tiêu:** truyền đạt cái mày dựng ra — cho một đội, một board, một nhà đầu tư.
 
-**Reading anchors:** Nancy Duarte (*Resonate*), Sequoia pitch-memo templates.
+**Nguồn đọc:** Nancy Duarte (*Resonate*), template pitch-memo của Sequoia.
 
-**Output:** roadmap story deck · 10-slide pitch deck.`},
-  {id:'CAP', num:'★', title:'Capstone — P&L-Owned BU Operating Plan', status:'queued', stub:
-`# Capstone — The P&L-Owned BU Operating Plan
+**Đầu ra:** deck kể chuyện roadmap · pitch deck 10 slide.`},
+  {id:'CAP', num:'★', title:'Capstone — Kế hoạch vận hành BU tự gánh P&L', status:'queued', stub:
+`# Capstone — Kế hoạch vận hành BU tự gánh P&L
 
-**Objective:** sit in the GM chair and hold the number. A 3-statement-lite model for a product-led BU: revenue from the growth loop, cost structure, headcount, a reforecast under a shock (churn spike, CAC doubles), and the capital-allocation call you defend.
+**Mục tiêu:** ngồi vào ghế GM và gánh con số. Một model 3-báo-cáo-rút-gọn cho một BU product-led: doanh thu từ growth loop, cấu trúc chi phí, headcount, dự báo lại dưới một cú sốc (churn vọt, CAC gấp đôi), và quyết định phân bổ vốn mà mày phải bảo vệ.
 
-**Output:** BU plan + defense — a personal asset you carry into a HoP/GM interview or use to run your own thing.`},
+**Đầu ra:** kế hoạch BU + phần bảo vệ — một tài sản cá nhân mày mang vào phỏng vấn HoP/GM hoặc dùng để tự vận hành thứ của riêng mình.`},
 ];
 
 // ---- flat list of trackable "leaves" (chapters for filled modules, the stub for queued) ----
@@ -972,24 +971,24 @@ function buildNav(){
 function updateProgress(){
   const total=LEAVES.length, d=[...done].filter(id=>LEAVES.find(l=>l.id===id)).length;
   document.getElementById('fill').style.transform='scaleX('+(d/total)+')';
-  document.getElementById('proglbl').textContent=`${d} / ${total} chapters complete`;
+  document.getElementById('proglbl').textContent=`${d} / ${total} chương đã xong`;
 }
 function toggleDone(id){ if(done.has(id)) done.delete(id); else done.add(id); save(); buildNav(); syncDoneBtn(); }
 function syncDoneBtn(){
   const b=document.getElementById('donebtn');
-  if(done.has(current)){ b.textContent='✓ Completed'; b.classList.add('done'); }
-  else { b.textContent='Mark complete'; b.classList.remove('done'); }
+  if(done.has(current)){ b.textContent='✓ Đã xong'; b.classList.add('done'); }
+  else { b.textContent='Đánh dấu đã xong'; b.classList.remove('done'); }
 }
 function render(id){
   const l=LEAVES.find(x=>x.id===id); const m=l.mod;
   const el=document.getElementById('content-'+id);
   const md = el ? el.textContent : (m.stub||('# '+m.title));
   if(window.marked){ artEl.innerHTML = marked.parse(md); }
-  else { artEl.innerHTML = '<div class="fallback">Rendering library didn\'t load (no internet?). Raw text below.</div><pre>'+md.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))+'</pre>'; }
+  else { artEl.innerHTML = '<div class="fallback">Thư viện render không tải được (mất mạng?). Văn bản thô ở dưới.</div><pre>'+md.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))+'</pre>'; }
   if(l.stub && m.status==='queued'){
     const note=document.createElement('div');
     note.className='queued-note';
-    note.innerHTML='<b>Not filled yet.</b> Scaffolded from the roadmap. Tell the tutor to build it and the full graduate-level subject — split into trackable chapters — drops in here.';
+    note.innerHTML='<b>Chưa dựng.</b> Mới chỉ có khung từ roadmap. Bảo tutor build đi là cả môn học bậc sau đại học đầy đủ — chia thành từng chương theo dõi được — sẽ hiện ra ngay đây.';
     artEl.appendChild(note);
   }
   document.getElementById('crumb').innerHTML=`Module <b>${m.num}</b> · ${l.stub?m.title:l.title}`;
